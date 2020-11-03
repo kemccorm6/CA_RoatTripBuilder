@@ -237,6 +237,7 @@ if($mysql->connect_errno) {
 <body>
 // hi kia :)
 hi kia
+    HI ELIZA
 <div class="topheader">
     <img src="myalogo1.jpeg" id="logo">
 
@@ -451,6 +452,7 @@ hi kia
             header.classList.remove("sticky");
         }
     }
+    
 
 </script>
 </html>
