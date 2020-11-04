@@ -236,11 +236,6 @@ if($mysql->connect_errno) {
 </head>
 <body>
 
-
-
-
-
-HI KYLA AND KIA AND ELIZA. more words.
 <div class="topheader">
     <img src="myalogo1.jpeg" id="logo">
 
