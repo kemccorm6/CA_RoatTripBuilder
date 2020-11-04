@@ -238,6 +238,9 @@ if($mysql->connect_errno) {
 // hi kia :)
 hi kia
     HI ELIZA
+
+HI MYA
+
 <div class="topheader">
     <img src="myalogo1.jpeg" id="logo">
 
