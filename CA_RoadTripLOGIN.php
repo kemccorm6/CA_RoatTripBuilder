@@ -1,6 +1,6 @@
 Log In
 <br>
-New here? Create an Account
+New here? <a href="">Create an Account</a>
 
 <form action="">
     Username: <br>
