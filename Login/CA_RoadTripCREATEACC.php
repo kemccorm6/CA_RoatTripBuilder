@@ -1,3 +1,13 @@
+<html>
+<head>
+    <style>
+
+
+    </style>
+
+</head>
+
+<body>
 Create an Account
 <br>
 Have an Account? <a href="CA_RoadTripLOGIN.php">Log In</a>
@@ -11,3 +21,6 @@ Have an Account? <a href="CA_RoadTripLOGIN.php">Log In</a>
     <input type="text" name="email" placeholder="Type Email"><br>
     <input type="submit" value="Log In">
 </form>
+</body>
+
+</html>

@@ -62,7 +62,7 @@ if($mysql->connect_errno) {
         .side1 {
             width: 1000px;
             float: right;
-            background-image: url("fpbg.png");
+            background-image: url("Front Page /fpbg.png");
             background-size: 90%;
             background-position: top;
             background-repeat: no-repeat;
@@ -311,7 +311,7 @@ if($mysql->connect_errno) {
                 <h1>Make a Trip</h1>
                 <hr>
                 <br>
-                <form method="get" action="results.php">
+                <form method="get" action="../results/results.php">
 
                     <div class="label">Location:</div>
                     <div class="input">

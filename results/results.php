@@ -199,10 +199,10 @@ if ($mysql->connect_errno) {
 
 
 <div class="topheader">
-    <img src="logo.png" id="logo">
+    <img src="../frontpage/logo.png" id="logo">
 
     <div class="login">
-        <a style="text-decoration:none; color:white" href="login.html">Login</a>
+        <a style="text-decoration:none; color:white" href="../frontpage/login.html">Login</a>
     </div>
 </div>
 <hr>
@@ -215,11 +215,11 @@ if ($mysql->connect_errno) {
         <hr>
         <div class="menuitem1">
             <div id="single">
-                <img src="user.svg" id="icon"/>
+                <img src="../frontpage/user.svg" id="icon"/>
                 <a style="text-decoration:none; color:white" href="login">User Login&nbsp;</a></div>
             <hr>
             <div id="single">
-                <img src="team.svg" id="icon"/>
+                <img src="../frontpage/team.svg" id="icon"/>
                 <a style="text-decoration:none; color:white" href="login">Admin Login</a></div>
         </div>
         <hr>
@@ -230,11 +230,11 @@ if ($mysql->connect_errno) {
         <hr>
         <div class="menuitem1">
             <div id="single">
-                <img src="suitcases.svg" id="icon"/>
+                <img src="../frontpage/suitcases.svg" id="icon"/>
                 <a style="text-decoration:none; color:white" href="login">Make a Trip</a></div>
             <hr>
             <div id="single">
-                <img src="conversation.svg" id="icon"/>
+                <img src="../frontpage/conversation.svg" id="icon"/>
                 <a style="text-decoration:none; color:white" href="login">Discover Community</a></div>
         </div>
         <hr>
@@ -244,11 +244,11 @@ if ($mysql->connect_errno) {
         <hr>
         <div class="menuitem1">
             <div id="single">
-                <img src="target.svg" id="icon"/>
+                <img src="../frontpage/target.svg" id="icon"/>
                 <a style="text-decoration:none; color:white" href="login">Our Mission</a></div>
             <hr>
             <div id="single">
-                <img src="support.svg" id="icon"/>
+                <img src="../frontpage/support.svg" id="icon"/>
                 <a style="text-decoration:none; color:white" href="login">Our Team</a></div>
         </div>
         <hr>
