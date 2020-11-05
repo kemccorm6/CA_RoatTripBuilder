@@ -23,7 +23,7 @@ if ($mysql->connect_errno) {
 <head>
     <link rel = "stylesheet"
           type = "text/css"
-          href = "master.css" />
+          href = "../master.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
 
