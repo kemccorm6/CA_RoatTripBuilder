@@ -26,7 +26,7 @@ if($mysql->connect_errno) {
             margin: 0 !important;
             padding: 0 !important;
             font-family: SF Pro Display;
-            background-color: #FFFFFF;
+            background-color: #FFD688;
             background-size: 40%;
 
         }
@@ -235,13 +235,6 @@ if($mysql->connect_errno) {
     </style>
 </head>
 <body>
-// hi kia :)
-hi kia
-    HI ELIZA
-
-HI MYA yoooowhoooo
-MYA IS THEE BEST
-KIA TEST (please work lmao) bah balh
 
 <div class="topheader">
     <img src="myalogo1.jpeg" id="logo">
