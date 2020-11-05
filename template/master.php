@@ -92,25 +92,7 @@ if ($mysql->connect_errno) {
         </div><hr>
     </div>
 
-    <?php
-    $sql = "SELECT * FROM LocationView WHERE 1=1 ";
 
-    if($_REQUEST["locationsearch"] != "ALL"){
-        $sql .= " AND locationname = '" . $_REQUEST["locationsearch"] . "' ";
-    }
-
-    if($_REQUEST["citysearch"] != "ALL"){
-        $sql .= " AND city = '" . $_REQUEST["citysearch"] . "' ";
-    }
-
-    if($_REQUEST["typesearch"] != "ALL"){
-        $sql .= " AND type = '" . $_REQUEST["typesearch"] . "' ";
-    }
-
-    $results = $mysql->query($sql);
-
-    echo "There are " . $results->num_rows . " results.";
-    ?>
 
     <div class="container">
 
