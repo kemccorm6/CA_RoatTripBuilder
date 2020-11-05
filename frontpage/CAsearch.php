@@ -19,7 +19,7 @@ if($mysql->connect_errno) {
 }
 ?>
 Search:
-<form action="../CAresults.php">
+<form action="../results/CAresults.php">
     Search a Location:
         <select name="locationsearch">
             <option value="ALL">SELECT LOCATION</option>
