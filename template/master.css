@@ -1,14 +1,15 @@
 body {
     margin: 0 !important;
     padding: 0 !important;
-    font-family: SF Pro Display;
+    font-family: 'Poppins', sans-serif;
     background-color: #ffd789;
     background-size: 40%;
 
 }
 .container {
-    width: 85vw;
-    margin: auto;
+    width: 100%;
+    margin-left: 0%;
+
 
 }
 .topheader {

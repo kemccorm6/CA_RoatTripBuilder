@@ -24,6 +24,7 @@ if ($mysql->connect_errno) {
     <link rel = "stylesheet"
           type = "text/css"
           href = "master.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
 
     </style>
@@ -34,7 +35,7 @@ if ($mysql->connect_errno) {
 
 
 <div class="topheader">
-    <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/myalogo1.jpeg" id="logo">
+    <img src="myalogo1.png" id="logo">
 
     <div class="login">
         <a style="text-decoration:none; color:white" href="login.html">Login</a>
