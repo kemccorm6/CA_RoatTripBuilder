@@ -41,6 +41,22 @@ if ($mysql->connect_errno) {
             border: black 1px solid;
             margin:auto;
         }
+        .locationdiv{
+            width:350px;
+
+
+        }
+        .editdelete{
+            width: 100px;
+
+
+        }
+        .locationandedit{
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
     </style>
 </head>
 <body>
@@ -61,11 +77,34 @@ if ($mysql->connect_errno) {
             <input type="text" name="locationsearch" placeholder="Search Locations">
             <input type="submit" value="Go">
         </form>
+
+        <?php
+        $sql = "SELECT * FROM location_table WHERE locationname LIKE '%" . $_REQUEST["locationsearch"]. "%'";
+
+        $results =$mysql->query($sql);
+
+        if(!$results){
+            echo "Your SQL " . $sql . "<br>";
+            echo "SQL Error " . $mysql-> error . "<br>";
+            exit();
+        }
+
+        while($currentrow = $results->fetch_assoc()){
+
+
+        ?>
+        <div class="locationandedit">
+
+            <div class="locationdiv"><?php echo $currentrow["locationname"] ?></div>
+            <div class="editdelete"><a href="editlocation.php">Edit</a> | <a href="deletelocation.php">Delete</a></div>
+        </div>
+
+        <?php
+        }
+        ?>
+
     </div>
 
-    <?php
-        $sql = "SELECT * FROM type_table WHERE";
-        $results
-    ?>
+
 </body>
 </html>
