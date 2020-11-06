@@ -1,1 +1,1 @@
-<?php
+DELETE LOCATION

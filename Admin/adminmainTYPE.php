@@ -71,7 +71,7 @@ if ($mysql->connect_errno) {
 <div class="bigbox">
     <a href="adminmainLOCATION.php">Edit Locations</a> | <a href="adminmainTYPE.php">Edit Type</a> | <a href="adminmainCITY.php">Edit City</a>
     <hr>
-    <a href="addlocation.php">Add New Type</a>
+    <a href="addtype.php">Add New Type</a>
     <br><br>
     <form action="">
         <input type="text" name="typesearch" placeholder="Search Types">
@@ -96,7 +96,7 @@ if ($mysql->connect_errno) {
         <div class="locationandedit">
 
             <div class="locationdiv"><?php echo $currentrow["type"] ?></div>
-            <div class="editdelete"><a href="editlocation.php">Edit</a> | <a href="deletelocation.php">Delete</a></div>
+            <div class="editdelete"><a href="edittype.php">Edit</a> | <a href="deletetype.php">Delete</a></div>
         </div>
 
         <?php
