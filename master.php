@@ -52,7 +52,7 @@ if ($mysql->connect_errno) {
         <div class="menuitem1">
             <div id="single">
                 <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/user.svg" id="icon"/>
-                <a style="text-decoration:none; color:white" href="login">User Login&nbsp;</a></div>
+                <a style="text-decoration:none; color:white" href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">User Login&nbsp;</a></div>
             <hr>
             <div id="single">
                 <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/team.svg" id="icon"/>
@@ -105,3 +105,5 @@ if ($mysql->connect_errno) {
 </html>
 </body>
 </html>
+
+

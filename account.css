@@ -7,8 +7,10 @@ body {
 
 
 .container {
-    width: 100%;
-    margin-left: 0%;
+    width: 900px;
+    border: 2px solid red;
+    margin: auto;
+    background-color: black;
 }
 .topheader {
     width: 100%;
@@ -37,7 +39,7 @@ body {
 }
 .menu {
     width: 15%;
-    left: 0;
+    float: left;
     height: 400px;
     top: 153px;
     position: absolute;
