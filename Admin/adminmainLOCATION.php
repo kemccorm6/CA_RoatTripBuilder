@@ -136,7 +136,7 @@ if ($mysql->connect_errno) {
 </div>
 <hr>
 
-    <div class="menu" style="border-right:1px solid #000;height:3500px">
+    <div class="menu" style="border-right:1px solid #000;">
         <div class="menuitem">
 
             <a href="login"></a>
