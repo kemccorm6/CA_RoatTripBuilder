@@ -22,7 +22,7 @@ if ($mysql->connect_errno) {
 ?>
 <html>
 <head>
-    <title>Location Add</title>
+    <title>Type Add</title>
     <style>
         .circleimage{
             width:100px;
