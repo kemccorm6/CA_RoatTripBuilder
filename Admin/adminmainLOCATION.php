@@ -37,7 +37,7 @@ if ($mysql->connect_errno) {
             width:500px;
             height: 200px;
             margin: auto;
-            background-color: gray;
+
 
         }
         .bigbox{
@@ -45,25 +45,33 @@ if ($mysql->connect_errno) {
            padding: 15px;
             margin:auto;
             background-color: #FFD688;
+            box-shadow: 3px 3px 6px dimgrey;
 
         }
         .locationdiv{
             width:350px;
 
+            padding: 10px;
+
         }
         .editdelete{
             width: 100px;
+
+            padding: 10px;
         }
         .locationandedit{
-
+            border: 1px solid black;
+            border-left: none;
+            border-right: none;
+            width: 70%;
+            margin: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 20px;
         }
         .adminacc {
-            width: 900px;
+            width: 800px;
             margin:auto;
-            border: 2px solid red;
             margin-top: 100px;
         }
         .tabs {
@@ -76,44 +84,78 @@ if ($mysql->connect_errno) {
             text-align: center;
             line-height: 80pt;
             font-size: 18pt;
-            background-color: #F06A00;
+            background-color: #FFD688;
             margin-left: 35px;
             float: left;
+            text-decoration: none;
+
+           box-shadow: 2px -1px 4px dimgrey;
         }
         .edittyp {
             width: 200px;
             height: 100px;
+            display: block;
             text-align: center;
             line-height: 80pt;
             font-size: 18pt;
-            background-color: #FFD688;
+            background-color: #FEE7B9;
            float: left;
             margin-left: 20px;
+            margin-bottom: 0px;
+            text-decoration: none;
+
+            box-shadow: 2px -1px 4px dimgrey;
+        }
+        .edittyp :hover {
+            background-color: #FFD688;
+            width: 200px;
+            height: 100px;
+        }
+        .container2 {
+            width: 900px;
+            float: left;
+            margin:auto;
+
+        }
+        a {
+            text-decoration: none;
+            text-decoration-color: black;
+        }
+        .newloc {
+            width: 200px;
+            background-color: #85A867;
+            height: 40px;
+            text-align: center;
+            font-size: 14pt;
+            margin-top: 25px;
+            line-height: 30pt;
+            border-radius: 15px;
+            float: left;
+            margin-left: 30px;
+            box-shadow: 2px 1px 4px dimgrey;
+        }
+        .searchbox {
+            width: 400px;
+            float: right;
+        }
+        input[id="searchbox"] {
+            width: 300px;
+            height: 40px;
+            font-size: 14pt;
+            border-radius: 15px;
+            color: #FFAC00;
+        }
+        input[id="go"] {
+            width: 50px;
+            height: 40px;
+           margin-left: 10px;
+            font-size: 14pt;
+            background-color: #F06A00;
+            border-radius: 15px;
         }
     </style>
 </head>
 
-
-<?php
-
-$host = "webdev.iyaclasses.com";
-$userid = "kemccorm";
-$userpw = "Acad276_McCormick_2109860012";
-$db = "kemccorm_roadtripbuilder";
-
-
-$mysql = new mysqli(
-    $host,
-    $userid,
-    $userpw,
-    $db
-);
-
-if ($mysql->connect_errno) {
-    echo "db connection error : " . $mysql->connect_error;
-    exit();
-}
-?>
 
 <html>
 <head>
@@ -126,7 +168,6 @@ if ($mysql->connect_errno) {
     </style>
 </head>
 <body>
-
 <div class="topheader">
     <img src="myalogo1.png" id="logo">
 
@@ -136,7 +177,7 @@ if ($mysql->connect_errno) {
 </div>
 <hr>
 
-    <div class="menu" style="border-right:1px solid #000;">
+    <div class="menu" style="border-right:1px solid #000; height: 2000px">
         <div class="menuitem">
 
             <a href="login"></a>
@@ -185,7 +226,7 @@ if ($mysql->connect_errno) {
             <a href="login"></a>
         </div><hr>
     </div>
-    <div class="container">
+<div class="container2">
         <div class="adminacc">
         <div class="adminbox">
             <div class="circleimage"></div>
@@ -196,19 +237,22 @@ if ($mysql->connect_errno) {
         </div>
         <br><Br>
             <div class="tabs">
-            <div class="editloc"><a href="adminmainLOCATION.php">Edit Locations</a></div>
-            <div class="edittyp"><a href="adminmainTYPE.php">Edit Type</a></div>
-            <div class="edittyp"> <a href="adminmainCITY.php">Edit City</a></div>
+            <div class="editloc" ><a href="adminmainLOCATION.php" style="text-decoration:none">Edit Locations</a></div>
+            <div class="edittyp"><a href="adminmainTYPE.php" style="text-decoration:none">Edit Type</a></div>
+            <div class="edittyp"> <a href="adminmainCITY.php" >Edit City</a></div>
             </div>
-            <br>
+
         <div class="bigbox">
             <hr>
-            <a href="addlocation.php">Add New Location</a>
-            <br><br>
+            <div class="newloc"> <a href="addlocation.php">+ Add New Location</a> </div>
+
+            <br>
+            <div class="searchbox">
             <form action="">
-                <input type="text" name="locationsearch" placeholder="Search Locations">
-                <input type="submit" value="Go">
+                <input type="text" id="searchbox" name="locationsearch" placeholder="Search Locations">
+                <input type="submit" id="go" value="Go">
             </form>
+            </div>
 
             <?php
             $sql = "SELECT * FROM location_table WHERE locationname LIKE '%" . $_REQUEST["locationsearch"]. "%'";
@@ -242,5 +286,5 @@ if ($mysql->connect_errno) {
     </div> <!-- close container-->
 </body>
 </html>
-</body>
-</html>
+
+
