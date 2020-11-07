@@ -17,7 +17,17 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+$sql = "UPDATE type_table
+        SET 
+        type ='" . $_REQUEST["edittype"] . "' " .
+        "WHERE typeID = " . $_REQUEST["id"];
 
+$results = $mysql -> query($sql);
+
+if(!$results){
+    echo "Error " . $mysql-> error;
+    echo "<br>SQL" . $sql;
+}else{
 ?>
 
 <html>
@@ -27,6 +37,13 @@ if ($mysql->connect_errno) {
 </head>
 <body>
 EDIT TYPE CONFIRMATION
+<br><br>
+<?php
+echo "Your Type edit has been updated!";
+}
+
+?>
+
 <br><br>
 
 

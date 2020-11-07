@@ -62,6 +62,7 @@ $currentrow = $results->fetch_assoc();
     Edit Type
     <br><br>
     <form action="EditConfirmationPages/edittypeCONFIRM.php ">
+        <input type="hidden" name="id" value="<?php echo $currentrow["typeID"] ?>">
         Edit Type: <input type="text" value="<?php echo $currentrow["type"] ?>" name="edittype">
 
         <input type="submit" value="Edit Type">
