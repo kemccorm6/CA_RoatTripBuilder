@@ -168,7 +168,7 @@ if ($mysql->connect_errno) {
                 <div class="locationandedit">
 
                     <div class="locationdiv"><?php echo $currentrow["type"] ?></div>
-                    <div class="editdelete"><a href="edittype.php">Edit</a> | <a href="deletetype.php">Delete</a></div>
+                    <div class="editdelete"><a href="edittype.php?id=<?php echo $currentrow["typeID"] ?>">Edit</a> | <a href="deletetype.php">Delete</a></div>
                 </div>
 
                 <?php
