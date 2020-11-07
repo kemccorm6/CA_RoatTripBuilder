@@ -76,7 +76,7 @@ if ($mysql->connect_errno) {
                 </select>
             <br>
             Type:
-            <select name="newcity">
+            <select name="newtype">
                 <?php
                 $sql = "SELECT * FROM type_table ";
 
@@ -91,7 +91,7 @@ if ($mysql->connect_errno) {
             <br>
             Pet Friendly:
             <select name="petfriendly">
-                <option>N/A</option>
+                <option value="NULL">N/A</option>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
@@ -103,7 +103,7 @@ if ($mysql->connect_errno) {
             <br>
             Wifi:
             <select name="wifi">
-                <option>N/A</option>
+                <option value="NULL">N/A</option>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
