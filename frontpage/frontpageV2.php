@@ -23,17 +23,16 @@ if($mysql->connect_errno) {
 <head>
     <link rel = "stylesheet"
           type = "text/css"
-          href = "...master.css">
+          href = "...master2.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
 
 
-
         .side1 {
             width: 1000px;
             float: right;
-            background-image: url(fpbg.png");
+            background-image: url("fpbg.png");
             background-size: 90%;
             background-position: top;
             background-repeat: no-repeat;
@@ -179,19 +178,20 @@ if($mysql->connect_errno) {
 </head>
 <body>
 <div class="topheader">
-    <img src="myalogo1.png" id="logo">
+    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
+        <img src="myalogo1.png" id="logo"></a>
     <div class="navbar">
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
-        <div class="navitem"><br><br>MAKE A TRIP</div>
-        <div class="navitem"><br><br>COMMUNITY</div>
-        <div class="navitem"><br><br>OUR MISSION</div>
-        <div class="navitem"><br><br>OUR TEAM</div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
 
 </div>
 <hr>
 
-
+<div class="container">
     <div class="side1">
 
         <div class="header" id="badge">
@@ -202,7 +202,6 @@ if($mysql->connect_errno) {
 
     <div class="side2">
         <img src="mission1.png" id="mission1">
-
         <div class="makeatrip">
             <div class="left-col">
                 <h1>Make a Trip</h1>
@@ -321,7 +320,7 @@ if($mysql->connect_errno) {
         <img src="step6.png" id="step6">
 
 
-
+    </div>
 
     </div>
 </div>

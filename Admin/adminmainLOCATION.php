@@ -23,6 +23,11 @@ if ($mysql->connect_errno) {
 <html>
 <head>
     <title>Main Locations</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "../master2.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
         .circleimage{
             width:150px;
@@ -73,6 +78,7 @@ if ($mysql->connect_errno) {
             width: 800px;
             margin:auto;
             margin-top: 100px;
+            margin-bottom: 100px;
         }
         .tabs {
             width: 800px;
@@ -80,6 +86,7 @@ if ($mysql->connect_errno) {
         }
         .editloc {
             width: 200px;
+            display: block;
             height: 100px;
             text-align: center;
             line-height: 80pt;
@@ -91,7 +98,7 @@ if ($mysql->connect_errno) {
 
            box-shadow: 2px -1px 4px dimgrey;
         }
-        .edittyp {
+      .edittyp a {
             width: 200px;
             height: 100px;
             display: block;
@@ -106,17 +113,35 @@ if ($mysql->connect_errno) {
 
             box-shadow: 2px -1px 4px dimgrey;
         }
+        .editcit a {
+            width: 200px;
+            height: 100px;
+            display: block;
+            text-align: center;
+            line-height: 80pt;
+            font-size: 18pt;
+            background-color: #FEE7B9;
+            float: left;
+            margin-left: 20px;
+            margin-bottom: 0px;
+            text-decoration: none;
+            box-shadow: 2px -1px 4px dimgrey;
+        }
+
+        .editcit :hover {
+            background-color: #FFD688;
+        }
         .edittyp :hover {
             background-color: #FFD688;
+
             width: 200px;
             height: 100px;
         }
-        .container2 {
-            width: 900px;
-            float: left;
-            margin:auto;
-
+        .edittyp:hover + .editloc a{
+            color: #85A867;
+            background-color: black;
         }
+
         a {
             text-decoration: none;
             text-decoration-color: black;
@@ -154,79 +179,31 @@ if ($mysql->connect_errno) {
             border-radius: 15px;
         }
     </style>
+
 </head>
 
-
-<html>
-<head>
-    <link rel = "stylesheet"
-          type = "text/css"
-          href = "../account.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <style>
-
-    </style>
-</head>
 <body>
 <div class="topheader">
-    <img src="myalogo1.png" id="logo">
-
-    <div class="login">
-        <a style="text-decoration:none; color:white" href="login.html">Login</a>
+    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
+        <img src="myalogo1.png" id="logo"></a>
+    <div class="navbar">
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
 </div>
 <hr>
 
-    <div class="menu" style="border-right:1px solid #000; height: 2000px">
-        <div class="menuitem">
+<div class="container">
 
-            <a href="login"></a>
-        </div>
-        <hr>
-        <div class="menuitem1">
-            <div id="single">
-                <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/user.svg" id="icon"/>
-                <a style="text-decoration:none; color:white" href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">User Login&nbsp;</a></div>
-            <hr>
-            <div id="single">
-                <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/team.svg" id="icon"/>
-                <a style="text-decoration:none; color:white" href="login">Admin Login</a></div>
-        </div>
-        <hr>
-        <div class="menuitem">
 
-            <a href="login"></a>
-        </div>
-        <hr>
-        <div class="menuitem1">
-            <div id="single">
-                <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/suitcases.svg" id="icon"/>
-                <a style="text-decoration:none; color:white" href="login">Make a Trip</a></div>
-            <hr>
-            <div id="single">
-                <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/conversation.svg" id="icon"/>
-                <a style="text-decoration:none; color:white" href="login">Discover Community</a></div>
-        </div>
-        <hr>
-        <div class="menuitem">
-            <a href="login"></a>
-        </div>
-        <hr>
-        <div class="menuitem1">
-            <div id="single">
-                <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/target.svg" id="icon"/>
-                <a style="text-decoration:none; color:white" href="login">Our Mission</a></div>
-            <hr>
-            <div id="single">
-                <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/support.svg" id="icon"/>
-                <a style="text-decoration:none; color:white" href="login">Our Team</a></div>
-        </div>
-        <hr>
-        <div class="menuitem">
-            <a href="login"></a>
-        </div><hr>
-    </div>
-<div class="container2">
+
+
+
+
+
         <div class="adminacc">
         <div class="adminbox">
             <div class="circleimage"></div>
@@ -237,9 +214,9 @@ if ($mysql->connect_errno) {
         </div>
         <br><Br>
             <div class="tabs">
-            <div class="editloc" ><a href="adminmainLOCATION.php" style="text-decoration:none">Edit Locations</a></div>
-            <div class="edittyp"><a href="adminmainTYPE.php" style="text-decoration:none">Edit Type</a></div>
-            <div class="edittyp"> <a href="adminmainCITY.php" >Edit City</a></div>
+            <div class="editloc" id="editloc" ><a href="adminmainLOCATION.php" style="text-decoration:none">Edit Locations</a></div>
+                <div class="edittyp" id="edittyp" ><a href="adminmainTYPE.php" style="text-decoration:none">Edit Type</a></div>
+            <div class="editcit"> <a href="adminmainCITY.php" >Edit City</a></div>
             </div>
 
         <div class="bigbox">

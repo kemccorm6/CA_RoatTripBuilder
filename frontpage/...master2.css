@@ -53,7 +53,7 @@ body {
     border-radius: 10px;
 }
 li a { text-decoration: none; color:#000; }
-.navitem:visited { text-decoration: none; color:#000; }
+.navbar:visited { text-decoration: none; color:#000; }
 li a:hover { text-decoration: none; color:#000; }
 li a:focus { text-decoration: none; color:#000; }
 li a:hover, .navBtn:active { text-decoration: none; color:#000; }

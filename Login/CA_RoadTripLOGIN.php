@@ -31,6 +31,7 @@ if ($mysql->connect_errno) {
     <style>
         .createacc {
             width: 50%;
+            height: 500px;
             background-color: #F06A00;
             margin: auto;
             margin-top: 100px;
@@ -38,7 +39,8 @@ if ($mysql->connect_errno) {
             text-align: center;
             color: white;
             padding: 50px;
-
+            background: -webkit-linear-gradient(to bottom, #F06A00, #823001);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #F06A00, #823001); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
         #title1 {
             font-size: 24pt;
@@ -108,13 +110,14 @@ margin: auto;
 </head>
 <body>
 <div class="topheader">
-    <img src="myalogo1.png" id="logo">
+    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
+        <img src="myalogo1.png" id="logo"></a>
     <div class="navbar">
-        <div class="navitem"><br><br>LOGIN</div>
-        <div class="navitem"><br><br>MAKE A TRIP</div>
-        <div class="navitem"><br><br>COMMUNITY</div>
-        <div class="navitem"><br><br>OUR MISSION</div>
-        <div class="navitem"><br><br>OUR TEAM</div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
 
 </div>
@@ -125,7 +128,7 @@ margin: auto;
     <div class="createacc" id="createacc2" style="height: 500px;">
         <div id="title1">Log In</div>
         <br>
-        New here? <a href="CA_RoadTripCREATEACC.php">Create an Account</a>
+        New here? <a href="CREATEACC_V2.php">Create an Account</a>
         <br><br>
 
         <form action="">
