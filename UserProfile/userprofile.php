@@ -72,106 +72,14 @@ if ($mysql->connect_errno) {
 
         }
         .bigbox{
-            width:800px;
+            width:1200px;
             padding: 15px;
             margin:auto;
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
 
         }
-        .locationdiv{
-            width:350px;
 
-            padding: 10px;
-
-        }
-        .editdelete{
-            width: 100px;
-
-            padding: 10px;
-        }
-        .locationandedit{
-            border: 1px solid black;
-            border-left: none;
-            border-right: none;
-            width: 70%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
-        .adminacc {
-            width: 800px;
-            margin:auto;
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-        .tabs {
-            width: 800px;
-            height: 100px;
-        }
-        .editloc {
-            width: 200px;
-            display: block;
-            height: 100px;
-            text-align: center;
-            line-height: 80pt;
-            font-size: 18pt;
-            background-color: #FFD688;
-            margin-left: 35px;
-            float: left;
-            text-decoration: none;
-
-            box-shadow: 2px -1px 4px dimgrey;
-        }
-        .edittyp a {
-            width: 200px;
-            height: 100px;
-            display: block;
-            text-align: center;
-            line-height: 80pt;
-            font-size: 18pt;
-            background-color: #FEE7B9;
-            float: left;
-            margin-left: 20px;
-            margin-bottom: 0px;
-            text-decoration: none;
-
-            box-shadow: 2px -1px 4px dimgrey;
-        }
-        .editcit a {
-            width: 200px;
-            height: 100px;
-            display: block;
-            text-align: center;
-            line-height: 80pt;
-            font-size: 18pt;
-            background-color: #FEE7B9;
-            float: left;
-            margin-left: 20px;
-            margin-bottom: 0px;
-            text-decoration: none;
-            box-shadow: 2px -1px 4px dimgrey;
-        }
-
-        .editcit :hover {
-            background-color: #FFD688;
-        }
-        .edittyp :hover {
-            background-color: #FFD688;
-
-            width: 200px;
-            height: 100px;
-        }
-        .edittyp:hover + .editloc a{
-            color: #85A867;
-            background-color: black;
-        }
-
-        a {
-            text-decoration: none;
-            text-decoration-color: black;
-        }
         .newloc {
             width: 200px;
             background-color: #85A867;
@@ -181,8 +89,8 @@ if ($mysql->connect_errno) {
             margin-top: 25px;
             line-height: 30pt;
             border-radius: 15px;
-            float: left;
-            margin-left: 30px;
+
+          margin: auto;
             box-shadow: 2px 1px 4px dimgrey;
         }
         .searchbox {
@@ -204,8 +112,96 @@ if ($mysql->connect_errno) {
             background-color: #F06A00;
             border-radius: 15px;
         }
-    </style>
+        #tabs {
+            overflow: hidden;
+            width: 1200px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            margin: auto;
+        }
 
+        #tabs li {
+            float: left;
+            margin: 0 .5em 0 0;
+        }
+
+        #tabs a {
+            position: relative;
+            background: #ddd;
+            background-image: linear-gradient(to bottom, #fff, #ddd);
+            padding: .7em 3.5em;
+            float: left;
+            text-decoration: none;
+            color: #444;
+            text-shadow: 0 1px 0 rgba(255,255,255,.8);
+            border-radius: 5px 0 0 0;
+            box-shadow: 0 2px 2px rgba(0,0,0,.4);
+        }
+
+        #tabs a:hover,
+        #tabs a:hover::after,
+        #tabs a:focus,
+        #tabs a:focus::after {
+            background: #fff;
+        }
+
+        #tabs a:focus {
+            outline: 0;
+        }
+
+        #tabs a::after {
+            content:'';
+            position:absolute;
+            z-index: 1;
+            top: 0;
+            right: -.5em;
+            bottom: 0;
+            width: 1em;
+            background: #ddd;
+            background-image: linear-gradient(to bottom, #fff, #ddd);
+            box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+            transform: skew(10deg);
+            border-radius: 0 5px 0 0;
+        }
+
+        #tabs #current a,
+        #tabs #current a::after {
+            background: #fff;
+            z-index: 3;
+        }
+
+        #content {
+            background: #fff;
+            padding: 2em;
+            height: 220px;
+            position: relative;
+            z-index: 2;
+            border-radius: 0 5px 5px 5px;
+            box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#content").find("[id^='tab']").hide(); // Hide all content
+            $("#tabs li:first").attr("id","current"); // Activate the first tab
+            $("#content #tab1").fadeIn(); // Show first tab's content
+
+            $('#tabs a').click(function(e) {
+                e.preventDefault();
+                if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
+                    return;
+                }
+                else{
+                    $("#content").find("[id^='tab']").hide(); // Hide all content
+                    $("#tabs li").attr("id",""); //Reset id's
+                    $(this).parent().attr("id","current"); // Activate this
+                    $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -239,17 +235,21 @@ if ($mysql->connect_errno) {
             <h1>Jonny Appleseed</h1>
 
             Admin
+
         </div>
+        <div class="newloc"> <a href="MakeTrip/maketripMAIN.php">+ Make New Trip</a> </div>
         <br><Br>
-        <div class="tabs">
-            <div class="editloc" id="editloc" ><a href="adminmainLOCATION.php" style="text-decoration:none">Edit Locations</a></div>
-            <div class="edittyp" id="edittyp" ><a href="adminmainTYPE.php" style="text-decoration:none">Edit Type</a></div>
-            <div class="editcit"> <a href="adminmainCITY.php" >Edit City</a></div>
+        <div id="tabs">
+            <ul id="tabs">
+                <li><a href="MyRoadtrips" name="tab1">My Roadtrips</a></li>
+                <li><a href="SavedTrips" name="tab2">Saved Trips</a></li>
+            </ul>
+
         </div>
 
         <div class="bigbox">
             <hr>
-            <div class="newloc"> <a href="addlocation.php">+ Add New Location</a> </div>
+
 
             <br>
             <div class="searchbox">
@@ -258,31 +258,13 @@ if ($mysql->connect_errno) {
                     <input type="submit" id="go" value="Go">
                 </form>
             </div>
+            <div id="content">
+                <div id="tab1">my roadtrips</div>
+                <div id="tab2">...</div>
 
-            <?php
-            $sql = "SELECT * FROM location_table WHERE locationname LIKE '%" . $_REQUEST["locationsearch"]. "%'";
-
-            $results =$mysql->query($sql);
-
-            if(!$results){
-                echo "Your SQL " . $sql . "<br>";
-                echo "SQL Error " . $mysql-> error . "<br>";
-                exit();
-            }
-
-            while($currentrow = $results->fetch_assoc()){
+            </div>
 
 
-                ?>
-                <div class="locationandedit">
-
-                    <div class="locationdiv"><?php echo $currentrow["locationname"] ?></div>
-                    <div class="editdelete"><a href="editlocation.php">Edit</a> | <a href="deletelocation.php">Delete</a></div>
-                </div>
-
-                <?php
-            }
-            ?>
 
         </div>
 
