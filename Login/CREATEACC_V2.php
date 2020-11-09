@@ -123,9 +123,7 @@ if ($mysql->connect_errno) {
     <div class="navitem"><br><br>OUR MISSION</div>
     <div class="navitem"><br><br>OUR TEAM</div>
 </div>
-<!--    <div class="login">-->
-<!--        <a style="text-decoration:none; color:white" href="login.html">Login</a>-->
-<!--    </div>-->
+
 </div>
 <hr>
 <!--<div class="menu" style="border-right:1px solid #000;height:3500px">-->

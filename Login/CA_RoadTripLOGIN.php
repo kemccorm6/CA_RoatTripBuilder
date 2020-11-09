@@ -110,61 +110,16 @@ margin: auto;
 <body>
 <div class="topheader">
     <img src="myalogo1.png" id="logo">
-
-    <div class="login">
-        <a style="text-decoration:none; color:white" href="login.html">Login</a>
+    <div class="navbar">
+        <div class="navitem"><br><br>LOGIN</div>
+        <div class="navitem"><br><br>MAKE A TRIP</div>
+        <div class="navitem"><br><br>COMMUNITY</div>
+        <div class="navitem"><br><br>OUR MISSION</div>
+        <div class="navitem"><br><br>OUR TEAM</div>
     </div>
+
 </div>
 <hr>
-<div class="menu" style="border-right:1px solid #000;height:3500px">
-    <div class="menuitem">
-
-        <a href="login"></a>
-    </div>
-    <hr>
-    <div class="menuitem1">
-        <div id="single">
-            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/user.svg" id="icon"/>
-            <a style="text-decoration:none; color:white" href="login">User Login&nbsp;</a></div>
-        <hr>
-        <div id="single">
-            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/team.svg" id="icon"/>
-            <a style="text-decoration:none; color:white" href="login">Admin Login</a></div>
-    </div>
-    <hr>
-    <div class="menuitem">
-
-        <a href="login"></a>
-    </div>
-    <hr>
-    <div class="menuitem1">
-        <div id="single">
-            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/suitcases.svg" id="icon"/>
-            <a style="text-decoration:none; color:white" href="login">Make a Trip</a></div>
-        <hr>
-        <div id="single">
-            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/conversation.svg" id="icon"/>
-            <a style="text-decoration:none; color:white" href="login">Discover Community</a></div>
-    </div>
-    <hr>
-    <div class="menuitem">
-        <a href="login"></a>
-    </div>
-    <hr>
-    <div class="menuitem1">
-        <div id="single">
-            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/target.svg" id="icon"/>
-            <a style="text-decoration:none; color:white" href="login">Our Mission</a></div>
-        <hr>
-        <div id="single">
-            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/support.svg" id="icon"/>
-            <a style="text-decoration:none; color:white" href="login">Our Team</a></div>
-    </div>
-    <hr>
-    <div class="menuitem">
-        <a href="login"></a>
-    </div><hr>
-</div>
 <div class="container">
 
 
