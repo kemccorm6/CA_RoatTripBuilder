@@ -159,7 +159,7 @@ if ($mysql->connect_errno) {
         <br>
         Have an Account? <a href="CA_RoadTripLOGIN.php">Log In</a>
         <br><br>
-        <form action="">
+        <form action="../UserProfile/userprofile.php">
             Username: <br>
             <input id="username" type="text" name="username" placeholder=" &nbsp; &nbsp;  username"><br>
             Password: <br>
