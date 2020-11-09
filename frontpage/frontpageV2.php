@@ -172,7 +172,30 @@ if($mysql->connect_errno) {
             display: block;
 
         }
+        .profile {
+            width: 10%;
+            right: 0;
+            height: 50px;
+            top: 50px;
+            position: absolute;
+            /*background-color: red;*/
+            float: left;
+            padding: 5px;
+            color: white;
+            margin-right: 30px;
+        }
+        .profileimage{
+            width:120px;
+            height:60px;
+            border-radius: 100px;
+            line-height: 20px;
+            text-align: center;
+            float: right;
+            background-color: #FFD789;
+            font-size: 15pt;
 
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+        }
 
     </style>
 </head>
@@ -187,6 +210,7 @@ if($mysql->connect_errno) {
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
+    <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
 
 </div>
 <hr>
