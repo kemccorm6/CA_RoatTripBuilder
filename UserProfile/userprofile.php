@@ -18,6 +18,28 @@ if ($mysql->connect_errno) {
     exit();
 }
 
+$sql= "INSERT INTO user_data_table " .
+    "(username, userpassword, User_Email)" .
+    "VALUES" .
+    "( " .
+    " '" . $_REQUEST["username"] . "', " .
+    " '" . $_REQUEST["password"] . "', " .
+    " '" . $_REQUEST["email"] . "' " .
+
+    " ) ";
+
+echo $sql;
+
+$results = $mysql->query($sql);
+
+if(!$results){
+    echo "Something went wrong check error: " . $mysql->error;
+    exit();
+}else{
+    echo "Congratulations you added the '". $_REQUEST['newtype'] . "' type";
+
+
+}
 
 ?>
 <html>
