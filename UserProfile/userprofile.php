@@ -99,42 +99,22 @@ if(!$results){
             overflow-wrap: normal;
             font-size: 16pt;
         }
-        h1 {
-         /*   width: 300px;
-            background-color: #FFFFFF;
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 1px 1px 4px dimgrey; */
-        }
+
         .bigbox{
             width:1000px;
             padding: 15px;
             margin:auto;
+           height: 1000px;
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
+            margin-bottom: 100px;
         }
 
-        .newtrip {
-            width: 1000px;
-            text-align: center;
-             margin: auto;
-        }
-        #newtrip {
-            width: 200px;
-            font-size: 14pt;
-            background-color: #85A867;
-            height: 40px;
-            line-height: 30pt;
-            border-radius: 15px;
-            box-shadow: 2px 1px 4px dimgrey;
-            margin-top: 50px;
-        }
         .editprofile {
             width: 200px;
             font-size: 14pt;
             background-color:#FFD788;
             height: 40px;
-
             line-height: 30pt;
             border-radius: 15px;
             text-align: center;
@@ -142,21 +122,6 @@ if(!$results){
             margin-top: 30px;
         }
 
-        input[id="searchbox"] {
-            width: 300px;
-            height: 40px;
-            font-size: 14pt;
-            border-radius: 15px;
-            color: #FFAC00;
-        }
-        input[id="go"] {
-            width: 50px;
-            height: 40px;
-            margin-left: 10px;
-            font-size: 14pt;
-            background-color: #F06A00;
-            border-radius: 15px;
-        }
         #tabs {
             overflow: hidden;
             width: 1000px;
@@ -223,13 +188,88 @@ if(!$results){
             z-index: 3;
         }
         #content {
-            background: #fff;
+
             padding: 2em;
-            height: 220px;
+            height: auto;
             position: relative;
             z-index: 2;
             border-radius: 0 5px 5px 5px;
             box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+            font-family: 'Poppins', sans-serif;
+        }
+        .prodtile {
+            width: 20vw;
+            min-height: 10vw;
+            padding: 2vw;
+            margin-top: 1vw;
+            margin-left: 4vw;
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+            float: left;
+
+            font-weight: 100 / 300 / 500 / 700 / 900;
+            font-style: normal;
+        }
+        .roadtripinfo {
+
+            margin-top: 10px;
+        }
+        #triptitle {
+            font-size: 16pt;
+        }
+        #tripnotes {
+            font-size: 12pt;
+            padding-top: 10px;
+        }
+
+        #prodtile1 {
+
+        }
+
+        #prodtile2 {
+
+        }
+
+        #prodtile3 {
+
+        }
+
+        #prodtile4 {
+
+        }
+
+        .prodimgtile {
+            width: 100%;
+            border-radius: 10px;
+            min-height: 20vw;
+            background-color: #6E8B55;
+
+        }
+
+        #prodimgtile1 {
+            background-image: url("fpbg.png");
+            background-size: 110%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #prodimgtile2 {
+            background-image: url("fpbg.png");
+            background-size: 110%;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+        #prodimgtile3 {
+            background-image: url("fpbg.png");
+            background-size: 110%;
+            background-position: bottom;
+            background-repeat: no-repeat;
+        }
+        #prodimgtile4 {
+            background-image: url("fpbg.png");
+            background-size: 110%;
+            background-position: center bottom;
+            background-repeat: no-repeat;
         }
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -242,6 +282,11 @@ if(!$results){
                 window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php";
                 return false;
             });
+            $("#prodtile1").click(function (){
+                window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php";
+                return false;
+            });
+
             $('#tabs a').click(function(e) {
                 e.preventDefault();
                 if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
@@ -305,10 +350,45 @@ if(!$results){
             <hr>
             <br>
             <div id="content">
-                <div id="tab1">make new trip</div>
-                <div id="tab2">my roadtrips</div>
+                <div id="tab1">make new trip
 
-                <div id="tab3">...</div>
+                </div>
+
+                <div id="tab2">
+
+                    <div class="prodtile" id="prodtile1">
+                        <div class="prodimgtile" id="prodimgtile1"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Forest Mountain Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Fall </div>
+                        </div>
+                    </div>
+                    <div class="prodtile" id="prodtile2">
+                        <div class="prodimgtile" id="prodimgtile2"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Beach Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Summer </div>
+                        </div>
+                    </div>
+                    <div class="prodtile" id="prodtile3">
+                        <div class="prodimgtile" id="prodimgtile3"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Desert Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Spring </div>
+                        </div>
+                    </div>
+                    <div class="prodtile" id="prodtile4">
+                        <div class="prodimgtile" id="prodimgtile4"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Desert Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Winter </div>
+                        </div>
+                    </div>
+
+
+                </div> <!-- Close tab 2-->
+
+                <div id="tab3">Saved Trips</div>
 
             </div>
         </div>
