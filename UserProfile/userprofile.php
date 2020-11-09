@@ -73,7 +73,7 @@ if ($mysql->connect_errno) {
         }
         .bigbox{
             width:800px;
-           padding: 15px;
+            padding: 15px;
             margin:auto;
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
@@ -122,9 +122,9 @@ if ($mysql->connect_errno) {
             float: left;
             text-decoration: none;
 
-           box-shadow: 2px -1px 4px dimgrey;
+            box-shadow: 2px -1px 4px dimgrey;
         }
-      .edittyp a {
+        .edittyp a {
             width: 200px;
             height: 100px;
             display: block;
@@ -132,7 +132,7 @@ if ($mysql->connect_errno) {
             line-height: 80pt;
             font-size: 18pt;
             background-color: #FEE7B9;
-           float: left;
+            float: left;
             margin-left: 20px;
             margin-bottom: 0px;
             text-decoration: none;
@@ -199,7 +199,7 @@ if ($mysql->connect_errno) {
         input[id="go"] {
             width: 50px;
             height: 40px;
-           margin-left: 10px;
+            margin-left: 10px;
             font-size: 14pt;
             background-color: #F06A00;
             border-radius: 15px;
@@ -232,20 +232,20 @@ if ($mysql->connect_errno) {
 
 
 
-        <div class="adminacc">
+    <div class="adminacc">
         <div class="adminbox">
             <div class="circleimage"></div>
             <br>
-           <h1>Jonny Appleseed</h1>
+            <h1>Jonny Appleseed</h1>
 
             Admin
         </div>
         <br><Br>
-            <div class="tabs">
+        <div class="tabs">
             <div class="editloc" id="editloc" ><a href="adminmainLOCATION.php" style="text-decoration:none">Edit Locations</a></div>
-                <div class="edittyp" id="edittyp" ><a href="adminmainTYPE.php" style="text-decoration:none">Edit Type</a></div>
+            <div class="edittyp" id="edittyp" ><a href="adminmainTYPE.php" style="text-decoration:none">Edit Type</a></div>
             <div class="editcit"> <a href="adminmainCITY.php" >Edit City</a></div>
-            </div>
+        </div>
 
         <div class="bigbox">
             <hr>
@@ -253,10 +253,10 @@ if ($mysql->connect_errno) {
 
             <br>
             <div class="searchbox">
-            <form action="">
-                <input type="text" id="searchbox" name="locationsearch" placeholder="Search Locations">
-                <input type="submit" id="go" value="Go">
-            </form>
+                <form action="">
+                    <input type="text" id="searchbox" name="locationsearch" placeholder="Search Locations">
+                    <input type="submit" id="go" value="Go">
+                </form>
             </div>
 
             <?php
@@ -286,9 +286,9 @@ if ($mysql->connect_errno) {
 
         </div>
 
-        </div>
-        </div>
-    </div> <!-- close container-->
+    </div>
+</div>
+</div> <!-- close container-->
 </body>
 </html>
 

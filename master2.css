@@ -57,3 +57,28 @@ li a { text-decoration: none; color:#000; }
 li a:hover { text-decoration: none; color:#000; }
 li a:focus { text-decoration: none; color:#000; }
 li a:hover, .navBtn:active { text-decoration: none; color:#000; }
+
+.profile {
+    width: 10%;
+    right: 0;
+    height: 50px;
+    top: 50px;
+    position: absolute;
+    /*background-color: red;*/
+    float: left;
+    padding: 5px;
+    color: white;
+    margin-right: 30px;
+}
+.profileimage{
+    width:120px;
+    height:60px;
+    border-radius: 100px;
+    line-height: 20px;
+    text-align: center;
+    float: right;
+    background-color: #FFD789;
+    font-size: 15pt;
+    line-height: 18pt;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
