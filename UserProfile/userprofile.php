@@ -30,14 +30,13 @@ if ($mysql->connect_errno) {
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
         .circleimage{
-            width:150px;
-            height:150px;
+            width:250px;
+            height:250px;
             border: black 1px solid;
-            border-radius: 100px;
+            border-radius: 150px;
             float: left;
             margin: 20px;
             color: black;
-
         }
         .profile {
             width: 10%;
@@ -64,39 +63,63 @@ if ($mysql->connect_errno) {
             font-family: 'Yanone Kaffeesatz', sans-serif;
         }
         .adminbox{
-
-            width:500px;
-            height: 200px;
+            width:800px;
+            height: 300px;
             margin: auto;
-
-
+            margin-top: 50px;
+        }
+        #profileinfo {
+           float: left;
+            width: 400px;
+            margin-left: 50px;
+        }
+        #bio {
+            overflow-wrap: normal;
+            font-size: 16pt;
+        }
+        h1 {
+         /*   width: 300px;
+            background-color: #FFFFFF;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 4px dimgrey; */
         }
         .bigbox{
-            width:1200px;
+            width:1000px;
             padding: 15px;
             margin:auto;
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
-
         }
 
-        .newloc {
+        .newtrip {
+            width: 1000px;
+            text-align: center;
+             margin: auto;
+        }
+        #newtrip {
             width: 200px;
+            font-size: 14pt;
             background-color: #85A867;
             height: 40px;
-            text-align: center;
-            font-size: 14pt;
-            margin-top: 25px;
             line-height: 30pt;
             border-radius: 15px;
-
-          margin: auto;
             box-shadow: 2px 1px 4px dimgrey;
+            margin-top: 50px;
         }
-        .searchbox {
-            width: 400px;
-            float: right;
+        .editprofile {
+            width: 200px;
+            font-size: 14pt;
+            background-color:#FFD788;
+            height: 40px;
+
+            line-height: 30pt;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 2px 1px 4px dimgrey;
+            margin-top: 30px;
         }
+
         input[id="searchbox"] {
             width: 300px;
             height: 40px;
@@ -114,13 +137,20 @@ if ($mysql->connect_errno) {
         }
         #tabs {
             overflow: hidden;
-            width: 1200px;
+            width: 1000px;
             margin: 0;
             padding: 0;
             list-style: none;
             margin: auto;
         }
+        #makey a{
+            background-color: #85A867;
+        }
 
+        #tabs li {
+            float: left;
+            margin: 0 .5em 0 0;
+        }
         #tabs li {
             float: left;
             margin: 0 .5em 0 0;
@@ -170,7 +200,6 @@ if ($mysql->connect_errno) {
             background: #fff;
             z-index: 3;
         }
-
         #content {
             background: #fff;
             padding: 2em;
@@ -185,9 +214,12 @@ if ($mysql->connect_errno) {
     <script>
         $(document).ready(function() {
             $("#content").find("[id^='tab']").hide(); // Hide all content
-            $("#tabs li:first").attr("id","current"); // Activate the first tab
-            $("#content #tab1").fadeIn(); // Show first tab's content
-
+            $("#tabs li:nth-child(2)").attr("id","current"); // Activate the first tab
+            $("#content #tab2").fadeIn(); // Show first tab's content
+            $("#tab12").click(function (){
+                window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php";
+                return false;
+            });
             $('#tabs a').click(function(e) {
                 e.preventDefault();
                 if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
@@ -222,52 +254,42 @@ if ($mysql->connect_errno) {
 
 <div class="container">
 
-
-
-
-
-
-
-    <div class="adminacc">
         <div class="adminbox">
             <div class="circleimage"></div>
             <br>
+            <div id="profileinfo">
             <h1>Jonny Appleseed</h1>
+            <div id="bio">
+                <p>I love going on road trips with my puppy.<br> I mostly travel in the Socal area</p>
+            </div><!--close bio-->
+                <div class="editprofile">
+                    <a href="MakeTrip/maketripMAIN.php">Edit Profile</a>
+                </div> <!--close edit profile-->
+            </div><!--close profile info-->
+        </div><!--close admin box-->
 
-            Admin
-
-        </div>
-        <div class="newloc"> <a href="MakeTrip/maketripMAIN.php">+ Make New Trip</a> </div>
         <br><Br>
         <div id="tabs">
             <ul id="tabs">
-                <li><a href="MyRoadtrips" name="tab1">My Roadtrips</a></li>
-                <li><a href="SavedTrips" name="tab2">Saved Trips</a></li>
-            </ul>
 
+                <li><a href="MakeTrip/maketripMAIN.php" name="tab1" id="tab12" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
+                <li><a href="MyRoadtrips" name="tab2">My Roadtrips</a></li>
+                <li><a href="SavedTrips" name="tab3">Saved Trips</a></li>
+            </ul>
         </div>
+
 
         <div class="bigbox">
             <hr>
-
-
             <br>
-            <div class="searchbox">
-                <form action="">
-                    <input type="text" id="searchbox" name="locationsearch" placeholder="Search Locations">
-                    <input type="submit" id="go" value="Go">
-                </form>
-            </div>
             <div id="content">
-                <div id="tab1">my roadtrips</div>
-                <div id="tab2">...</div>
+                <div id="tab1">make new trip</div>
+                <div id="tab2">my roadtrips</div>
+
+                <div id="tab3">...</div>
 
             </div>
-
-
-
         </div>
-
     </div>
 </div>
 </div> <!-- close container-->
