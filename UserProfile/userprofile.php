@@ -222,17 +222,11 @@ if(!$results){
             font-size: 12pt;
             padding-top: 10px;
         }
-
         #prodtile1 {
-
         }
-
         #prodtile2 {
-
         }
-
         #prodtile3 {
-
         }
 
         #prodtile4 {
@@ -270,6 +264,11 @@ if(!$results){
             background-size: 110%;
             background-position: center bottom;
             background-repeat: no-repeat;
+        }
+        h3 {
+            text-align: center;
+            padding: 0;
+            margin: 0;
         }
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -355,7 +354,7 @@ if(!$results){
                 </div>
 
                 <div id="tab2">
-
+                    <h3>My Roadtrips</h3>
                     <div class="prodtile" id="prodtile1">
                         <div class="prodimgtile" id="prodimgtile1"></div>
                         <div class="roadtripinfo">
@@ -388,7 +387,40 @@ if(!$results){
 
                 </div> <!-- Close tab 2-->
 
-                <div id="tab3">Saved Trips</div>
+                <div id="tab3">
+                    <h3>Saved Trips</h3>
+                    <div class="prodtile" id="prodtile1">
+                        <div class="prodimgtile" id="prodimgtile1"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Forest Mountain Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Fall </div>
+                        </div>
+                    </div>
+                    <div class="prodtile" id="prodtile2">
+                        <div class="prodimgtile" id="prodimgtile2"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Beach Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Summer </div>
+                        </div>
+                    </div>
+                    <div class="prodtile" id="prodtile3">
+                        <div class="prodimgtile" id="prodimgtile3"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Desert Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Spring </div>
+                        </div>
+                    </div>
+                    <div class="prodtile" id="prodtile4">
+                        <div class="prodimgtile" id="prodimgtile4"></div>
+                        <div class="roadtripinfo">
+                            <div id="triptitle"> Desert Trip </div>
+                            <div id="tripnotes"> Trip ideas for the Winter </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                </div>
 
             </div>
         </div>
