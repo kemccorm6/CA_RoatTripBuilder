@@ -24,7 +24,29 @@ if ($mysql->connect_errno) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
+        body {
 
+            background-image: url("tiretracks_copy.png");
+            /*background: linear-gradient(to bottom, #f1f0c9, #ecf2d6);*/
+            background-size: 2250px 1250px ;
+        }
+.missionbox {
+    /*background-color: #f9d793;*/
+    background: -webkit-linear-gradient(to bottom, #f6c157, #f9d793);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #f9d793, #f6c157); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: auto;
+    width: 40%;
+    border-radius: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    font-size: 16pt;
+    box-shadow: 5px 5px 10px black;
+}
+.missionbox h1 {
+    text-align: center;
+}
 
 
 
@@ -44,7 +66,10 @@ if ($mysql->connect_errno) {
 </div>
 <hr>
 <div class="container">
-    Mission Main
+
+    <div class="missionbox">California Dreamin’ is volunteer based platform bringing you all of the best road trip stops up the California coast. Our mission is to bring together adventure enthusiasts through a simple one-stop platform. Head over to “Make a Trip” to begin planning your excursion, browse through photos posted by other users, and publish your adventures for others to see!
+        <br><br>
+        Because it’s not just a trip, it’s a story to share!</div>
 
 
 
