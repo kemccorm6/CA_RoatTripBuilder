@@ -361,7 +361,7 @@ $currentrow = $userresults->fetch_assoc();
                 <p><?php echo $currentrow["User_Description"]; ?></p>
             </div><!--close bio-->
                 <div class="editprofile">
-                    <a href="editprofile.php">Edit Profile</a>
+                    <a href="editprofile.php?id=<?php echo $currentrow["userID"]; ?>">Edit Profile</a>
                 </div> <!--close edit profile-->
             </div><!--close profile info-->
         </div><!--close admin box-->

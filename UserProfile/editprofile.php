@@ -17,10 +17,16 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+$sql = "SELECT * FROM user_data_table WHERE userID =" . $_REQUEST['id'];
+
+$results = $mysql-> query($sql);
+
+$currentrow = $results->fetch_assoc();
 ?>
 <html>
 <head>
-    <title>Main Locations</title>
+    <title>Edit Profile</title>
     <link rel = "stylesheet"
           type = "text/css"
           href = "../master2.css" />
@@ -115,18 +121,29 @@ if ($mysql->connect_errno) {
 <div class="container">
 
         <div class="adminbox">
-            <div class="circleimage"></div>
-            <br>
-            <div id="profileinfo">
-            <h1>Jonny Appleseed</h1>
-            <div id="bio">
-                <p>I love going on road trips with my puppy.<br> I mostly travel in the Socal area</p>
-            </div><!--close bio-->
-                <div class="editprofile">
-                    <a href="MakeTrip/maketripMAIN.php">Edit Profile</a>
-                </div> <!--close edit profile-->
-            </div><!--close profile info-->
-        </div><!--close admin box-->
+            <form action="profileupdateCONFIRM.php">
+                <input type="hidden" name="id" value="<?php echo $currentrow["userID"] ?>">
+                <div><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"]; ?>"</div>
+                <br>
+                <div id="profileinfo">
+                <h1>Edit Name:</h1>
+                    <input type="text" name="nusername" value="<?php echo $currentrow["User_Real_Name"]; ?>"
+                <div id="bio">
+                    <br>
+                    <p>Edit Description:</p>
+                    <input type="text" name="editdesc" value="<?php echo $currentrow["User_Description"]; ?>" >
+                    <br><br>
+                    Copy profile picture link here:
+                    <br>
+                    <input type="text" name="profp" value="<?php echo $currentrow["User_Profile_Picture"]; ?>">
+
+                </div><!--close bio-->
+                    <div class="editprofile">
+                        <input type="submit" value="Update">
+                    </div> <!--close edit profile-->
+                </div><!--close profile info-->
+            </div><!--close admin box-->
+            </form>
 </div>
 </body>
 </html>
