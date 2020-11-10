@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -16,6 +16,12 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
 ?>
 <html>
 <head>
@@ -59,6 +65,7 @@ if ($mysql->connect_errno) {
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
+        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
     </div>
 </div>
 <hr>

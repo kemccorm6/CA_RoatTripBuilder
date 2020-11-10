@@ -406,7 +406,7 @@ if(!$results){
         <div id="tabs">
             <ul id="tabs">
 
-                <li><a href="MakeTrip/maketripMAIN.php" name="tab1" id="tab12" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
+                <li><a href="MakeTrip/maketripMAIN.php?id=<?php echo $_SESSION["UserId"]; ?>" name="tab1" id="tab12" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
                 <li><a href="MyRoadtrips" name="tab2">My Roadtrips</a></li>
                 <li><a href="SavedTrips" name="tab3">Saved Trips</a></li>
             </ul>
