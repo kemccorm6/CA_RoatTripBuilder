@@ -41,7 +41,7 @@ if(!$results){
 }
 
 $usersql = "SELECT * FROM user_data_table WHERE username='" . $_REQUEST["usernamel"] . "' AND userpassword = '" . $_REQUEST["passwordl"] . "' ";
-echo $usersql
+echo $usersql;
 
 $userresults = $mysql-> query($userresults);
 
