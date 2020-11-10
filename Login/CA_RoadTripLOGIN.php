@@ -27,6 +27,8 @@ if ($mysql->connect_errno) {
 
 <html>
 <head>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
     <link rel = "stylesheet"
           type = "text/css"
           href = "../master2.css" />
@@ -159,6 +161,26 @@ margin: auto;
 
                     }
                 }
+            </script>
+
+            <script>
+                $("#submit").click(function(event){
+                    if($("#username").val() == ''){
+                        alert("Please fill out username.")
+                        event.preventDefault();
+
+                    }
+
+                    if($("#password").val() == ''){
+                        alert("Please fill out password.")
+                        event.preventDefault();
+
+                    }
+
+
+                    // alert( $("#username").val() == '' );
+
+                });
             </script>
         </form>
 
