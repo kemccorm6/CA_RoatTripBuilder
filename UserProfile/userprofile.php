@@ -44,7 +44,7 @@ if(!$results){
 ?>
 <html>
 <head>
-    <title>Main Locations</title>
+    <title>User Profile</title>
     <link rel = "stylesheet"
           type = "text/css"
           href = "../master2.css" />
@@ -281,8 +281,8 @@ if(!$results){
                 window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php";
                 return false;
             });
-            $("#prodtile1").click(function (){
-                window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php";
+            $(".prodtile").click(function (){
+                window.location.href="MyRoadtripDetails.php";
                 return false;
             });
 
