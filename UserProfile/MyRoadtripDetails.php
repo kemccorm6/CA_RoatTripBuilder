@@ -221,6 +221,9 @@ text-align: center;
             padding: 15px;
             display: block;
         }
+        #stopinfo :hover{
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+        }
 #locationpicture {
     background-image: url("mountain.jpg");
     width: 130px;
@@ -269,6 +272,10 @@ text-align: center;
 
         $("#stopinfo").click(function (){
             window.location.href="locationdetails.php";
+            return false;
+        });
+        $("#tab12").click(function (){
+            window.location.href="userprofile.php";
             return false;
         });
 
