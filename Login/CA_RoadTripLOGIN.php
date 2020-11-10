@@ -142,27 +142,27 @@ margin: auto;
             <input id="username" type="text" name="usernamel" placeholder=" &nbsp; &nbsp;  username"><br>
             Password: <br>
             <input id="password" type="text" name="passwordl" placeholder=" &nbsp; &nbsp;  password"><br><br>
-            <label><input type="checkbox" name="admin" value="admin" id="admincheck" onclick="reveal()">Check if Admin</label>
+<!--            <label><input type="checkbox" name="admin" value="admin" id="admincheck" onclick="reveal()">Check if Admin</label>-->
 
-            <input type="text" name="adminpassword" placeholder="&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; admin password" style="display:none" id="checkedadmin">
+<!--            <input type="text" name="adminpassword" placeholder="&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; admin password" style="display:none" id="checkedadmin">-->
             <br><br><input id="submit" type="submit" value="Log In">
 
-            <script>
-                function reveal(){
-                    var checkbox = document.getElementById("admincheck");
-                    var text = document.getElementById("checkedadmin");
-                    var boxheight = document.getElementById("createacc2");
-                    if (checkbox.checked == true){
-                        text.style.display = "block";
-                        boxheight.style.height = "600px";
-                    }else{
-                        text.style.display = "none";
-                        boxheight.style.height = "500px";
-
-                    }
-                }
-
-            </script>
+<!--            <script>-->
+<!--                function reveal(){-->
+<!--                    var checkbox = document.getElementById("admincheck");-->
+<!--                    var text = document.getElementById("checkedadmin");-->
+<!--                    var boxheight = document.getElementById("createacc2");-->
+<!--                    if (checkbox.checked == true){-->
+<!--                        text.style.display = "block";-->
+<!--                        boxheight.style.height = "600px";-->
+<!--                    }else{-->
+<!--                        text.style.display = "none";-->
+<!--                        boxheight.style.height = "500px";-->
+<!---->
+<!--                    }-->
+<!--                }-->
+<!---->
+<!--            </script>-->
 
             <script>
                 $("#submit").click(function(event){

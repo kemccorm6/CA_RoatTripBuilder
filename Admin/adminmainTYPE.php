@@ -1,6 +1,7 @@
 
 <?php
 
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -18,6 +19,12 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
 ?>
 
 <html>
@@ -183,6 +190,7 @@ if ($mysql->connect_errno) {
     <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
     <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
     <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
+    <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
 </div>
 </div>
 <hr>
@@ -194,9 +202,9 @@ if ($mysql->connect_errno) {
     <div class="container">
         <div class="adminacc">
         <div class="adminbox">
-            <div class="circleimage"></div>
+            <div ><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"] ?>"</div>
             <br>
-            <h1>Jonny Appleseed</h1>
+            <h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
 
             Admin
         </div>

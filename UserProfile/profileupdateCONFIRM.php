@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -52,7 +53,7 @@ echo "You have successfully updated your profile!";
 <br><br>
 
 
-<a href="userprofile.php?id=<?php echo $_REQUEST["id"] ?>">Go Back to Profile Page</a>
+<a href="userprofile.php?id=<?php echo $_SESSION["UserId"] ?>">Go Back to Profile Page</a>
 
 </body>
 </html>

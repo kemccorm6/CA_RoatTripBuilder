@@ -45,14 +45,18 @@ if (empty($_SESSION["start"])){
 
 
     $_SESSION["IsAdmin"] = $currentrow["Is_Admin"];
-
+    $_SESSION["UserId"] = $currentrow["userID"];
 
     $_SESSION["start"] = "started";
+} else {
+    $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
+    //echo $usersql;
+
+    $userresults = $mysql-> query($usersql);
+    $currentrow = $userresults->fetch_assoc();
 }
 
-if($_SESSION["IsAdmin"] == 1){
-    echo "<form action='../Admin/adminmainLOCATION.php'><input type='submit' value='Main Admin Page'></form>";
-}
+
 
 
 
@@ -355,6 +359,7 @@ if(!$results){
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
+        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
 
     </div>
     <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
@@ -380,10 +385,16 @@ if(!$results){
                 <p><?php echo $currentrow["User_Description"]; ?></p>
             </div><!--close bio-->
                 <div class="editprofile">
-                    <a href="editprofile.php?id=<?php echo $currentrow["userID"]; ?>">Edit Profile</a>
+                    <a href="editprofile.php?id=<?php echo $_SESSION["UserId"]; ?>">Edit Profile</a>
                 </div> <!--close edit profile-->
             </div><!--close profile info-->
         </div><!--close admin box-->
+
+    <?php
+    if($_SESSION["IsAdmin"] == 1){
+        echo "<form action='../Admin/adminmainLOCATION.php?id=". $_SESSION["UserId"] ."'><input type='submit' value='Main Admin Page'></form>";
+    }
+    ?>
 
 
         <br><Br>
