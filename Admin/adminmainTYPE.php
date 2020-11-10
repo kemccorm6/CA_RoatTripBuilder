@@ -46,7 +46,7 @@ $currentrow = $userresults->fetch_assoc();
         }
         .adminbox{
 
-            width:500px;
+            width:800px;
             height: 200px;
             margin: auto;
 
@@ -81,12 +81,13 @@ $currentrow = $userresults->fetch_assoc();
         .adminacc {
             width: 800px;
             margin:auto;
-            margin-top: 100px;
+
             margin-bottom: 100px;
         }
         .tabs {
             width: 800px;
             height: 100px;
+            margin-top: 50px;
         }
         .editloc a {
             width: 200px;

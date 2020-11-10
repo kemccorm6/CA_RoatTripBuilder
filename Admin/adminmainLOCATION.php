@@ -63,17 +63,15 @@ $currentrow = $userresults->fetch_assoc();
             width:120px;
             height:60px;
             border-radius: 100px;
-            line-height: 20px;
             text-align: center;
             float: right;
             background-color: #FFD789;
             font-size: 15pt;
-            line-height: 18pt;
             font-family: 'Yanone Kaffeesatz', sans-serif;
         }
         .adminbox{
 
-            width:500px;
+            width:800px;
             height: 200px;
             margin: auto;
 
@@ -109,14 +107,15 @@ $currentrow = $userresults->fetch_assoc();
             grid-gap: 20px;
         }
         .adminacc {
-            width: 800px;
+            width: 900px;
             margin:auto;
-            margin-top: 100px;
-            margin-bottom: 100px;
+
+            margin-bottom: 150px;
         }
         .tabs {
             width: 800px;
             height: 100px;
+            margin-top: 100px;
         }
         .editloc {
             width: 200px;

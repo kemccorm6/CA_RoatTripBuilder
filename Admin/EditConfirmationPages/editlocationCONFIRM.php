@@ -41,15 +41,108 @@ if(!$results){
 //?>
 
 <html>
-<head>
-    <title>Edit Location Confirmation</title>
+<title>Edit City Confirmation</title>
 
+<link rel = "stylesheet"
+      type = "text/css"
+      href = "../../master2.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<style>
+    .circleimage {
+        width:150px;
+        height:150px;
+        border: black 1px solid;
+        border-radius: 100px;
+        float: left;
+        margin: 20px;
+    }
+
+    .adminbox{
+        width:500px;
+        height: 200px;
+        margin: auto;
+    }
+    .bigbox{
+        width:800px;
+        padding: 15px;
+        margin:auto;
+        background-color: #FFD688;
+        box-shadow: 3px 3px 6px dimgrey;
+    }
+    .adminacc {
+        width: 800px;
+        margin:auto;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    .tabs {
+        width: 800px;
+        height: 100px;
+        overflow: hidden;
+    }
+    .editloc a {
+        width: 200px;
+        display: block;
+        height: 100px;
+        text-align: center;
+        line-height: 80pt;
+        font-size: 18pt;
+        background-color: #FEE7B9;
+        margin-left: 35px;
+        float: left;
+        text-decoration: none;
+        box-shadow: 2px -1px 4px dimgrey;
+        z-index: -10px;
+
+    }
+
+    input {
+
+        padding: 10px;
+    }
+
+    h2 {
+        margin: auto;
+        text-align: center;
+        padding: 15px;
+        font-size: 24pt;
+    }
+    </style>
 </head>
 <body>
-EDIT LOCATION CONFIRMATION
+<div class="topheader">
+    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
+        <img src="myalogo1.png" id="logo"></a>
+    <div class="navbar">
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
+        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
+        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="adminacc">
+        <div class="adminbox">
+            <div class="circleimage"></div>
+            <br>
+            Jonny Appleseed
+            <br>
+            Admin
+        </div>
+        <br>
+        <div class="tabs">
+            <div class="editloc" id="editloc" > <a href="adminmainTYPE.php">BACK</a></div>
+        </div>
+
+        <div class="bigbox">
+
 <br><br>
 <?php
-echo "Your Location edit has been updated!";
+echo "<h2>Your Location edit has been updated!</h2>";
 
 }
 ?>
@@ -57,7 +150,7 @@ echo "Your Location edit has been updated!";
 <br><br>
 
 
-<a href="../adminmainLOCATION.php">Go Back to Main Page</a>
+<a href="Admin/adminmainLOCATION.php">Go Back to Main Page</a>
 
 </body>
 </html>

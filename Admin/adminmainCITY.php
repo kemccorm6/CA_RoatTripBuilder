@@ -37,6 +37,11 @@ $currentrow = $userresults->fetch_assoc();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
+        body {
+            background-image: url("tiretracks.png");
+            background-size: 2250px 1250px ;
+            background-color: white;
+        }
         .circleimage{
             width:150px;
             height:150px;
@@ -47,7 +52,7 @@ $currentrow = $userresults->fetch_assoc();
         }
         .adminbox{
 
-            width:500px;
+            width:800px;
             height: 200px;
             margin: auto;
 
@@ -85,12 +90,13 @@ $currentrow = $userresults->fetch_assoc();
         .adminacc {
             width: 800px;
             margin:auto;
-            margin-top: 100px;
+
             margin-bottom: 100px;
         }
         .tabs {
             width: 800px;
             height: 100px;
+            margin-top: 100px;
         }
         .editloc a {
             width: 200px;

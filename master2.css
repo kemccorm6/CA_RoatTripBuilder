@@ -2,8 +2,9 @@ body {
     /*background-color: #ecf2d6;*/
     margin: 0 !important;
     padding: 0 !important;
-
-    background: linear-gradient(to bottom, #f1f0c9, #ecf2d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url("tiretracks.png");
+    background-size: 2250px 1250px ;
+    /*background: linear-gradient(to bottom, #f1f0c9, #ecf2d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 a {
     text-decoration: none;

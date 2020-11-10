@@ -35,6 +35,13 @@ if ($mysql->connect_errno) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
+body {
+    background-image: url("tiretracks2.png");
+    background-size: 2250px 1250px ;
+    background-color: white;
+}
+
+
         .createacc {
             width: 50%;
             height: 500px;
