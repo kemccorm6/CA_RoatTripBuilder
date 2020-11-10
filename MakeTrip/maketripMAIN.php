@@ -72,6 +72,7 @@ $currentrow = $userresults->fetch_assoc();
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
         <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
     </div>
+<!--    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php"><img class="profileimage" src="myprofile_button-07.png"></a></div>-->
 </div>
 <hr>
 <div class="container">
