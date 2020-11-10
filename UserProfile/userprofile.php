@@ -3,14 +3,6 @@
 
 
 session_start();
-if (empty($_SESSION["start"])){
-    $_SESSION["username"] = $_REQUEST["usernamel"];
-    $_SESSION["password"] = $_REQUEST["passwordl"];
-
-    $_SESSION["start"] = "started";
-}
-
-
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
@@ -29,6 +21,41 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+if (empty($_SESSION["start"])){
+
+
+    $_SESSION["username"] = $_REQUEST["usernamel"];
+    $_SESSION["password"] = $_REQUEST["passwordl"];
+
+
+
+    $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
+    //echo $usersql;
+
+    $userresults = $mysql-> query($usersql);
+    $currentrow = $userresults->fetch_assoc();
+
+
+    if(!$userresults){
+        echo "Something went wrong check error: " . $mysql->error;
+        echo "<a href='../Login/CA_RoadTripLOGIN.php'>Go Back to Login</a>";
+        exit();
+    }
+
+
+    $_SESSION["IsAdmin"] = $currentrow["Is_Admin"];
+
+
+    $_SESSION["start"] = "started";
+}
+
+if($_SESSION["IsAdmin"] == 1){
+    echo "<form action='../Admin/adminmainLOCATION.php'><input type='submit' value='Main Admin Page'></form>";
+}
+
+
+
 
 $sql= "INSERT INTO user_data_table " .
     "(username, userpassword, User_Email)" .
@@ -49,17 +76,9 @@ if(!$results){
     exit();
 }
 
-$usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
-//echo $usersql;
 
-$userresults = $mysql-> query($usersql);
 
-if(!$userresults){
-    echo "Something went wrong check error: " . $mysql->error;
-    exit();
-}
 
-$currentrow = $userresults->fetch_assoc();
 //    echo $currentrow["username"];
 
 
@@ -365,6 +384,7 @@ $currentrow = $userresults->fetch_assoc();
                 </div> <!--close edit profile-->
             </div><!--close profile info-->
         </div><!--close admin box-->
+
 
         <br><Br>
         <div id="tabs">
