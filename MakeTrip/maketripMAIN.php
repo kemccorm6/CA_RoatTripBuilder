@@ -93,6 +93,7 @@ $userresults = $mysql-> query($usersql);
         h1 {margin-bottom: 60px;
         }
     </style>
+
 </head>
 <body>
 <div class="topheader">
