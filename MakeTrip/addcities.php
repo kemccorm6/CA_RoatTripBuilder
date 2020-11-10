@@ -57,8 +57,10 @@ margin-top: 50px;
             font-size: 24pt;
         }
         select {
-            height: 40px;
-            width: 300px;
+            height: 35px;
+            width: 200px;
+            border-radius: 10px;
+
         }
         .mapAPI {
             width: 700px;
@@ -141,18 +143,62 @@ overflow-wrap: normal;
             font-weight: light;
         }
         #filter {
-            background-color: #6b6a6a;
-            width: 100%;
+            background-color: darkgrey;
+            width: 700px;
+            height: 60px;
+
+            display: block;
+            top: 0;
+            transform: translate(0px,-16px);
         }
         .input {
-            float: left;
+            float: right;
+            margin-right: 40px;
+
+
+        }
+        select {
+            margin-top: 10px;
+            padding: 0;
         }
         .label {
             float: left;
-           margin-left: 15px;
+            margin-left: 15px;
             margin-right: 15px;
+            line-height: 45pt;
+        }
+        #map {
+            transform: translate(0px,-16px);
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $(".citybox").click(function (){
+                window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/UserProfile/locationdetails.php";
+                return false;
+            });
+            $("#tab12").click(function (){
+                window.location.href="userprofile.php";
+                return false;
+            });
+
+
+            $('#tabs a').click(function(e) {
+                e.preventDefault();
+                if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
+                    return;
+                }
+                else{
+                    $("#content").find("[id^='tab']").hide(); // Hide all content
+                    $("#tabs li").attr("id",""); //Reset id's
+                    $(this).parent().attr("id","current"); // Activate this
+                    $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="topheader">
@@ -174,28 +220,25 @@ overflow-wrap: normal;
         <button type="button" id="savetrip">Save Trip</button>
 </div><br clear="all"/>
     <div class="container2">
-
-
-
     <div class="mapAPI">
         <div id="filter">
             <form>
-            <div class="label">Filter:</div>
+
             <div class="input">
                 <select name="citysearch">
-                    <option value="ALL">SELECT CITY</option>
+                    <option value="ALL">Filter By:</option>
                     <option value="ALL">--------------</option>
                 </select>
             </div>
         </div>
             </form>
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3308496.245845227!2d-122
+        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3308496.245845227!2d-122
         .58131165475461!3d35.92364149981422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s
         0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA!3m2!1d34.0522342!2d-118.2436
         8489999999!4m5!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!3m2!1d37.
         7749295!2d-122.4194155!5e0!3m2!1sen!2sus!4v1604996032683!5m2!1sen!2sus"
-                width="700" height="600" frameborder="0" style="border:0;"
+                width="700" height="650"  frameborder="1"  style="border:0;"
                 allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
     <div class="sidebar">
@@ -203,8 +246,33 @@ overflow-wrap: normal;
     <button type="button" id="removecity">X</button>
     <div id="cityimage"></div>
     <div id="cityname">San Francisco</div>
-    <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge</div>
+    <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
     </div>
+    </div>
+
+        <div class="citybox">
+            <button type="button" id="removecity">X</button>
+            <div id="cityimage" style="background-image: url('sanjose.jpg')"></div>
+            <div id="cityname">San Jose</div>
+            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
+            </div>
+        </div>
+
+        <div class="citybox">
+            <button type="button" id="removecity">X</button>
+            <div id="cityimage" style="background-image: url('santamaria.jpg')"></div>
+            <div id="cityname">Santa Maria</div>
+            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
+            </div>
+        </div>
+
+        <div class="citybox">
+            <button type="button" id="removecity">X</button>
+            <div id="cityimage" style="background-image: url('santabarbara.jpg')"></div>
+            <div id="cityname">Santa Barbara</div>
+            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
+            </div>
+        </div>
     </div>
 </div>
 </body>
