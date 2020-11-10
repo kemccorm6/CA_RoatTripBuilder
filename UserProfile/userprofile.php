@@ -2,6 +2,15 @@
 <?php
 
 
+session_start();
+if (empty($_SESSION["start"])){
+    $_SESSION["username"] = $_REQUEST["usernamel"];
+    $_SESSION["password"] = $_REQUEST["passwordl"];
+
+    $_SESSION["start"] = "started";
+}
+
+
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
@@ -40,7 +49,7 @@ if(!$results){
     exit();
 }
 
-$usersql = "SELECT * FROM user_data_table WHERE username='" . $_REQUEST["usernamel"] . "' AND userpassword = '" . $_REQUEST["passwordl"] . "' ";
+$usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
 echo $usersql;
 
 $userresults = $mysql-> query($userresults);
@@ -48,6 +57,8 @@ $userresults = $mysql-> query($userresults);
 ?>
 <html>
 <head>
+    <script src="http://code.jquery.com/jquery.js"></script>
+
     <title>User Profile</title>
     <link rel = "stylesheet"
           type = "text/css"
@@ -323,6 +334,14 @@ $userresults = $mysql-> query($userresults);
 <hr>
 
 <div class="container">
+
+<!--    LOG OUT BUTTON-->
+    <form action="../Login/CA_RoadTripLOGIN.php">
+        <input type="submit" value="LOG OUT" id="logoutbutton">
+    </form>
+
+
+<!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
 
         <div class="adminbox">
             <div class="circleimage"></div>

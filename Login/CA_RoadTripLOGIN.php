@@ -1,6 +1,8 @@
 
 
 <?php
+session_start();
+session_destroy();
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
