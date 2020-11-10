@@ -50,9 +50,18 @@ if(!$results){
 }
 
 $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
-echo $usersql;
+//echo $usersql;
 
-$userresults = $mysql-> query($userresults);
+$userresults = $mysql-> query($usersql);
+
+if(!$userresults){
+    echo "Something went wrong check error: " . $mysql->error;
+    exit();
+}
+
+$currentrow = $userresults->fetch_assoc();
+//    echo $currentrow["username"];
+
 
 ?>
 <html>
@@ -344,12 +353,12 @@ $userresults = $mysql-> query($userresults);
 <!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
 
         <div class="adminbox">
-            <div class="circleimage"></div>
+            <div><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"]; ?>"</div>
             <br>
             <div id="profileinfo">
-            <h1>Jonny Appleseed</h1>
+            <h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
             <div id="bio">
-                <p>I love going on road trips with my puppy.<br> I mostly travel in the Socal area</p>
+                <p><?php echo $currentrow["User_Description"]; ?></p>
             </div><!--close bio-->
                 <div class="editprofile">
                     <a href="MakeTrip/maketripMAIN.php">Edit Profile</a>
