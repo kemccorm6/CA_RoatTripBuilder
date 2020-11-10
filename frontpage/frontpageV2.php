@@ -210,7 +210,7 @@ if($mysql->connect_errno) {
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
-    <div class="profile"> <a href="UserProfile/userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
+    <div class="profile"> <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/UserProfile/userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
 
 </div>
 <hr>
