@@ -10,7 +10,8 @@ a {
    color: white;
 }
 .container {
-    width: 100vw;
+    width: 80vw;
+    margin: auto;
     font-family: 'Poppins', sans-serif;
 }
 .navbar {

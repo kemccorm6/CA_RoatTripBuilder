@@ -121,17 +121,16 @@ if(!$results){
             border-radius: 100px;
             line-height: 20px;
             text-align: center;
-            float: right;
+
             background-color: #FFD789;
             font-size: 15pt;
             line-height: 18pt;
             font-family: 'Yanone Kaffeesatz', sans-serif;
         }
         .adminbox{
-            width:800px;
+            width:1000px;
             height: 300px;
             margin: auto;
-            margin-top: 50px;
         }
         #profileinfo {
            float: left;
@@ -150,7 +149,7 @@ if(!$results){
            height: 1000px;
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
-            margin-bottom: 100px;
+
         }
 
         .editprofile {
@@ -318,6 +317,9 @@ if(!$results){
             padding: 0;
             margin: 0;
         }
+        #logoutbutton {
+            margin-top: 20px;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script>
@@ -369,9 +371,7 @@ if(!$results){
 <div class="container">
 
 <!--    LOG OUT BUTTON-->
-    <form action="../Login/CA_RoadTripLOGIN.php">
-        <input type="submit" value="LOG OUT" id="logoutbutton">
-    </form>
+
 
 
 <!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
@@ -386,6 +386,9 @@ if(!$results){
             </div><!--close bio-->
                 <div class="editprofile">
                     <a href="editprofile.php?id=<?php echo $currentrow["userID"]; ?>">Edit Profile</a>
+                    <form action="../Login/CA_RoadTripLOGIN.php">
+                        <input type="submit" value="LOG OUT" id="logoutbutton">
+                    </form>
                 </div> <!--close edit profile-->
             </div><!--close profile info-->
         </div><!--close admin box-->

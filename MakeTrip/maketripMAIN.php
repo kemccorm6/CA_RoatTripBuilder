@@ -31,7 +31,7 @@ if ($mysql->connect_errno) {
             background-size: 2250px 1250px ;
         }
         .makeatrip {
-            width: 40%;
+            width: 50%;
             margin: auto;
             z-index: 10;
             /*position: fixed;*/
@@ -46,6 +46,11 @@ if ($mysql->connect_errno) {
             padding-bottom: 30px;
             text-align: center;
             font-size: 18pt;
+            margin-top: 100px;
+        }
+        select {
+            height: 40px;
+            width: 300px;
         }
     </style>
 </head>
@@ -64,44 +69,15 @@ if ($mysql->connect_errno) {
 <hr>
 <div class="container">
     <div class="makeatrip">
-                    <div class="left-col">
+
                         <h1>Make a Trip</h1>
 <!--                        <hr>-->
 <!--                        <br>-->
                         <form method="get" action="../results/results.php">
 
-                            <div class="label">Location:</div>
-                            <div class="input">
-
-                                <select name="locationsearch">
-                                    <option value="ALL">SELECT LOCATION</option>
-                                    <option value="ALL">--------------</option>
-
-                                    <?php
-
-                                    $sql = "SELECT * FROM location_table".
-                                        " WHERE locationname != '' AND locationname != ' '";
-
-                                    $results = $mysql->query($sql);
-
-                                    while($currentrow = $results->fetch_assoc()){
-                                        echo "<option>" . $currentrow["locationname"] . "</option>";
-                                    }
-                                    ?>
-
-                                </select>
 
 
-<!--                                                     <form>-->
-<!--                                                           <select name="location">-->
-<!--                                                              <option value="ALL">Select a Location</option>-->
-<!--                                                               <option value="ALL">---------------</option>-->
-<!--                                                         </select>-->
-<!--                                                  </form>-->
-
-
-                            </div> <br clear="all"/>
-                            <div class="label">City:</div>
+                            <div class="label">Start City:</div>
                             <div class="input">
 
                                 <select name="citysearch">
@@ -121,46 +97,30 @@ if ($mysql->connect_errno) {
                                     ?>
 
                                 </select>
-
-<!--                                                       <form>-->
-<!--                                                           <select name="city">-->
-<!--                                                                <option value="ALL">Select a City</option>-->
-<!--                                                            <option value="ALL">---------------</option>-->
-<!--                                                          </select>-->
-<!--                                                      </form>-->
-
-
                             </div> <br clear="all"/>
 
-                            <div class="label">Type:</div>
-                            <form class="input">
+    <div class="label">End City:</div>
+    <div class="input">
 
-                                <select name="typesearch">
-                                    <option value="ALL">SELECT TYPE</option>
-                                    <option value="ALL">--------------</option>
+        <select name="citysearch">
+            <option value="ALL">SELECT CITY</option>
+            <option value="ALL">--------------</option>
 
-                                    <?php
+            <?php
 
-                                    $sql = "SELECT * FROM type_table".
-                                        " WHERE type != '' AND type != ' '";
+            $sql = "SELECT * FROM city_table".
+                " WHERE city != '' AND city != ' '";
 
-                                    $results = $mysql->query($sql);
+            $results = $mysql->query($sql);
 
-                                    while($currentrow = $results->fetch_assoc()){
-                                        echo "<option>" . $currentrow["type"] . "</option>";
-                                    }
-                                    ?>
+            while($currentrow = $results->fetch_assoc()){
+                echo "<option>" . $currentrow["city"] . "</option>";
+            }
+            ?>
 
-                                </select>
-                            </form>
+        </select>
+    </div> <br clear="all"/>
 
-<!--                                <form>-->
-<!--                                    <select name="city">-->
-<!--                                        <option value="ALL">Select a Type</option>-->
-<!--                                        <option value="ALL">---------------</option>-->
-<!--                                    </select>-->
-
-<!--                                </form>-->
                                 <br>
                                 <input type="submit" value="Search" class="submit">
                                                     </form>
@@ -170,6 +130,7 @@ if ($mysql->connect_errno) {
 
                     </div>
                 </div>
+</div>
 
 
 
