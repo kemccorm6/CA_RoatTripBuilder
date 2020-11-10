@@ -164,8 +164,9 @@ if ($mysql->connect_errno) {
 </div>
 <hr>
 <div class="container">
+
     <div class="infotile" id="it1">
-        <h1>Our Team</h1>
+        <h1>Meet the Team</h1>
         <div class="gallery">
             <div class="mainimage"></div>
             <div class="previousimage"></div>
@@ -190,7 +191,7 @@ if ($mysql->connect_errno) {
     var i = 1;
     let images = ["kia.jpeg","mya.jpeg","dolce.jpeg","kyla.JPG"];
     let names = ["Kia", "Mya", "Eliza", "Kyla"];
-    let capt = ["Position: Project Manager & Web Developer <br>", "Position: Graphic Design/Brand Consultant <br> Skills: Product design, photography, and videography <br> Fun Fact: I like wearing pajamas", "Position: Product pages <br> Skills: visual design, branding, organization <br> Fun Fact: I used to know sign language","Position: Content collection and curation <br> Skills: None Listed <br> Fun Fact: I take my waterbottle with me everywhere","Position: Scripting and About Pages <br> Skills: Art and graphic design <br> Fun Fact: My hard drive failed and Robert had to save my files", "Position: About pages for build and business teams <br> Skills: Product design, digital design <br> Fun Fact: I race drones", "Position: Market Page <br> Skills: Design and graphics <br> Fun Fact: My lung collapsed twice"]
+    let capt = ["Position: Project Manager & Web Developer <br><br>", "Position: Graphic Design/Brand Consultant <br><br> Based in Los Angeles, Mya helps cultivate the look and feel of California Dreamin' with his graphic design and illustrations. He thoroughly enjoys traveling with friends and family and always can't wait for his next adventure: it brings his imagination so much material! ", "Position: UX/UI & Web Developer <br><br> ","Position: Database Manager <br><br> When she’s not trying to create the perfect road trip playlist, Kyla Wyllie is managing the database functionality of the site, and searching for new locations to add have you California Dreamin’. She currently spends most of her time between Los Angeles and San Diego, but has big dreams of future travel."]
     function swapnext(){
         // alert(i+" to "+(i+1));
         i++;
