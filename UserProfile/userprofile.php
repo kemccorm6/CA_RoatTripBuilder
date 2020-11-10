@@ -111,9 +111,9 @@ if(!$results){
             width: 10%;
             right: 0;
             height: 50px;
-            top: 50px;
+            top: 35px;
             position: absolute;
-            /*background-color: red;*/
+
             float: left;
             padding: 5px;
             color: white;
@@ -123,13 +123,10 @@ if(!$results){
             width:120px;
             height:60px;
             border-radius: 100px;
-            line-height: 20px;
-            text-align: center;
+
             float: right;
-            background-color: #FFD789;
-            font-size: 15pt;
-            line-height: 18pt;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
+
+
         }
         .adminbox{
             width:800px;
@@ -322,6 +319,15 @@ if(!$results){
             padding: 0;
             margin: 0;
         }
+        #logged {
+            float: right;
+            font-size: 14pt;
+           bottom: 0;
+            line-height: 35pt;
+            font-family: 'Poppins';
+            font-weight: 300;
+
+        }
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script>
@@ -364,10 +370,13 @@ if(!$results){
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
-        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
+
 
     </div>
-    <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
+
+    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/UserProfile/userprofile.php">
+            <img class="profileimage" src="myprofile_button-07.png"></a></div>
+    <div id="logged"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
 </div>
 <hr>
 

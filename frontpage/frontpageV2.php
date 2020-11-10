@@ -209,7 +209,8 @@ if($mysql->connect_errno) {
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
-    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php"><img class="profileimage" src="myprofile_button-07.png"></a></div>
+    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">
+            <img class="profileimage" src="myprofile_button-07.png"></a></div>
 
 </div>
 <!--<hr>-->
@@ -218,7 +219,7 @@ if($mysql->connect_errno) {
     <div class="side1">
 
         <div class="header" id="badge">
-            <img src="badgetan.svg" >
+            <img src="badgetan2.svg" >
 
         </div>
     </div>
