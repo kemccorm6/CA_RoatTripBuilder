@@ -33,7 +33,7 @@ $results = $mysql->query($sql);
 
 
 
-echo $sql;
+//echo $sql;
 ?>
 <html>
 <head>

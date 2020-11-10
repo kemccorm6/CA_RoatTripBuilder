@@ -286,7 +286,7 @@ $currentrow = $userresults->fetch_assoc();
                 <div class="locationandedit">
 
                     <div class="locationdiv"><?php echo $currentrow["locationname"] ?></div>
-                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow["locationID"] ?>">Edit</a> | <a href="deletelocation.php">Delete</a></div>
+                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow["locationID"] ?>">Edit</a> | <a href="deletelocation.php?id=<?php echo $currentrow["locationID"]; ?>">Delete</a></div>
                 </div>
 
                 <?php
