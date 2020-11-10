@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -62,16 +62,25 @@ if ($mysql->connect_errno) {
 </head>
 <body>
 <div class="topheader">
-    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
+    <a href="../frontpage/frontpageV2.php">
         <img src="myalogo1.png" id="logo"></a>
     <div class="navbar">
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
+        <?php
+        if(!empty($_SESSION["start"])){
+            echo "<div class='profile'><a href='../UserProfile/userprofile.php?id=". $_SESSION["UserId"] ."'>";
+            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
+        }else{
+            echo "<div class='navitem'><br><br><a href='../Login/CA_RoadTripLOGIN.php'>LOGIN</a> </div>";
+        }
+
+        ?>
+
+        <div class="navitem"><br><br><a href="../MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
+        <div class="navitem"><br><br><a href="../Community/communityMAIN.php">COMMUNITY</a> </div>
+        <div class="navitem"><br><br><a href="../Mission/missionMAIN.php">OUR MISSION</a> </div>
+        <div class="navitem"><br><br><a href="../Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
-    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php"><img class="profileimage" src="myprofile_button-08.png"></a></div>
+<!--    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php"><img class="profileimage" src="myprofile_button-08.png"></a></div>-->
 </div>
 <!--<hr>--><br>
 <div class="container">

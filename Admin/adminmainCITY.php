@@ -4,6 +4,7 @@
 <?php
 
 session_start();
+
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";

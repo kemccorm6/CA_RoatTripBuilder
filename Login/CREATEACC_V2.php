@@ -189,11 +189,11 @@ if ($mysql->connect_errno) {
         <br><br>
         <form action="../UserProfile/userprofile.php">
             Username: <br>
-            <input id="username" type="text" name="username" placeholder=" &nbsp; &nbsp;  username"><br>
+            <input id="username" type="text" name="newusername" placeholder=" &nbsp; &nbsp;  username"><br>
             Password: <br>
-            <input id="password" type="text" name="password" placeholder=" &nbsp; &nbsp;  password"><br>
+            <input id="password" type="text" name="newpassword" placeholder=" &nbsp; &nbsp;  password"><br>
             Email:<br>
-            <input id="email" type="text" name="email" placeholder=" &nbsp; &nbsp; email"><br>
+            <input id="email" type="text" name="newemail" placeholder=" &nbsp; &nbsp; email"><br>
             <br><br>
             <input id="submit" type="submit" value="Join Now">
         </form>

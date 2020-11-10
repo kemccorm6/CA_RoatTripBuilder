@@ -24,11 +24,37 @@ if ($mysql->connect_errno) {
 
 if (empty($_SESSION["start"])){
 
-
-    $_SESSION["username"] = $_REQUEST["usernamel"];
-    $_SESSION["password"] = $_REQUEST["passwordl"];
+    if(!empty($_REQUEST["newusername"])){
 
 
+    $sql= "INSERT INTO user_data_table " .
+        "(username, userpassword, User_Email)" .
+        "VALUES" .
+        "( " .
+        " '" . $_REQUEST["newusername"] . "', " .
+        " '" . $_REQUEST["newpassword"] . "', " .
+        " '" . $_REQUEST["newemail"] . "' " .
+
+        " ) ";
+
+
+
+    $results = $mysql->query($sql);
+
+    if(!$results){
+        echo "Something went wrong check error: " . $mysql->error;
+        exit();
+    }
+        $_SESSION["username"] = $_REQUEST["newusername"];
+        $_SESSION["password"] = $_REQUEST["newpassword"];
+
+    }else {
+
+
+        $_SESSION["username"] = $_REQUEST["usernamel"];
+        $_SESSION["password"] = $_REQUEST["passwordl"];
+
+    }
 
     $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
     //echo $usersql;
@@ -48,9 +74,11 @@ if (empty($_SESSION["start"])){
     $_SESSION["UserId"] = $currentrow["userID"];
 
     $_SESSION["start"] = "started";
+
+
 } else {
-    $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
-    //echo $usersql;
+    $usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"] ;
+//    echo "hello" . $usersql;
 
     $userresults = $mysql-> query($usersql);
     $currentrow = $userresults->fetch_assoc();
@@ -61,24 +89,8 @@ if (empty($_SESSION["start"])){
 
 
 
-$sql= "INSERT INTO user_data_table " .
-    "(username, userpassword, User_Email)" .
-    "VALUES" .
-    "( " .
-    " '" . $_REQUEST["username"] . "', " .
-    " '" . $_REQUEST["password"] . "', " .
-    " '" . $_REQUEST["email"] . "' " .
-
-    " ) ";
 
 
-
-$results = $mysql->query($sql);
-
-if(!$results){
-    echo "Something went wrong check error: " . $mysql->error;
-    exit();
-}
 
 
 
@@ -398,20 +410,29 @@ if(!$results){
 
 <body>
 <div class="topheader">
-    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
+    <a href="../frontpage/frontpageV2.php">
         <img src="myalogo1.png" id="logo"></a>
     <div class="navbar">
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
+        <?php
+        if(!empty($_SESSION["start"])){
+            echo "<div class='profile'><a href='../UserProfile/userprofile.php?id=". $_SESSION["UserId"] ."'>";
+            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
+        }else{
+            echo "<div class='navitem'><br><br><a href='../Login/CA_RoadTripLOGIN.php'>LOGIN</a> </div>";
+        }
+
+        ?>
+
+        <div class="navitem"><br><br><a href="../MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
+        <div class="navitem"><br><br><a href="../Community/communityMAIN.php">COMMUNITY</a> </div>
+        <div class="navitem"><br><br><a href="../Mission/missionMAIN.php">OUR MISSION</a> </div>
+        <div class="navitem"><br><br><a href="../Team/teamMAIN.php">OUR TEAM</a> </div>
 
 
     </div>
 
-    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/UserProfile/userprofile.php">
-            <img class="profileimage" src="myprofile_button-07.png"></a></div>
+<!--    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/UserProfile/userprofile.php">-->
+<!--            <img class="profileimage" src="myprofile_button-07.png"></a></div>-->
     <div id="logged"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
 </div>
 <hr>
