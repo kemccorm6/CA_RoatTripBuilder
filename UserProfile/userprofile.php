@@ -141,7 +141,7 @@ if (empty($_SESSION["start"])){
 
         }
         .adminbox{
-            width:800px;
+            width:1000px;
             height: 300px;
             margin: auto;
             margin-top: 50px;
@@ -167,7 +167,7 @@ if (empty($_SESSION["start"])){
         }
 
         .editprofile {
-            width: 200px;
+            width: 100px;
             font-size: 14pt;
             background-color:#FFD788;
             height: 40px;
@@ -176,6 +176,32 @@ if (empty($_SESSION["start"])){
             text-align: center;
             box-shadow: 2px 1px 4px dimgrey;
             margin-top: 30px;
+            float: left;
+        }
+        .adminpage {
+            float: left;
+            width: 100px;
+            font-size: 14pt;
+            background-color:#FFD788;
+            height: 40px;
+            line-height: 30pt;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 2px 1px 4px dimgrey;
+            margin-top: 30px;
+        }
+        .logout {
+            float: left;
+            width: 100px;
+            font-size: 14pt;
+            background-color:#FFD788;
+            height: 40px;
+            line-height: 30pt;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 2px 1px 4px dimgrey;
+            margin-top: 30px;
+
         }
 
         #tabs {
@@ -338,8 +364,11 @@ if (empty($_SESSION["start"])){
             line-height: 35pt;
             font-family: 'Poppins';
             font-weight: 300;
-
         }
+        input #adminpage {
+            background-color: #FFFFFF;
+        }
+
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script>
@@ -404,9 +433,7 @@ if (empty($_SESSION["start"])){
 <div class="container">
 
 <!--    LOG OUT BUTTON-->
-    <form action="../Login/CA_RoadTripLOGIN.php">
-        <input type="submit" value="LOG OUT" id="logoutbutton">
-    </form>
+
 
 
 <!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
@@ -422,14 +449,23 @@ if (empty($_SESSION["start"])){
                 <div class="editprofile">
                     <a href="editprofile.php?id=<?php echo $_SESSION["UserId"]; ?>">Edit Profile</a>
                 </div> <!--close edit profile-->
+                <div class="logout">
+                <form action="../Login/CA_RoadTripLOGIN.php">
+                    <input type="submit"  value="LOG OUT" id="logoutbutton">
+                </form>
+                </div>
+                <div class="adminpage">
+                <?php
+                if($_SESSION["IsAdmin"] == 1){
+                    echo "<form action='../Admin/adminmainLOCATION.php?id=". $_SESSION["UserId"] .
+                        "'><input type='submit' id='adminpage' value='Main Admin Page'></form>";
+                }
+                ?>
+                </div>
             </div><!--close profile info-->
         </div><!--close admin box-->
 
-    <?php
-    if($_SESSION["IsAdmin"] == 1){
-        echo "<form action='../Admin/adminmainLOCATION.php?id=". $_SESSION["UserId"] ."'><input type='submit' value='Main Admin Page'></form>";
-    }
-    ?>
+
 
 
         <br><Br>

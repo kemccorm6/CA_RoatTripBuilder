@@ -40,8 +40,9 @@ if ($mysql->connect_errno) {
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 40px;
-    padding-top: 10px;
+    padding-top: 30px;
     font-size: 18pt;
+    text-align: center;
     box-shadow: 5px 5px 10px black;
 }
 .missionlogobox {

@@ -21,7 +21,7 @@ $usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"]
 //echo $usersql;
 
 $userresults = $mysql-> query($usersql);
-$currentrow = $userresults->fetch_assoc();
+//$currentrow = $userresults->fetch_assoc();
 ?>
 <html>
 <head>
@@ -56,9 +56,44 @@ $currentrow = $userresults->fetch_assoc();
         }
         select {
             height: 40px;
-            width: 300px;
+            width: 200px;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+            border-radius: 10px;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 14pt;
+
+
+        }
+
+        .input {
+            margin: auto;
+            width: 350px;
+            clear: both;
+            text-align: right;
+        }
+
+        .label {
+            float: left;
+        }
+        #submit {
+            width:50% !important;
+            height: 40px;
+            font-size: 16pt;
+            border-radius: 15px;
+            margin:0 auto !important;
+            display:block !important;
+            float:none !important;
+            background-color: #85A867;
+            color: #FFFFFF;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+        }
+        form {
+            margin: auto;
+        }
+        h1 {margin-bottom: 60px;
         }
     </style>
+
 </head>
 <body>
 <div class="topheader">
@@ -79,9 +114,29 @@ $currentrow = $userresults->fetch_assoc();
     <div class="makeatrip">
 
                         <h1>Make a Trip</h1>
+        <form>
+            <div class="input">
+            <div class="label">Start City:</div>
+
+                <select name="citysearch">
+                    <option>Los Angeles</option>
+                </select>
+            </div>
+<br>
+            <div class="input">
+                <div class="label">End City:</div>
+                <select name="citysearch">
+                    <option>San Francisco</option>
+                </select>
+            </div>
+            <br><br>
+            <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/addcities.php">
+                <input type="button" id="submit" value="Make Trip" />
+            </a>
+        </form>
 <!--                        <hr>-->
 <!--                        <br>-->
-                        <form method="get" action="../results/results.php">
+                     <!--   <form method="get" action="../results/results.php">
 
 
 
@@ -92,17 +147,17 @@ $currentrow = $userresults->fetch_assoc();
                                     <option value="ALL">SELECT CITY</option>
                                     <option value="ALL">--------------</option>
 
-                                    <?php
+                             //       <?php
 
-                                    $sql = "SELECT * FROM city_table".
-                                        " WHERE city != '' AND city != ' '";
+                         //           $sql = "SELECT * FROM city_table".
+                           //             " WHERE city != '' AND city != ' '";
 
-                                    $results = $mysql->query($sql);
+                          //          $results = $mysql->query($sql);
 
-                                    while($currentrow = $results->fetch_assoc()){
-                                        echo "<option>" . $currentrow["city"] . "</option>";
-                                    }
-                                    ?>
+                           //         while($currentrow = $results->fetch_assoc()){
+                                     //   echo "<option>" . $currentrow["city"] . "</option>";
+                           //         }
+                            //        ?>
 
                                 </select>
                             </div> <br clear="all"/>
@@ -114,9 +169,9 @@ $currentrow = $userresults->fetch_assoc();
             <option value="ALL">SELECT CITY</option>
             <option value="ALL">--------------</option>
 
-            <?php
 
-            $sql = "SELECT * FROM city_table".
+
+        /*    $sql = "SELECT * FROM city_table".
                 " WHERE city != '' AND city != ' '";
 
             $results = $mysql->query($sql);
@@ -135,6 +190,7 @@ $currentrow = $userresults->fetch_assoc();
 
                             </div>
                             <br><br>
+                            -->
 
                     </div>
                 </div>
