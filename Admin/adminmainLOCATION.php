@@ -229,7 +229,7 @@ $currentrow = $userresults->fetch_assoc();
         <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
 
     </div>
-    <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
+    <div class="profile"> <a href="../UserProfile/userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
 </div>
 <hr>
 

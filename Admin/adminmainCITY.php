@@ -197,6 +197,7 @@ $currentrow = $userresults->fetch_assoc();
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
         <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
     </div>
+    <div class="profile"> <a href="../UserProfile/userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
 </div>
 <hr>
     <div class="container">
