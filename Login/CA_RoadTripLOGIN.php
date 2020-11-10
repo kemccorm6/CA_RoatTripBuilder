@@ -19,6 +19,8 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+
 ?>
 
 <html>
@@ -131,11 +133,11 @@ margin: auto;
         New here? <a href="CREATEACC_V2.php">Create an Account</a>
         <br><br>
 
-        <form action="">
+        <form action="../UserProfile/userprofile.php">
             Username: <br>
-            <input id="username" type="text" name="username" placeholder=" &nbsp; &nbsp;  username"><br>
+            <input id="username" type="text" name="usernamel" placeholder=" &nbsp; &nbsp;  username"><br>
             Password: <br>
-            <input id="password" type="text" name="password" placeholder=" &nbsp; &nbsp;  password"><br><br>
+            <input id="password" type="text" name="passwordl" placeholder=" &nbsp; &nbsp;  password"><br><br>
             <label><input type="checkbox" name="admin" value="admin" id="admincheck" onclick="reveal()">Check if Admin</label>
 
             <input type="text" name="adminpassword" placeholder="&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; admin password" style="display:none" id="checkedadmin">

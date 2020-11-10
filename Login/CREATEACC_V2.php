@@ -1,3 +1,4 @@
+
 <?php
 
 $host = "webdev.iyaclasses.com";
@@ -21,6 +22,9 @@ if ($mysql->connect_errno) {
 
 <html>
 <head>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+
     <link rel = "stylesheet"
           type = "text/css"
           href = "../account.css" />
@@ -183,7 +187,7 @@ if ($mysql->connect_errno) {
         <br>
         Have an Account? <a href="CA_RoadTripLOGIN.php">Log In</a>
         <br><br>
-        <form action="">
+        <form action="../UserProfile/userprofile.php">
             Username: <br>
             <input id="username" type="text" name="username" placeholder=" &nbsp; &nbsp;  username"><br>
             Password: <br>
@@ -194,6 +198,29 @@ if ($mysql->connect_errno) {
             <input id="submit" type="submit" value="Join Now">
         </form>
 
+            <script>
+                $("#submit").click(function(event){
+                    if($("#username").val() == ''){
+                        alert("Please fill out username.")
+                        event.preventDefault();
+
+                    }
+                    if($("#password").val() == ''){
+                        alert("Please fill out password.")
+                        event.preventDefault();
+
+                    }
+                    if($("#email").val() == ''){
+                        alert("Please fill out email.")
+                        event.preventDefault();
+
+                    }
+
+
+                        // alert( $("#username").val() == '' );
+
+                });
+            </script>
 
     </div> <!-- close container-->
 </body>

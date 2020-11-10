@@ -1,4 +1,7 @@
+
 <?php
+
+
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
@@ -28,18 +31,19 @@ $sql= "INSERT INTO user_data_table " .
 
     " ) ";
 
-echo $sql;
+
 
 $results = $mysql->query($sql);
 
 if(!$results){
     echo "Something went wrong check error: " . $mysql->error;
     exit();
-}else{
-    echo "Congratulations you added the '". $_REQUEST['newtype'] . "' type";
-
-
 }
+
+$usersql = "SELECT * FROM user_data_table WHERE username='" . $_REQUEST["usernamel"] . "' AND userpassword = '" . $_REQUEST["passwordl"] . "' ";
+echo $usersql;
+
+$userresults = $mysql-> query($userresults);
 
 ?>
 <html>
