@@ -1,4 +1,8 @@
+
 <?php
+
+
+session_start();
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
@@ -18,6 +22,41 @@ if ($mysql->connect_errno) {
     exit();
 }
 
+if (empty($_SESSION["start"])){
+
+
+    $_SESSION["username"] = $_REQUEST["usernamel"];
+    $_SESSION["password"] = $_REQUEST["passwordl"];
+
+
+
+    $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
+    //echo $usersql;
+
+    $userresults = $mysql-> query($usersql);
+    $currentrow = $userresults->fetch_assoc();
+
+
+    if(!$userresults){
+        echo "Something went wrong check error: " . $mysql->error;
+        echo "<a href='../Login/CA_RoadTripLOGIN.php'>Go Back to Login</a>";
+        exit();
+    }
+
+
+    $_SESSION["IsAdmin"] = $currentrow["Is_Admin"];
+
+
+    $_SESSION["start"] = "started";
+}
+
+if($_SESSION["IsAdmin"] == 1){
+    echo "<form action='../Admin/adminmainLOCATION.php'><input type='submit' value='Main Admin Page'></form>";
+}
+
+
+
+
 $sql= "INSERT INTO user_data_table " .
     "(username, userpassword, User_Email)" .
     "VALUES" .
@@ -28,22 +67,26 @@ $sql= "INSERT INTO user_data_table " .
 
     " ) ";
 
-echo $sql;
+
 
 $results = $mysql->query($sql);
 
 if(!$results){
     echo "Something went wrong check error: " . $mysql->error;
     exit();
-}else{
-    echo "Congratulations you added the '". $_REQUEST['newtype'] . "' type";
-
-
 }
+
+
+
+
+//    echo $currentrow["username"];
+
 
 ?>
 <html>
 <head>
+    <script src="http://code.jquery.com/jquery.js"></script>
+
     <title>User Profile</title>
     <link rel = "stylesheet"
           type = "text/css"
@@ -320,19 +363,28 @@ if(!$results){
 
 <div class="container">
 
+<!--    LOG OUT BUTTON-->
+    <form action="../Login/CA_RoadTripLOGIN.php">
+        <input type="submit" value="LOG OUT" id="logoutbutton">
+    </form>
+
+
+<!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
+
         <div class="adminbox">
-            <div class="circleimage"></div>
+            <div><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"]; ?>"</div>
             <br>
             <div id="profileinfo">
-            <h1>Jonny Appleseed</h1>
+            <h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
             <div id="bio">
-                <p>I love going on road trips with my puppy.<br> I mostly travel in the Socal area</p>
+                <p><?php echo $currentrow["User_Description"]; ?></p>
             </div><!--close bio-->
                 <div class="editprofile">
-                    <a href="MakeTrip/maketripMAIN.php">Edit Profile</a>
+                    <a href="editprofile.php?id=<?php echo $currentrow["userID"]; ?>">Edit Profile</a>
                 </div> <!--close edit profile-->
             </div><!--close profile info-->
         </div><!--close admin box-->
+
 
         <br><Br>
         <div id="tabs">

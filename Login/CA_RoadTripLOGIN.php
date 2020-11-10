@@ -1,6 +1,8 @@
 
 
 <?php
+session_start();
+session_destroy();
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
@@ -19,10 +21,14 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+
 ?>
 
 <html>
 <head>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
     <link rel = "stylesheet"
           type = "text/css"
           href = "../master2.css" />
@@ -131,11 +137,11 @@ margin: auto;
         New here? <a href="CREATEACC_V2.php">Create an Account</a>
         <br><br>
 
-        <form action="">
+        <form action="../UserProfile/userprofile.php">
             Username: <br>
-            <input id="username" type="text" name="username" placeholder=" &nbsp; &nbsp;  username"><br>
+            <input id="username" type="text" name="usernamel" placeholder=" &nbsp; &nbsp;  username"><br>
             Password: <br>
-            <input id="password" type="text" name="password" placeholder=" &nbsp; &nbsp;  password"><br><br>
+            <input id="password" type="text" name="passwordl" placeholder=" &nbsp; &nbsp;  password"><br><br>
             <label><input type="checkbox" name="admin" value="admin" id="admincheck" onclick="reveal()">Check if Admin</label>
 
             <input type="text" name="adminpassword" placeholder="&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; admin password" style="display:none" id="checkedadmin">
@@ -155,6 +161,27 @@ margin: auto;
 
                     }
                 }
+
+            </script>
+
+            <script>
+                $("#submit").click(function(event){
+                    if($("#username").val() == ''){
+                        alert("Please fill out username.")
+                        event.preventDefault();
+
+                    }
+
+                    if($("#password").val() == ''){
+                        alert("Please fill out password.")
+                        event.preventDefault();
+
+                    }
+
+
+                    // alert( $("#username").val() == '' );
+
+                });
             </script>
         </form>
 
