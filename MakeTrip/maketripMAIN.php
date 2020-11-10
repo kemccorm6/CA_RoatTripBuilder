@@ -24,11 +24,17 @@ if ($mysql->connect_errno) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
+        body {
+
+            background-image: url("tiretracks.png");
+            /*background: linear-gradient(to bottom, #f1f0c9, #ecf2d6);*/
+            background-size: 2250px 1250px ;
+        }
         .makeatrip {
             width: 40%;
             margin: auto;
             z-index: 10;
-            position: fixed;
+            /*position: fixed;*/
             top: 200px;
             box-shadow: 1px 1px 6px black;
             background-color: #D14A0A;
@@ -39,6 +45,7 @@ if ($mysql->connect_errno) {
             padding: 15px;
             padding-bottom: 30px;
             text-align: center;
+            font-size: 18pt;
         }
     </style>
 </head>
@@ -60,7 +67,7 @@ if ($mysql->connect_errno) {
                     <div class="left-col">
                         <h1>Make a Trip</h1>
 <!--                        <hr>-->
-                        <br>
+<!--                        <br>-->
                         <form method="get" action="../results/results.php">
 
                             <div class="label">Location:</div>
@@ -156,7 +163,7 @@ if ($mysql->connect_errno) {
 <!--                                </form>-->
                                 <br>
                                 <input type="submit" value="Search" class="submit">
-                                <!--                    </form>
+                                                    </form>
 
                             </div>
                             <br><br>
