@@ -23,12 +23,34 @@ if ($mysql->connect_errno) {
 <head>
     <link rel = "stylesheet"
           type = "text/css"
-          href = "../master2.css" />
+          href = "../account.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
-
-
+        body {
+            /*background-color: #ecf2d6;*/
+            background: linear-gradient(to bottom, #f1f0c9, #ecf2d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .navbar {
+            width: 70%;
+            left: 0;
+            height: 50px;
+            top: 60px;
+            position: absolute;
+            /*background-color: red;*/
+            float: left;
+            margin-left: 300px;
+            padding: 5px;
+            line-height: 10px;
+            color: white;
+        }
+        .navitem {
+            width: 20%;
+        font-size: 18pt;
+            float: left;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            text-align: center;
+        }
         .createacc {
             width: 50%;
             height: 500px;
@@ -101,7 +123,9 @@ if ($mysql->connect_errno) {
     <div class="navitem"><br><br>OUR MISSION</div>
     <div class="navitem"><br><br>OUR TEAM</div>
 </div>
-
+<!--    <div class="login">-->
+<!--        <a style="text-decoration:none; color:white" href="login.html">Login</a>-->
+<!--    </div>-->
 </div>
 <hr>
 <!--<div class="menu" style="border-right:1px solid #000;height:3500px">-->
@@ -159,7 +183,7 @@ if ($mysql->connect_errno) {
         <br>
         Have an Account? <a href="CA_RoadTripLOGIN.php">Log In</a>
         <br><br>
-        <form action="../UserProfile/userprofile.php">
+        <form action="">
             Username: <br>
             <input id="username" type="text" name="username" placeholder=" &nbsp; &nbsp;  username"><br>
             Password: <br>
