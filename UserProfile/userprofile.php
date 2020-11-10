@@ -45,14 +45,18 @@ if (empty($_SESSION["start"])){
 
 
     $_SESSION["IsAdmin"] = $currentrow["Is_Admin"];
-
+    $_SESSION["UserId"] = $currentrow["userID"];
 
     $_SESSION["start"] = "started";
+} else {
+    $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
+    //echo $usersql;
+
+    $userresults = $mysql-> query($usersql);
+    $currentrow = $userresults->fetch_assoc();
 }
 
-if($_SESSION["IsAdmin"] == 1){
-    echo "<form action='../Admin/adminmainLOCATION.php'><input type='submit' value='Main Admin Page'></form>";
-}
+
 
 
 
@@ -121,16 +125,17 @@ if(!$results){
             border-radius: 100px;
             line-height: 20px;
             text-align: center;
-
+            float: right;
             background-color: #FFD789;
             font-size: 15pt;
             line-height: 18pt;
             font-family: 'Yanone Kaffeesatz', sans-serif;
         }
         .adminbox{
-            width:1000px;
+            width:800px;
             height: 300px;
             margin: auto;
+            margin-top: 50px;
         }
         #profileinfo {
            float: left;
@@ -149,7 +154,7 @@ if(!$results){
            height: 1000px;
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
-
+            margin-bottom: 100px;
         }
 
         .editprofile {
@@ -317,9 +322,6 @@ if(!$results){
             padding: 0;
             margin: 0;
         }
-        #logoutbutton {
-            margin-top: 20px;
-        }
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script>
@@ -362,6 +364,7 @@ if(!$results){
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
+        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
 
     </div>
     <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
@@ -371,7 +374,9 @@ if(!$results){
 <div class="container">
 
 <!--    LOG OUT BUTTON-->
-
+    <form action="../Login/CA_RoadTripLOGIN.php">
+        <input type="submit" value="LOG OUT" id="logoutbutton">
+    </form>
 
 
 <!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
@@ -385,20 +390,23 @@ if(!$results){
                 <p><?php echo $currentrow["User_Description"]; ?></p>
             </div><!--close bio-->
                 <div class="editprofile">
-                    <a href="editprofile.php?id=<?php echo $currentrow["userID"]; ?>">Edit Profile</a>
-                    <form action="../Login/CA_RoadTripLOGIN.php">
-                        <input type="submit" value="LOG OUT" id="logoutbutton">
-                    </form>
+                    <a href="editprofile.php?id=<?php echo $_SESSION["UserId"]; ?>">Edit Profile</a>
                 </div> <!--close edit profile-->
             </div><!--close profile info-->
         </div><!--close admin box-->
+
+    <?php
+    if($_SESSION["IsAdmin"] == 1){
+        echo "<form action='../Admin/adminmainLOCATION.php?id=". $_SESSION["UserId"] ."'><input type='submit' value='Main Admin Page'></form>";
+    }
+    ?>
 
 
         <br><Br>
         <div id="tabs">
             <ul id="tabs">
 
-                <li><a href="MakeTrip/maketripMAIN.php" name="tab1" id="tab12" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
+                <li><a href="MakeTrip/maketripMAIN.php?id=<?php echo $_SESSION["UserId"]; ?>" name="tab1" id="tab12" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
                 <li><a href="MyRoadtrips" name="tab2">My Roadtrips</a></li>
                 <li><a href="SavedTrips" name="tab3">Saved Trips</a></li>
             </ul>
