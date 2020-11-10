@@ -148,7 +148,7 @@ if ($mysql->connect_errno) {
         .description {
             width: 600px;
             background-color: #FFFFFF;
-          float: left;
+            float: left;
             height: 110px;
             padding: 10px;
             padding-left: 15px;
@@ -157,29 +157,89 @@ if ($mysql->connect_errno) {
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
             margin-left: 50px;
         } .address {
-            width: 600px;
-            background-color: #FFFFFF;
-            float: left;
-            margin-left: 50px;
-            height: 40px;
-            padding: 10px;
-            padding-left: 15px;
-            margin-top: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
-        }
-          .rating {
-              width: 200px;
+              width: 600px;
               background-color: #FFFFFF;
-              height: 200px;
-              padding: 15px;
-              float: right;
-              margin-top: 25px;
-              margin-right: 75px;
+              float: left;
+              margin-left: 50px;
+              height: 40px;
+              padding: 10px;
+              padding-left: 15px;
+              margin-top: 30px;
               border-radius: 15px;
               box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
           }
+        .rating {
+            width: 200px;
+            background-color: #FFFFFF;
+            height: 200px;
+            padding: 15px;
+            float: right;
+            margin-top: 25px;
+            margin-right: 75px;
+            border-radius: 15px;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+            clear: bottom;
+        }
+        #typesrow {
+            width: 200px;
 
+            float: left;
+        }
+        .types{
+            float: left;
+            background-color: gray;
+            width: px;
+            margin: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+            height: 30px;
+            border-radius: 5px;
+            line-height: 23pt;
+            font-size: 10pt;
+        }
+        .detailsarea {
+            width: 100%;
+            height: 225px;
+        }
+        .userreview {
+            width:870px;
+            background-color: white;
+            height: 150px;
+border-radius: 15px;
+            margin: auto;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+            padding: 15px;
+        }
+        #profilepic {
+            width:100px;
+            height:100px;
+            border-radius: 150px;
+            float: left;
+            background-color: #FFFFFF;
+            border: 1px solid gray;
+            float: left;
+            margin-left: 50px;
+            margin-top: 20px;
+            color: black;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+        }
+        #username {
+float: left;
+            width: 400px;
+            font-size: 18pt;
+            margin-top: 20px;
+            margin-left: 40px;
+        }
+        #locationreview {
+            width: 500px;
+            margin-left: 40px;
+            margin-top: 30px;
+            overflow-wrap: normal;
+            font-size: 12pt;
+            float: left;
+
+        }
 
 
 
@@ -190,8 +250,8 @@ if ($mysql->connect_errno) {
 <script>
     $(document).ready(function() {
 
-        $("#stopinfo").click(function (){
-            window.location.href="locationdetails.php";
+        $("#tab12").click(function (){
+            window.location.href="MyRoadtripDetails.php";
             return false;
         });
 
@@ -241,30 +301,46 @@ if ($mysql->connect_errno) {
             <img class="banner3" id="image3" src="fpbg.png">
         </div>
 
-
-        <div class="address">
-addy
-        </div>
-        <div class="rating">
-            Star Review:
-        </div>
-        <div class="description">
-            <p> Write a description about your roadtrip. Include goals, ideas, key places and memories!</p>
-        </div>
-
-
-
-
-
-
+        <div class="detailsarea">
+            <div class="address">
+                Address
             </div>
-
+            <div class="rating">
+                Star Review:
+                <br><br><br>
+                Amenities:
+                <div id="typesrow">
+                    <div class="types" id="type1">Pet Friendly</div>
+                    <div class="types" id="type2">Wifi</div>
+                    <div class="types" id="type3">Mountain</div>
+                </div>
+            </div>
+            <div class="description">
+                <p> Write a description about your roadtrip. Include goals, ideas, key places and memories!</p>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="userreview">
+            <div id="profilepic"></div>
+            <div id="username">Johnny Appleseed</div>
+            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>
+        </div>
+<br><br>
+        <div class="userreview">
+            <div id="profilepic"></div>
+            <div id="username">Johnny Appleseed</div>
+            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>
+        </div>
+        <br><br>
+        <div class="userreview">
+            <div id="profilepic"></div>
+            <div id="username">Johnny Appleseed</div>
+            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>
         </div>
     </div>
 
+</div>
 
-</div><!-- Close Big Box -->
-</div> <!-- Close Container -->
 
 </body>
-
+</html>

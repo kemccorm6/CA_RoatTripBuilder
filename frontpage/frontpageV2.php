@@ -173,9 +173,9 @@ if($mysql->connect_errno) {
 
         }
         .profile {
-            width: 10%;
+            width: 100px;
             right: 0;
-            height: 50px;
+            /*height: 50px;*/
             top: 50px;
             position: absolute;
             /*background-color: red;*/
@@ -185,16 +185,15 @@ if($mysql->connect_errno) {
             margin-right: 30px;
         }
         .profileimage{
-            width:120px;
-            height:60px;
-            border-radius: 100px;
-            line-height: 20px;
-            text-align: center;
-            float: right;
-            background-color: #FFD789;
-            font-size: 15pt;
+            width: 100%;
+            /*border-radius: 100px;*/
+            /*line-height: 20px;*/
+            /*text-align: center;*/
+            /*float: right;*/
+            /*background-color: #FFD789;*/
+            /*font-size: 15pt;*/
 
-            font-family: 'Yanone Kaffeesatz', sans-serif;
+            /*font-family: 'Yanone Kaffeesatz', sans-serif;*/
         }
 
     </style>
@@ -210,7 +209,7 @@ if($mysql->connect_errno) {
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
     </div>
-    <div class="profile"> <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/UserProfile/userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>
+    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php"><img class="profileimage" src="myprofile_button-07.png"></a></div>
 
 </div>
 <!--<hr>-->

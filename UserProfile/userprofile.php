@@ -258,6 +258,11 @@ if(!$results){
             font-weight: 100 / 300 / 500 / 700 / 900;
             font-style: normal;
         }
+        .prodtile:hover {
+            width: 21vw;
+            min-height: 11vw;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+        }
         .roadtripinfo {
 
             margin-top: 10px;
