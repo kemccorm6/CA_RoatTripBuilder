@@ -166,10 +166,10 @@ if(!$results){
             margin-top: 30px;
             float: left;
         }
-        .adminpage {
+        #adminpage {
             float: left;
-            width: 100px;
-            font-size: 14pt;
+            width: 160px;
+            font-size: 12pt;
             background-color:#FFD788;
             height: 40px;
             line-height: 30pt;
@@ -177,8 +177,11 @@ if(!$results){
             text-align: center;
             box-shadow: 2px 1px 4px dimgrey;
             margin-top: 30px;
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+
         }
-        .logout {
+        #logoutbutton {
             float: left;
             width: 100px;
             font-size: 14pt;
@@ -189,6 +192,9 @@ if(!$results){
             text-align: center;
             box-shadow: 2px 1px 4px dimgrey;
             margin-top: 30px;
+            font-size: 12pt;
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
 
         }
 
@@ -357,6 +363,7 @@ if(!$results){
             background-color: #FFFFFF;
         }
 
+
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script>
@@ -430,14 +437,14 @@ if(!$results){
                 </div> <!--close edit profile-->
                 <div class="logout">
                 <form action="../Login/CA_RoadTripLOGIN.php">
-                    <input type="submit"  value="LOG OUT" id="logoutbutton">
+                    <input type="submit"  value="Log Out" id="logoutbutton">
                 </form>
                 </div>
                 <div class="adminpage">
                 <?php
                 if($_SESSION["IsAdmin"] == 1){
                     echo "<form action='../Admin/adminmainLOCATION.php?id=". $_SESSION["UserId"] .
-                        "'><input type='submit' id='adminpage' value='Main Admin Page'></form>";
+                        "'><input type='submit'  value='Main Admin Page' id='adminpage'></form>";
                 }
                 ?>
                 </div>
