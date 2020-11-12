@@ -288,18 +288,54 @@ $currentrow = $userresults->fetch_assoc();
                 exit();
             }
 
-            while($currentrow = $results->fetch_assoc()){
+            $startp = 1;
+
+            if(!empty($_REQUEST["startp"])){
+                $startp = $_REQUEST["startp"];
+            }
+            $limit = 10;
+            $end = $startp + $limit - 1;
+            echo "<br><br>";
+            echo $results-> num_rows . " Results. " . "Displaying results " . $startp . " - " . ($startp + $limit - 1) . ".";
+            echo "<br><br>";
+
+            $counter = $startp;
+
+            $results->data_seek($start-1);
+
+            while($currentrow2 = $results->fetch_assoc()){
 
 
                 ?>
                 <div class="locationandedit">
 
-                    <div class="locationdiv"><?php echo $currentrow["locationname"] ?></div>
-                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow["locationID"] ?>">Edit</a> | <a href="deletelocation.php?id=<?php echo $currentrow["locationID"]; ?>">Delete</a></div>
+                    <div class="locationdiv"><?php echo $counter . ") " . $currentrow2["locationname"] ?></div>
+                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow2["locationID"] ?>">Edit</a> | <a href="deletelocation.php?id=<?php echo $currentrow["locationID"]; ?>">Delete</a></div>
                 </div>
 
                 <?php
+
+                $counter++;
+                if($counter > $end){
+                    break;
+                }
             }
+
+            $formdata = "";
+            $formdata .= "locationname=" . $_REQUEST["locationname"];
+            $formdata .= "&startp=" . ($startp+$limit);
+            echo "<hr>" . $formdata . "<hr>";
+
+            if($startp > $limit){
+                echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp - $limit) ."'>Prev</a>";
+            }
+
+            echo " | ";
+
+            if($results->num_rows > $startp + $limit){
+                echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp + $limit) ."'>Next</a>";
+            }
+
             ?>
 
         </div>
