@@ -20,8 +20,8 @@
     <div class="navbar">
         <?php
         if(!empty($_SESSION["start"])){
-            echo "<div class='profile'><a href=' UserProfile/userprofile.php?id=". $_SESSION["UserId"] ."'>";
-            echo "<img class='profileimage' src='myprofile_button-07.png'></a></div>";
+            echo "<div class='profile'><a href='../UserProfile/userprofile.php?id=". $_SESSION["UserId"] ."'>";
+            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
             echo "<div id='logged'><br><br> Hi " . $currentrow["User_Real_Name"] . "! </div>";
         }else{
             echo "<div class='navitem'><br><br><a href='../Login/CA_RoadTripLOGIN.php'>LOGIN</a> </div>";

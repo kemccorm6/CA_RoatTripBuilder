@@ -106,29 +106,31 @@ $results = $mysql->query($sql);
     </style>
 </head>
 <body>
-<div class="topheader">
-    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
-        <img src="myalogo1.png" id="logo"></a>
-    <div class="navbar">
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
-        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
-    </div>
-</div>
-<hr>
+<?php include "../masterHTML.php" ?>
+<!--<div class="topheader">-->
+<!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
+<!--        <img src="myalogo1.png" id="logo"></a>-->
+<!--    <div class="navbar">-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>-->
+<!--        <div class="navitem"><br><br>Hi --><?php //echo $currentrow["User_Real_Name"] ?><!-- !</div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<hr>-->
 <div class="container">
     <div class="adminacc">
         <div class="adminbox">
             <div ><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"] ?>"</div>
             <br>
             <h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
+            Admin
         </div>
         <br>
         <div class="tabs">
-            <div class="editloc" id="editloc" > <a href="adminmainTYPE.php">BACK</a></div>
+            <div class="editloc" id="editloc" > <a href="adminmainLOCATION.php">BACK</a></div>
         </div>
 
         <div class="bigbox">
@@ -152,7 +154,7 @@ $results = $mysql->query($sql);
 if($_REQUEST["confirm"] == "yes"){
     echo "Congrats! Your Location has been deleted!";
     echo "<br>";
-    echo "<a href='adminmainLOCATION.php'>Back</a>";
+//    echo "<a href='adminmainLOCATION.php'>Back</a>";
 
 }
 ?>

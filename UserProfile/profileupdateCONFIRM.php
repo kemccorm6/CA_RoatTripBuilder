@@ -38,9 +38,16 @@ if(!$results){
 <html>
 <head>
     <title>Profile Update Confirmation</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "../master2.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
+<?php include "../masterHTML.php" ?>
 
 <br><br>
 <?php

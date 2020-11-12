@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -17,6 +17,13 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
+
 $sql = "UPDATE location_table
         SET 
         locationname ='" . $_REQUEST["editlocationname"] . "', " .
@@ -45,7 +52,7 @@ if(!$results){
 
 <link rel = "stylesheet"
       type = "text/css"
-      href = "../../master2.css"/>
+      href = "../master2.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
 <style>
@@ -111,31 +118,30 @@ if(!$results){
     </style>
 </head>
 <body>
-<div class="topheader">
-    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
-        <img src="myalogo1.png" id="logo"></a>
-    <div class="navbar">
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
-        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
-    </div>
-</div>
-<hr>
+<?php include "../masterHTML.php" ?>
+<!--<div class="topheader">-->
+<!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
+<!--        <img src="myalogo1.png" id="logo"></a>-->
+<!--    <div class="navbar">-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>-->
+<!--        <div class="navitem"><br><br>Hi --><?php //echo $currentrow["User_Real_Name"] ?><!-- !</div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<hr>-->
 <div class="container">
     <div class="adminacc">
         <div class="adminbox">
-            <div class="circleimage"></div>
-            <br>
-            Jonny Appleseed
-            <br>
+            <div ><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"] ?>"</div>
+            <br><h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
             Admin
         </div>
         <br>
         <div class="tabs">
-            <div class="editloc" id="editloc" > <a href="adminmainTYPE.php">BACK</a></div>
+            <div class="editloc" id="editloc" > <a href="adminmainLOCATION.php">BACK</a></div>
         </div>
 
         <div class="bigbox">
@@ -150,7 +156,7 @@ echo "<h2>Your Location edit has been updated!</h2>";
 <br><br>
 
 
-<a href="Admin/adminmainLOCATION.php">Go Back to Main Page</a>
+<!--<a href="adminmainLOCATION.php">Go Back to Main Page</a>-->
 
 </body>
 </html>

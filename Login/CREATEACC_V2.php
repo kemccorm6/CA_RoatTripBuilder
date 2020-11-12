@@ -1,6 +1,7 @@
 
 <?php
-
+session_start();
+session_destroy();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -118,20 +119,21 @@ if ($mysql->connect_errno) {
     </style>
 </head>
 <body>
-<div class="topheader">
-    <img src="myalogo1.png" id="logo">
-<div class="navbar">
-    <div class="navitem"><br><br>LOGIN</div>
-    <div class="navitem"><br><br>MAKE A TRIP</div>
-    <div class="navitem"><br><br>COMMUNITY</div>
-    <div class="navitem"><br><br>OUR MISSION</div>
-    <div class="navitem"><br><br>OUR TEAM</div>
-</div>
+<?php include"../masterHTML.php" ?>
+<!--<div class="topheader">-->
+<!--    <img src="myalogo1.png" id="logo">-->
+<!--<div class="navbar">-->
+<!--    <div class="navitem"><br><br>LOGIN</div>-->
+<!--    <div class="navitem"><br><br>MAKE A TRIP</div>-->
+<!--    <div class="navitem"><br><br>COMMUNITY</div>-->
+<!--    <div class="navitem"><br><br>OUR MISSION</div>-->
+<!--    <div class="navitem"><br><br>OUR TEAM</div>-->
+<!--</div>-->
 <!--    <div class="login">-->
 <!--        <a style="text-decoration:none; color:white" href="login.html">Login</a>-->
 <!--    </div>-->
-</div>
-<hr>
+<!--</div>-->
+<!--<hr>-->
 <!--<div class="menu" style="border-right:1px solid #000;height:3500px">-->
 <!--    <div class="menuitem">-->
 <!---->
