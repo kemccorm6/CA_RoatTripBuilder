@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -36,7 +36,7 @@ if(!$results){
 
     <link rel = "stylesheet"
           type = "text/css"
-          href = "../../master2.css"/>
+          href = "../master2.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
 <style>
@@ -105,7 +105,7 @@ if(!$results){
 <body>
 <div class="topheader">
     <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
-        <img src="myalogo1.png" id="logo"></a>
+        <img src="EditConfirmationPages/myalogo1.png" id="logo"></a>
     <div class="navbar">
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
         <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>

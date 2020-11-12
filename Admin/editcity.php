@@ -1,7 +1,7 @@
 
 
 <?php
-
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -20,11 +20,19 @@ if ($mysql->connect_errno) {
     exit();
 }
 
+
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
+
+
 $sql= "SELECT * FROM city_table WHERE cityID =" . $_REQUEST['id'];
 
 $results = $mysql-> query($sql);
 
-$currentrow = $results->fetch_assoc();
+$currentrow2 = $results->fetch_assoc();
 
 ?>
 <html>
@@ -121,42 +129,41 @@ $currentrow = $results->fetch_assoc();
     </style>
 </head>
 <body>
-<div class="topheader">
-    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
-        <img src="myalogo1.png" id="logo"></a>
-    <div class="navbar">
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
-        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
-    </div>
-</div>
-<hr>
+<?php include "../masterHTML.php" ?>
+<!--<div class="topheader">-->
+<!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
+<!--        <img src="myalogo1.png" id="logo"></a>-->
+<!--    <div class="navbar">-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>-->
+<!--        <div class="navitem"><br><br>Hi --><?php //echo $currentrow["User_Real_Name"] ?><!-- !</div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<hr>-->
 <div class="container">
     <div class="adminacc">
 <div class="adminbox">
-    <div class="circleimage"></div>
-    <br>
-    Jonny Appleseed
-    <br>
+    <div ><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"] ?>"</div>
+    <br><h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
     Admin
 </div>
 <br>
         <div class="tabs">
-            <div class="editloc" id="editloc" > <a href="adminmainTYPE.php">BACK</a></div>
+            <div class="editloc" id="editloc" > <a href="adminmainCITY.php">BACK</a></div>
         </div>
 
         <div class="bigbox">
 <div class="addform">
     <h2>Edit City</h2>
     <br><br>
-    <form action="EditConfirmationPages/editcityCONFIRM.php ">
+    <form action="editcityCONFIRM.php ">
         <div class="titlesubmit">
-        <input type="hidden" name="id" value="<?php echo $currentrow["cityID"] ?>">
+        <input type="hidden" name="id" value="<?php echo $currentrow2["cityID"] ?>">
             <div class="titlediv"> Edit City: </div>
-            <input type="text" value="<?php echo $currentrow["city"] ?>" name="editcity">
+            <input type="text" value="<?php echo $currentrow2["city"] ?>" name="editcity">
         </div>
         <input type="submit" value="Edit City">
     </form>

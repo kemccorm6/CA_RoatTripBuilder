@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
 $userpw = "Acad276_McCormick_2109860012";
@@ -22,7 +22,13 @@ $sql= "SELECT * FROM type_table WHERE typeID =" . $_REQUEST['id'];
 
 $results = $mysql-> query($sql);
 
-$currentrow = $results->fetch_assoc();
+$currentrow2 = $results->fetch_assoc();
+
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
 
 ?>
 <html>
@@ -118,19 +124,20 @@ $currentrow = $results->fetch_assoc();
     </style>
 </head>
 <body>
-<div class="topheader">
-    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">
-        <img src="myalogo1.png" id="logo"></a>
-    <div class="navbar">
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>
-        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>
-        <div class="navitem"><br><br>Hi <?php echo $currentrow["User_Real_Name"] ?> !</div>
-    </div>
-</div>
-<hr>
+<?php include "../masterHTML.php" ?>
+<!--<div class="topheader">-->
+<!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
+<!--        <img src="myalogo1.png" id="logo"></a>-->
+<!--    <div class="navbar">-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>-->
+<!--        <div class="navitem"><br><br>Hi --><?php //echo $currentrow["User_Real_Name"] ?><!-- !</div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<hr>-->
 <div class="container">
     <div class="adminacc">
 <div class="adminbox">
@@ -148,11 +155,11 @@ $currentrow = $results->fetch_assoc();
 <div class="addform">
     <h2>Edit Type</h2>
     <br><br>
-    <form action="EditConfirmationPages/edittypeCONFIRM.php ">
+    <form action="edittypeCONFIRM.php ">
         <div class="titlesubmit">
-        <input type="hidden" name="id" value="<?php echo $currentrow["typeID"] ?>">
+        <input type="hidden" name="id" value="<?php echo $currentrow2["typeID"] ?>">
             <div class="titlediv"> Edit Type: </div>
-            <input type="text" value="<?php echo $currentrow["type"] ?>" name="edittype">
+            <input type="text" value="<?php echo $currentrow2["type"] ?>" name="edittype">
         </div>
         <input type="submit" id="submit" value="Edit Type">
     </form>

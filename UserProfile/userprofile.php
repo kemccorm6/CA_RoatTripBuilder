@@ -466,7 +466,7 @@ if (empty($_SESSION["start"])){
                 <?php
                 if($_SESSION["IsAdmin"] == 1){
                     echo "<form action='../Admin/adminmainLOCATION.php?id=". $_SESSION["UserId"] .
-                        "'><input type='submit'  value='Main Admin Page". $_SESSION["UserId"] ."' id='adminpage'></form>";
+                        "'><input type='submit'  value='Main Admin Page' id='adminpage'></form>";
                 }
                 ?>
                 </div>
