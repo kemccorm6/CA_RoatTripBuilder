@@ -18,6 +18,12 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
+
 $sql = "UPDATE user_data_table
         SET 
         User_Real_Name = '" . $_REQUEST["nusername"] . "', " .

@@ -384,7 +384,7 @@ if (empty($_SESSION["start"])){
             $("#tabs li:nth-child(2)").attr("id","current"); // Activate the first tab
             $("#content #tab2").fadeIn(); // Show first tab's content
             $("#tab12").click(function (){
-                window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php";
+                window.location.href="../MakeTrip/maketripMAIN.php";
                 return false;
             });
             $(".prodtile").click(function (){
@@ -480,7 +480,7 @@ if (empty($_SESSION["start"])){
         <div id="tabs">
             <ul id="tabs">
 
-                <li><a href="MakeTrip/maketripMAIN.php?id=<?php echo $_SESSION["UserId"]; ?>" name="tab1" id="tab12" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
+                <li><a href="../MakeTrip/maketripMAIN.php" name="tab1" id="tab12" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
                 <li><a href="MyRoadtrips" name="tab2">My Roadtrips</a></li>
                 <li><a href="SavedTrips" name="tab3">Saved Trips</a></li>
             </ul>

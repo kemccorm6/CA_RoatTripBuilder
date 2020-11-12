@@ -16,12 +16,13 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
-
-$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+if(!empty ($_SESSION["start"])) {
+    $usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
 //echo $usersql;
 
-$userresults = $mysql-> query($usersql);
-//$currentrow = $userresults->fetch_assoc();
+    $userresults = $mysql->query($usersql);
+    $currentrow = $userresults->fetch_assoc();
+}
 ?>
 <html>
 <head>
@@ -131,7 +132,7 @@ $userresults = $mysql-> query($usersql);
                 </select>
             </div>
             <br><br>
-            <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/addcities.php">
+            <a href="addcities.php">
                 <input type="button" id="submit" value="Make Trip" />
             </a>
         </form>

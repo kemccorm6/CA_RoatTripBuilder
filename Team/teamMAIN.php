@@ -16,6 +16,13 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+if(!empty ($_SESSION["start"])) {
+    $usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+    $userresults = $mysql->query($usersql);
+    $currentrow = $userresults->fetch_assoc();
+}
 ?>
 <html>
 <head>
@@ -163,7 +170,7 @@ if ($mysql->connect_errno) {
 <!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>-->
 <!--    </div>-->
 <!--</div>-->
-<hr>
+
 <div class="container">
 
     <div class="infotile" id="it1">

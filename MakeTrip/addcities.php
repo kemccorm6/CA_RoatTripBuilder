@@ -16,6 +16,13 @@ if ($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+if(!empty ($_SESSION["start"])) {
+    $usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+    $userresults = $mysql->query($usersql);
+    $currentrow = $userresults->fetch_assoc();
+}
 ?>
 <html>
 <head>
@@ -176,7 +183,7 @@ overflow-wrap: normal;
         $(document).ready(function() {
 
             $(".citybox").click(function (){
-                window.location.href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/UserProfile/locationdetails.php";
+                window.location.href="../UserProfile/locationdetails.php";
                 return false;
             });
             $("#tab12").click(function (){

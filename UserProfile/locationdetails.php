@@ -18,6 +18,11 @@ if ($mysql->connect_errno) {
     exit();
 }
 
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
 
 ?>
 <html>

@@ -20,7 +20,15 @@ if($mysql->connect_errno) {
     exit();
 }
 
+if(!empty ($_SESSION["start"])){
 
+
+$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+//echo $usersql;
+
+$userresults = $mysql-> query($usersql);
+$currentrow = $userresults->fetch_assoc();
+}
 
 ?>
 

@@ -3,6 +3,7 @@
 <?php
 session_start();
 session_destroy();
+$_SESSION["start"] = "";
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
