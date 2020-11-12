@@ -205,31 +205,34 @@ if($mysql->connect_errno) {
     </style>
 </head>
 <body>
-<div class="topheader">
-    <a href="../frontpage/frontpageV2.php">
-        <img src="myalogo1.png" id="logo"></a>
-    <div class="navbar">
 
-        <?php
-        if(!empty($_SESSION["start"])){
-            echo "<div class='profile'><a href='../UserProfile/userprofile.php'>";
-            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
-        }else{
-            echo "<div class='navitem'><br><br><a href='../Login/CA_RoadTripLOGIN.php'>LOGIN</a> </div>";
-        }
+<?php include "../masterHTML.php" ?>
 
-        ?>
-
-        <div class="navitem"><br><br><a href="../MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>
-        <div class="navitem"><br><br><a href="../Community/communityMAIN.php">COMMUNITY</a> </div>
-        <div class="navitem"><br><br><a href="../Mission/missionMAIN.php">OUR MISSION</a> </div>
-        <div class="navitem"><br><br><a href="../Team/teamMAIN.php">OUR TEAM</a> </div>
-
-    </div>
-
-
-
-</div>
+<!--<div class="topheader">-->
+<!--    <a href="../frontpage/frontpageV2.php">-->
+<!--        <img src="myalogo1.png" id="logo"></a>-->
+<!--    <div class="navbar">-->
+<!---->
+<!--        --><?php
+//        if(!empty($_SESSION["start"])){
+//            echo "<div class='profile'><a href='../UserProfile/userprofile.php'>";
+//            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
+//        }else{
+//            echo "<div class='navitem'><br><br><a href='../Login/CA_RoadTripLOGIN.php'>LOGIN</a> </div>";
+//        }
+//
+//        ?>
+<!---->
+<!--        <div class="navitem"><br><br><a href="../MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="../Community/communityMAIN.php">COMMUNITY</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="../Mission/missionMAIN.php">OUR MISSION</a> </div>-->
+<!--        <div class="navitem"><br><br><a href="../Team/teamMAIN.php">OUR TEAM</a> </div>-->
+<!---->
+<!--    </div>-->
+<!---->
+<!---->
+<!---->
+<!--</div>-->
 <!--<hr>-->
 
 <div class="container">

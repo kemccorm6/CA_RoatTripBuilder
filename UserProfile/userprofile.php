@@ -6,7 +6,7 @@ session_start();
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
-$userpw = "Acad276_McCormick_2109860012";
+$userpw = "Acad276_McCormick_2109860012"; 
 $db = "kemccorm_roadtripbuilder";
 
 
@@ -465,7 +465,7 @@ if (empty($_SESSION["start"])){
                 <?php
                 if($_SESSION["IsAdmin"] == 1){
                     echo "<form action='../Admin/adminmainLOCATION.php?id=". $_SESSION["UserId"] .
-                        "'><input type='submit'  value='Main Admin Page' id='adminpage'></form>";
+                        "'><input type='submit'  value='Main Admin Page". $_SESSION["UserId"] ."' id='adminpage'></form>";
                 }
                 ?>
                 </div>
