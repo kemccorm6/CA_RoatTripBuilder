@@ -16,9 +16,10 @@ a {
     font-family: 'Poppins', sans-serif;
 }
 .navbar {
-    width: 70%;
+    width: 60%;
     left: 0;
-    height: 50px;
+    height: 70px;
+
     top: 60px;
     position: absolute;
     /*background-color: red;*/
