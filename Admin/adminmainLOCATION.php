@@ -293,15 +293,17 @@ $currentrow = $userresults->fetch_assoc();
             if(!empty($_REQUEST["startp"])){
                 $startp = $_REQUEST["startp"];
             }
+
             $limit = 10;
-            $end = $startp + $limit - 1;
+            $end = $startp + $limit -1;
+            echo "<br><br><br>";
+            echo "There are " . $results->num_rows . " results. Displaying " . $startp . " - " . ($startp + $limit - 1) . ". ";
             echo "<br><br>";
-            echo $results-> num_rows . " Results. " . "Displaying results " . $startp . " - " . ($startp + $limit - 1) . ".";
-            echo "<br><br>";
+
 
             $counter = $startp;
 
-            $results->data_seek($start-1);
+            $results->data_seek($startp-1);
 
             while($currentrow2 = $results->fetch_assoc()){
 
@@ -316,15 +318,17 @@ $currentrow = $userresults->fetch_assoc();
                 <?php
 
                 $counter++;
+
                 if($counter > $end){
                     break;
                 }
+
             }
 
             $formdata = "";
-            $formdata .= "locationname=" . $_REQUEST["locationname"];
+            $formdata .= "locationsearch=" . $_REQUEST["locationsearch"];
             $formdata .= "&startp=" . ($startp+$limit);
-            echo "<hr>" . $formdata . "<hr>";
+//            echo "<hr>" . $formdata . "<hr>";
 
             if($startp > $limit){
                 echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp - $limit) ."'>Prev</a>";
