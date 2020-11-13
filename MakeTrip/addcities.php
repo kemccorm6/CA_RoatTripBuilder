@@ -240,9 +240,20 @@ overflow-wrap: normal;
 <!--    </div>-->
 <!--</div>-->
 <!--<hr>-->
+
+<?php
+$titlesql = "SELECT * FROM city_table WHERE cityID = " . $_REQUEST["citysearchstart"];
+$titleresults = $mysql->query($titlesql);
+$titlecurrentrow = $titleresults-> fetch_assoc();
+
+$t2 = "SELECT * FROM city_table WHERE cityID = " . $_REQUEST["citysearchend"];
+$r2 = $mysql->query($t2);
+$cr2 = $r2-> fetch_assoc();
+
+?>
 <div class="container">
     <div class="makeatrip">
-        <h1>Make a Trip</h1>
+        <h1>Make a Trip from <em><?php echo $titlecurrentrow["city"] ?></em> to <em><?php echo $cr2["city"] ?></em> </h1>
         <h4>Here are all the locations between your two cities! Delete places you don't <br> wish to visit, and click on the location to get details and save the trip when you are done!</h4>
         <button type="button" id="savetrip">Save Trip</button>
 </div><br clear="all"/>
@@ -403,13 +414,13 @@ overflow-wrap: normal;
 
 <!--        Start location-->
 
-        <div class="citybox">
-<!--            <button type="button" id="removecity">X</button>-->
-<!--            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>-->
-            <div id="cityname"><?php echo $mapstartcurrentrow["city"]; ?></div>
-            <div id="citydescription">Start City
-            </div>
-        </div>
+<!--        <div class="citybox">-->
+<!--          <button type="button" id="removecity">X</button>-->
+<!--           <div ><img id="cityimage" src="sanfrancisco.jpg"></div>-->
+<!--            <div id="cityname">--><?php //echo $mapstartcurrentrow["city"]; ?><!--</div>-->
+<!--            <div id="citydescription">Start City-->
+<!--            </div>-->
+<!--        </div>-->
 
 <!--        trip points-->
 <!--        location_table-->
@@ -444,14 +455,14 @@ overflow-wrap: normal;
         ?>
 
 <!--        End Location-->
-        <div class="citybox">
+<!--        <div class="citybox">-->
 <!--            <button type="button" id="removecity">X</button>-->
 <!--            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>-->
-            <div id="cityname"><?php echo $mapendcurrentrow["city"]; ?></div>
-            <br><br>
-            <div id="citydescription">End City
-            </div>
-        </div>
+<!--            <div id="cityname">--><?php //echo $mapendcurrentrow["city"]; ?><!--</div>-->
+<!--            <br><br>-->
+<!--            <div id="citydescription">End City-->
+<!--            </div>-->
+<!--        </div>-->
 
 
 <!--        <div class="citybox">-->

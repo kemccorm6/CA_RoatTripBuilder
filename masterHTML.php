@@ -28,7 +28,7 @@
     $(document).ready(function() {
 
         $(".loginimage").click(function (){
-            window.location.href="Login/CA_RoadTripLOGIN.php";
+            window.location.href="../Login/CA_RoadTripLOGIN.php";
             return false;
         });
         $("#tab12").click(function (){
@@ -66,7 +66,7 @@
         <?php
         if(!empty($_SESSION["start"])){
             echo "<div class='profile'><a href='../UserProfile/userprofile.php?id=". $_SESSION["UserId"] ."'>";
-            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
+            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>"; 
             echo "<div id='logged'><br><br> Hi " . $currentrow["User_Real_Name"] . "! </div>";
         }else{
             echo "<div class='loginarea'><br><br><a href='../Login/CA_RoadTripLOGIN.php'><img class='loginimage' src='login_button-07.png'></a> </div>";
