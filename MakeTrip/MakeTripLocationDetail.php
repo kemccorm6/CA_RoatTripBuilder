@@ -28,6 +28,7 @@ if(!empty ($_SESSION["start"])) {
 ?>
 <html>
 <head>
+    <title>Trip Detail</title>
     <!-- Stepper CSS -->
     <link href="css/addons-pro/steppers.css" rel="stylesheet">
     <!-- Stepper CSS - minified-->
@@ -212,7 +213,7 @@ if(!empty ($_SESSION["start"])) {
             width:870px;
             background-color: white;
             height: 150px;
-border-radius: 15px;
+            border-radius: 15px;
             margin: auto;
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
             padding: 15px;
@@ -231,7 +232,7 @@ border-radius: 15px;
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
         }
         #username {
-float: left;
+            float: left;
             width: 400px;
             font-size: 18pt;
             margin-top: 20px;
@@ -292,14 +293,10 @@ float: left;
 <!--    <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>-->
 <!--</div>-->
 <!--<hr>-->
-
-<?php
-$locationsql = "SELECT * FROM location_table WHERE locationID=" .
-?>
 <div class="container">
 
     <ul id="tabs">
-<!--        <li><a href="userprofile.php" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">BACK</a></li>-->
+        <li><a href="addcities.php?" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">BACK</a></li>
     </ul>
 
     <div class="bigbox">
@@ -336,7 +333,7 @@ $locationsql = "SELECT * FROM location_table WHERE locationID=" .
             <div id="username">Johnny Appleseed</div>
             <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>
         </div>
-<br><br>
+        <br><br>
         <div class="userreview">
             <div id="profilepic"></div>
             <div id="username">Johnny Appleseed</div>

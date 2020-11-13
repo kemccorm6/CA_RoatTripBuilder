@@ -116,25 +116,44 @@ if(!empty ($_SESSION["start"])) {
     <div class="makeatrip">
 
                         <h1>Make a Trip</h1>
-        <form>
+        <form action="addcities.php">
             <div class="input">
             <div class="label">Start City:</div>
 
-                <select name="citysearch">
+                <select name="citysearchstart">
+                    <?php
+                        $citysearchsql = "SELECT * FROM city_table ";
+
+                        $cityresults = $mysql->query($citysearchsql);
+
+                        while($citycurrentrow = $cityresults-> fetch_assoc()){
+                        echo "<option value= '" . $citycurrentrow["cityID"] . "'>" . $citycurrentrow["city"] . "</option>";
+                    }
+                    ?>
+
                     <option>Los Angeles</option>
                 </select>
             </div>
 <br>
             <div class="input">
                 <div class="label">End City:</div>
-                <select name="citysearch">
-                    <option>San Francisco</option>
+                <select name="citysearchend">
+                    <?php
+                    $citysearchsql2 = "SELECT * FROM city_table ";
+
+                    $cityresults2 = $mysql->query($citysearchsql2);
+
+                    while($citycurrentrow2 = $cityresults2-> fetch_assoc()){
+                        echo "<option value= '" . $citycurrentrow2["cityID"] . "'>" . $citycurrentrow2["city"] . "</option>";
+                    }
+                    ?>
+
                 </select>
             </div>
             <br><br>
-            <a href="addcities.php">
-                <input type="button" id="submit" value="Make Trip" />
-            </a>
+
+                <input type="submit" id="submit" value="Make Trip" />
+
         </form>
 <!--                        <hr>-->
 <!--                        <br>-->

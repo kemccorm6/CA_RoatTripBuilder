@@ -124,7 +124,7 @@ margin-right: 80px;
         #cityimage {
             width: 100px;
             height: 130px;
-            background-image: url("sanfrancisco.jpg");
+            /*background-image: url("sanfrancisco.jpg");*/
             background-size: cover;
            margin-left: 5px;
             margin-top: 22px;
@@ -199,7 +199,7 @@ overflow-wrap: normal;
         $(document).ready(function() {
 
             $(".citybox").click(function (){
-                window.location.href="../UserProfile/locationdetails.php";
+                window.location.href="../UserProfile/locationdetails.php>";
                 return false;
             });
             $("#tab12").click(function (){
@@ -240,7 +240,7 @@ overflow-wrap: normal;
 <div class="container">
     <div class="makeatrip">
         <h1>Make a Trip</h1>
-        <h4>You can drag around locations and delete locations if you wish</h4>
+        <h4>Here are all the locations between your two cities! Delete places you don't <br> wish to visit, and click on the location to get details and save the trip when you are done!</h4>
         <button type="button" id="savetrip">Save Trip</button>
 </div><br clear="all"/>
     <div class="container2">
@@ -256,20 +256,112 @@ overflow-wrap: normal;
             </div>
         </div>
             </form>
+        <?php
+
+        $mapsql = "SELECT * FROM city_table WHERE cityID = " . $_REQUEST["citysearchstart"];
+        $mapstartresults = $mysql->query($mapsql);
+        $mapstartcurrentrow = $mapstartresults-> fetch_assoc();
+
+//            echo "<br> long = " . $mapstartcurrentrow["city_longitude"] . " lat = " . $mapstartcurrentrow["city_latitude"];
+
+
+//        echo "<br>";
+
+        // citysearchend
+
+        $mapsqlend = "SELECT * FROM city_table WHERE cityID = " . $_REQUEST["citysearchend"];
+        $mapendresults = $mysql->query($mapsqlend);
+        $mapendcurrentrow = $mapendresults-> fetch_assoc();
+
+        //Generating trip points
+
+//        echo "start Lat " . $mapstartcurrentrow["city_latitude"] . " end lat " . $mapendcurrentrow["city_latitude"] ;
+//        echo "<br>";
+        //lat minimum
+        $latmin = $mapstartcurrentrow["city_latitude"];
+        if($mapendcurrentrow["city_latitude"] < $latmin){
+            $latmin = $mapendcurrentrow["city_latitude"];
+        }
+//        echo "Min Lat " . $latmin;
+//        echo "<br>";
+
+        //lat maximum
+        $latmax = $mapendcurrentrow["city_latitude"];
+        if($mapstartcurrentrow["city_latitude"] > $latmax){
+            $latmax = $mapstartcurrentrow["city_latitude"];
+        }
+//        echo "Max Lat "  . $latmax;
+//        echo "<br>";
+
+
+        //long min
+        $longmin = $mapstartcurrentrow["city_longitude"];
+        if($mapendcurrentrow["city_longitude"] < $longmin){
+            $longmin = $mapendcurrentrow["city_longitude"];
+        }
+//        echo "Min Long " . $longmin;
+//        echo "<br>";
+
+        //long max
+        $longmax = $mapendcurrentrow["city_longitude"];
+        if($mapstartcurrentrow["city_longitude"] > $longmax){
+            $longmax = $mapstartcurrentrow["city_longitude"];
+        }
+//        echo "Max Long " . $longmax;
+//        echo "<br>";
+//        echo "<br>";
+
+        $locationsql = "SELECT * FROM location_table WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
+                       " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+
+        $locresults = $mysql->query($locationsql);
+
+
+//        echo "$locationsql";
+//        echo "<br><br><br>";
+
+
+        ?>
 
         <script>
             let map;
 
+            var avglatitude = (<?php echo $mapstartcurrentrow["city_latitude"];  ?> + <?php echo $mapendcurrentrow["city_latitude"];  ?>)/2;
+            var avglongitude = (<?php echo $mapstartcurrentrow["city_longitude"]; ?> + <?php echo $mapendcurrentrow["city_longitude"];  ?>)/2;
+
+
             function initMap() {
                 map = new google.maps.Map(document.getElementById("map"), {
-                    center: { lat: -34.397, lng: 150.644 },
-                    zoom: 8,
+                    center: { lat: avglatitude, lng: -avglongitude },
+                    zoom: 7,
                 });
 
-                newplace = new google.maps.Marker({position: {lat: -34.397, lng: 150.945}, map: map});
-                newplace2 = new google.maps.Marker({position: {lat: -34.497, lng: 150.945}, map: map});
-                createMarker(newplace);
-                createMarker(newplace2);
+
+                startnewplace = new google.maps.Marker({position: {lat: <?php echo $mapstartcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapstartcurrentrow["city_longitude"]; ?>}, map: map});
+                var trippoint = [] ;
+                <?php
+                $i = 0;
+                while($loccurrentrow = $locresults-> fetch_assoc()){
+                //
+                    $i += 1;
+                    //echo "console.log(" . $i . ");";
+                //echo "trippoint[" . $i . "] = " . $i . " ;";
+                    $s = "trippoint[" . $i . "] = new google.maps.Marker({position: {lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . "}, map: map});";
+                    //echo "console.log('" . $s . "');" ;
+                    echo $s ;
+                    //echo "createMarker(trippoint[" . $i . "]);";
+                    //echo "console.log( trippoint[" . $i . "] );" ;
+                }
+                //
+                //
+                ?>
+                createMarker(trippoint) ;
+
+                endnewplace = new google.maps.Marker({position: {lat: <?php echo $mapendcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapendcurrentrow["city_longitude"];  ?>}, map: map});
+                // test = new google.maps.Marker({position: {lat: 39.4526, lng: -123.8135}, map: map});
+                createMarker(startnewplace);
+                createMarker(endnewplace);
+                // createMarker(test);
             }
         </script>
 
@@ -285,38 +377,82 @@ overflow-wrap: normal;
 <!--                width="700" height="650"  frameborder="1"  style="border:0;"-->
 <!--                allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>-->
     </div>
+
+        <?php
+
+
+
+        ?>
     <div class="sidebar">
-<div class="citybox">
-    <button type="button" id="removecity">X</button>
-    <div id="cityimage"></div>
-    <div id="cityname">San Francisco</div>
-    <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
-    </div>
-    </div>
+
+<!--        Start location-->
 
         <div class="citybox">
             <button type="button" id="removecity">X</button>
-            <div id="cityimage" style="background-image: url('sanjose.jpg')"></div>
-            <div id="cityname">San Jose</div>
-            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
+            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>
+            <div id="cityname"><?php echo $mapstartcurrentrow["city"]; ?></div>
+            <div id="citydescription">Start City
             </div>
         </div>
 
+<!--        trip points-->
+<!--        location_table-->
+
+        <?php
+
+        $locationsql = "SELECT * FROM location_table WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
+            " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+
+        $locresults = $mysql->query($locationsql);
+
+        while($loccurrentrow = $locresults-> fetch_assoc()){
+
+            ?>
+
+
+            <div class="citybox">
+
+                <button type="button" id="removecity">X</button>
+                <div ><img id="cityimage" src="sanfrancisco.jpg"></div>
+                <div id="cityname"><?php echo $loccurrentrow["locationname"]; ?></div>
+                <div id="citydescription"><?php echo $loccurrentrow["location_description"]; ?>
+                 </div>
+            </div>
+
+        <?php
+
+            }
+
+
+        ?>
+
+<!--        End Location-->
         <div class="citybox">
             <button type="button" id="removecity">X</button>
-            <div id="cityimage" style="background-image: url('santamaria.jpg')"></div>
-            <div id="cityname">Santa Maria</div>
-            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
+            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>
+            <div id="cityname"><?php echo $mapendcurrentrow["city"]; ?></div>
+            <div id="citydescription">End City
             </div>
         </div>
 
-        <div class="citybox">
-            <button type="button" id="removecity">X</button>
-            <div id="cityimage" style="background-image: url('santabarbara.jpg')"></div>
-            <div id="cityname">Santa Barbara</div>
-            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge
-            </div>
-        </div>
+
+<!--        <div class="citybox">-->
+<!--            <button type="button" id="removecity">X</button>-->
+<!--            <div id="cityimage" style="background-image: url('sanjose.jpg')"></div>-->
+<!--            <div id="cityname">San Jose--><?php //echo $counter; ?><!--</div>-->
+<!--            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="citybox">-->
+<!--            <button type="button" id="removecity">X</button>-->
+<!--            <div id="cityimage" style="background-image: url('santamaria.jpg')"></div>-->
+<!--            <div id="cityname">Santa Maria</div>-->
+<!--            <div id="citydescription">A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks, including the Golden Gate Bridge-->
+<!--            </div>-->
+<!--        </div>-->
+
+
     </div>
 </div>
 </body>
