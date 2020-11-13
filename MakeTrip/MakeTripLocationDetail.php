@@ -49,7 +49,7 @@ if(!empty ($_SESSION["start"])) {
             width:1000px;
             padding: 15px;
             margin:auto;
-            height: 1300px;
+            /*height: 1300px;*/
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
             margin-bottom: 100px;
@@ -293,15 +293,25 @@ if(!empty ($_SESSION["start"])) {
 <!--    <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>-->
 <!--</div>-->
 <!--<hr>-->
+
+<?php
+
+$locationsql = "SELECT * FROM LocationCityTypeView2 WHERE locationID =" . $_REQUEST["id"];
+//echo $locationsql;
+$locresults = $mysql->query($locationsql);
+
+$loccurrentrow = $locresults->fetch_assoc();
+
+?>
 <div class="container">
 
     <ul id="tabs">
-        <li><a href="addcities.php?" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">BACK</a></li>
+<!--        <li><a href="addcities.php?" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">BACK</a></li>-->
     </ul>
 
     <div class="bigbox">
         <hr><br>
-        <div class="triptitle">Location Name</div>
+        <div class="triptitle"><?php echo $loccurrentrow["locationname"] ?></div>
 
         <div class="banner">
             <img class="banner1" id="image1" src="fpbg.png">
@@ -311,40 +321,60 @@ if(!empty ($_SESSION["start"])) {
 
         <div class="detailsarea">
             <div class="address">
-                Address
+                <?php echo $loccurrentrow["address"] ?>
             </div>
             <div class="rating">
                 Star Review:
-                <br><br><br>
+                <br><?php echo $loccurrentrow["star_review"];
+                    if($loccurrentrow["star_review"] == 0){
+                        echo "0";
+                    }
+
+                        ?><br>
                 Amenities:
                 <div id="typesrow">
-                    <div class="types" id="type1">Pet Friendly</div>
-                    <div class="types" id="type2">Wifi</div>
-                    <div class="types" id="type3">Mountain</div>
+
+
+                    <?php $loccurrentrow["petfriendly"];
+                    if($loccurrentrow["petfriendly"] == 1){
+                        echo "<div class='types' id='type1'>Pet Friendly</div>";
+                    }
+
+                    ?>
+                    <?php
+                    $loccurrentrow["wifi"];
+                    if($loccurrentrow["wifi"] == 1){
+                        echo "<div class='types' id='type2'>Wifi</div>";
+                    }
+
+
+                    ?>
+
+                    <div class="types" id="type3"><?php echo $loccurrentrow["type_name"] ?></div>
                 </div>
             </div>
             <div class="description">
-                <p> Write a description about your roadtrip. Include goals, ideas, key places and memories!</p>
+                <p> <?php echo $loccurrentrow["location_description"] ?></p>
             </div>
         </div>
         <br><br><br>
-        <div class="userreview">
-            <div id="profilepic"></div>
-            <div id="username">Johnny Appleseed</div>
-            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>
-        </div>
-        <br><br>
-        <div class="userreview">
-            <div id="profilepic"></div>
-            <div id="username">Johnny Appleseed</div>
-            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>
-        </div>
-        <br><br>
-        <div class="userreview">
-            <div id="profilepic"></div>
-            <div id="username">Johnny Appleseed</div>
-            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>
-        </div>
+<!--        <div class="userreview">-->
+<!--            <div id="profilepic"></div>-->
+<!--            <div id="username">Johnny Appleseed</div>-->
+<!--            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>-->
+<!--        </div>-->
+<!--        <br><br>-->
+<!--        <div class="userreview">-->
+<!--            <div id="profilepic"></div>-->
+<!--            <div id="username">Johnny Appleseed</div>-->
+<!--            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>-->
+<!--        </div>-->
+<!--        <br><br>-->
+<!--        <div class="userreview">-->
+<!--            <div id="profilepic"></div>-->
+<!--            <div id="username">Johnny Appleseed</div>-->
+<!--            <div id="locationreview">Me and my buddies had an incredible time hiking this mountain! 10/10 Recommmend</div>-->
+<!--        </div>-->
     </div>
 
 </div>

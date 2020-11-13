@@ -69,7 +69,7 @@
             echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
             echo "<div id='logged'><br><br> Hi " . $currentrow["User_Real_Name"] . "! </div>";
         }else{
-            echo "<div class='loginarea'><br><br><a href=' ../Login/CA_RoadTripLOGIN.php'><img class='loginimage' src='login_button-07.png'></a> </div>";
+            echo "<div class='loginarea'><br><br><a href='../Login/CA_RoadTripLOGIN.php'><img class='loginimage' src='login_button-07.png'></a> </div>";
 
         }
 

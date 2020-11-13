@@ -121,6 +121,9 @@ margin-right: 80px;
 
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.29);
         }
+
+
+
         #cityimage {
             width: 100px;
             height: 130px;
@@ -198,10 +201,10 @@ overflow-wrap: normal;
     <script>
         $(document).ready(function() {
 
-            $(".citybox").click(function (){
-                window.location.href="../UserProfile/locationdetails.php>";
-                return false;
-            });
+            // $(".citybox").click(function (){
+            //     window.location.href="../UserProfile/locationdetails.php>";
+            //     return false;
+            // });
             $("#tab12").click(function (){
                 window.location.href="userprofile.php";
                 return false;
@@ -246,15 +249,28 @@ overflow-wrap: normal;
     <div class="container2">
     <div class="mapAPI">
         <div id="filter">
-            <form>
+            <form action="addcities.php">
 
             <div class="input">
                 <select name="citysearch">
                     <option value="ALL">Filter By:</option>
                     <option value="ALL">--------------</option>
+
+                    <?php
+                    $filtersql = "SELECT * FROM type_table";
+                    $filterresults = $mysql->query($filtersql);
+                    while($currentfilter = $filterresults->fetch_assoc()){
+                        echo "<option value='". $currentfilter["typeID"] ."'>" . $currentfilter["type"] . "</option>";
+                    }
+
+                    ?>
+
                 </select>
+
+                <input type="submit" value="Go">
             </div>
-        </div>
+
+            </div>
             </form>
         <?php
 
@@ -388,8 +404,8 @@ overflow-wrap: normal;
 <!--        Start location-->
 
         <div class="citybox">
-            <button type="button" id="removecity">X</button>
-            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>
+<!--            <button type="button" id="removecity">X</button>-->
+<!--            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>-->
             <div id="cityname"><?php echo $mapstartcurrentrow["city"]; ?></div>
             <div id="citydescription">Start City
             </div>
@@ -413,11 +429,12 @@ overflow-wrap: normal;
             <div class="citybox">
 
                 <button type="button" id="removecity">X</button>
-                <div ><img id="cityimage" src="sanfrancisco.jpg"></div>
+                <div ><a href="MakeTripLocationDetail.php?id=<?php echo $loccurrentrow["locationID"] ?>"><img id="cityimage" src="sanfrancisco.jpg"></a></div>
                 <div id="cityname"><?php echo $loccurrentrow["locationname"]; ?></div>
                 <div id="citydescription"><?php echo $loccurrentrow["location_description"]; ?>
                  </div>
             </div>
+
 
         <?php
 
@@ -428,9 +445,10 @@ overflow-wrap: normal;
 
 <!--        End Location-->
         <div class="citybox">
-            <button type="button" id="removecity">X</button>
-            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>
+<!--            <button type="button" id="removecity">X</button>-->
+<!--            <div ><img id="cityimage" src="sanfrancisco.jpg"></div>-->
             <div id="cityname"><?php echo $mapendcurrentrow["city"]; ?></div>
+            <br><br>
             <div id="citydescription">End City
             </div>
         </div>
