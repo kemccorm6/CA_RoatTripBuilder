@@ -295,9 +295,16 @@ $currentrow = $userresults->fetch_assoc();
             }
 
             $limit = 10;
-            $end = $startp + $limit -1;
+            $end = $startp + $limit - 1;
+
+            if ($results->num_rows < $end ) {
+                $displayend = $results->num_rows;
+            } else {
+                $displayend = $end;
+            }
+
             echo "<br><br><br>";
-            echo "There are " . $results->num_rows . " results. Displaying " . $startp . " - " . ($startp + $limit - 1) . ". ";
+            echo "There are " . $results->num_rows . " results. Displaying " . $startp . " - " . ($displayend) . ". ";
             echo "<br><br>";
 
 
@@ -312,7 +319,7 @@ $currentrow = $userresults->fetch_assoc();
                 <div class="locationandedit">
 
                     <div class="locationdiv"><?php echo $counter . ") " . $currentrow2["locationname"] ?></div>
-                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow2["locationID"] ?>">Edit</a> | <a href="deletelocation.php?id=<?php echo $currentrow["locationID"]; ?>">Delete</a></div>
+                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow2["locationID"] ?>">Edit</a> | <a href="deletelocation.php?id=<?php echo $currentrow2["locationID"]; ?>">Delete</a></div>
                 </div>
 
                 <?php
@@ -336,7 +343,7 @@ $currentrow = $userresults->fetch_assoc();
 
             echo " | ";
 
-            if($results->num_rows > $startp + $limit){
+            if($results->num_rows >= $startp + $limit){
                 echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp + $limit) ."'>Next</a>";
             }
 
