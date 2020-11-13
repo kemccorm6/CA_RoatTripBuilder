@@ -28,7 +28,7 @@ $currentrow = $userresults->fetch_assoc();
 
 
 $sql = "DELETE FROM location_table WHERE locationID=". $_REQUEST['id'];
-
+//echo $sql;
 $results = $mysql->query($sql);
 
 

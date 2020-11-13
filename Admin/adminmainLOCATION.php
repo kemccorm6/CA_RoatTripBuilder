@@ -293,15 +293,24 @@ $currentrow = $userresults->fetch_assoc();
             if(!empty($_REQUEST["startp"])){
                 $startp = $_REQUEST["startp"];
             }
+
             $limit = 10;
             $end = $startp + $limit - 1;
+
+            if ($results->num_rows < $end ) {
+                $displayend = $results->num_rows;
+            } else {
+                $displayend = $end;
+            }
+
+            echo "<br><br><br>";
+            echo "There are " . $results->num_rows . " results. Displaying " . $startp . " - " . ($displayend) . ". ";
             echo "<br><br>";
-            echo $results-> num_rows . " Results. " . "Displaying results " . $startp . " - " . ($startp + $limit - 1) . ".";
-            echo "<br><br>";
+
 
             $counter = $startp;
 
-            $results->data_seek($start-1);
+            $results->data_seek($startp-1);
 
             while($currentrow2 = $results->fetch_assoc()){
 
@@ -310,21 +319,23 @@ $currentrow = $userresults->fetch_assoc();
                 <div class="locationandedit">
 
                     <div class="locationdiv"><?php echo $counter . ") " . $currentrow2["locationname"] ?></div>
-                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow2["locationID"] ?>">Edit</a> | <a href="deletelocation.php?id=<?php echo $currentrow["locationID"]; ?>">Delete</a></div>
+                    <div class="editdelete"><a href="editlocation.php?id=<?php echo $currentrow2["locationID"] ?>">Edit</a> | <a href="deletelocation.php?id=<?php echo $currentrow2["locationID"]; ?>">Delete</a></div>
                 </div>
 
                 <?php
 
                 $counter++;
+
                 if($counter > $end){
                     break;
                 }
+
             }
 
             $formdata = "";
-            $formdata .= "locationname=" . $_REQUEST["locationname"];
+            $formdata .= "locationsearch=" . $_REQUEST["locationsearch"];
             $formdata .= "&startp=" . ($startp+$limit);
-            echo "<hr>" . $formdata . "<hr>";
+//            echo "<hr>" . $formdata . "<hr>";
 
             if($startp > $limit){
                 echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp - $limit) ."'>Prev</a>";
@@ -332,7 +343,7 @@ $currentrow = $userresults->fetch_assoc();
 
             echo " | ";
 
-            if($results->num_rows > $startp + $limit){
+            if($results->num_rows >= $startp + $limit){
                 echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp + $limit) ."'>Next</a>";
             }
 
