@@ -24,8 +24,17 @@ if(!empty ($_SESSION["start"])) {
     $currentrow = $userresults->fetch_assoc();
 }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
+    <title>Road Trip Builder</title>
+<!--    Google Map Integration-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ7GDJS8_HYW_ss1-CMpa5_H6ySas7sIQ&callback=initMap&libraries=&v=weekly"
+            defer
+    ></script>
+
     <link rel = "stylesheet"
           href = "../master2.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -33,6 +42,9 @@ if(!empty ($_SESSION["start"])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
+
+
+
         body {
 
             background-image: url("tiretracks.png");
@@ -176,6 +188,10 @@ overflow-wrap: normal;
         }
         #map {
             transform: translate(0px,-16px);
+        /*Google map integration*/
+            height: 100%;
+
+
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -241,13 +257,33 @@ overflow-wrap: normal;
         </div>
             </form>
 
-        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3308496.245845227!2d-122
-        .58131165475461!3d35.92364149981422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s
-        0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA!3m2!1d34.0522342!2d-118.2436
-        8489999999!4m5!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!3m2!1d37.
-        7749295!2d-122.4194155!5e0!3m2!1sen!2sus!4v1604996032683!5m2!1sen!2sus"
-                width="700" height="650"  frameborder="1"  style="border:0;"
-                allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <script>
+            let map;
+
+            function initMap() {
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 8,
+                });
+
+                newplace = new google.maps.Marker({position: {lat: -34.397, lng: 150.945}, map: map});
+                newplace2 = new google.maps.Marker({position: {lat: -34.497, lng: 150.945}, map: map});
+                createMarker(newplace);
+                createMarker(newplace2);
+            }
+        </script>
+
+
+            <div id="map"></div>
+
+<!--        iframe test map-->
+<!--        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3308496.245845227!2d-122-->
+<!--        .58131165475461!3d35.92364149981422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s-->
+<!--        0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA!3m2!1d34.0522342!2d-118.2436-->
+<!--        8489999999!4m5!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!3m2!1d37.-->
+<!--        7749295!2d-122.4194155!5e0!3m2!1sen!2sus!4v1604996032683!5m2!1sen!2sus"-->
+<!--                width="700" height="650"  frameborder="1"  style="border:0;"-->
+<!--                allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>-->
     </div>
     <div class="sidebar">
 <div class="citybox">
