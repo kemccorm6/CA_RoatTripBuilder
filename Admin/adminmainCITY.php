@@ -245,15 +245,60 @@ $currentrow = $userresults->fetch_assoc();
                 echo "SQL Error " . $mysql-> error . "<br>";
                 exit();
             }
-            while($currentrow = $results->fetch_assoc()){
+
+            $startp = 1;
+
+            if(!empty($_REQUEST["startp"])){
+                $startp = $_REQUEST["startp"];
+            }
+
+            $limit = 10;
+            $end = $startp + $limit - 1;
+            if ($results->num_rows < $end ) {
+                $displayend = $results->num_rows;
+            } else {
+                $displayend = $end;
+            }
+
+
+            echo "<br><br><br>";
+            echo "There are " . $results->num_rows . " results. Displaying " . $startp . " - " . $displayend . ". ";
+            echo "<br><br>";
+
+
+            $counter = $startp;
+
+            $results->data_seek($startp-1);
+
+            while($currentrow2 = $results->fetch_assoc()){
                 ?>
                 <div class="locationandedit">
 
-                    <div class="locationdiv"><?php echo $currentrow["city"] ?></div>
-                    <div class="editdelete"><a href="editcity.php?id=<?php echo $currentrow["cityID"]; ?>">Edit</a> | <a href="deletecity.php?id=<?php echo $currentrow["cityID"];?>">Delete</a></div>
+                    <div class="locationdiv"><?php echo $counter . ") " . $currentrow2["city"] ?></div>
+                    <div class="editdelete"><a href="editcity.php?id=<?php echo $currentrow2["cityID"]; ?>">Edit</a> | <a href="deletecity.php?id=<?php echo $currentrow2["cityID"];?>">Delete</a></div>
                 </div>
 
                 <?php
+                $counter++;
+
+                if($counter > $end){
+                    break;
+                }
+            }
+
+            $formdata = "";
+            $formdata .= "citysearch=" . $_REQUEST["citysearch"];
+            $formdata .= "&startp=" . ($startp+$limit);
+            //            echo "<hr>" . $formdata . "<hr>";
+
+            if($startp > $limit){
+                echo "<a href='adminmainCITY.php?" . $formdata . "&startp=" . ($startp - $limit) ."'>Prev</a>";
+            }
+
+            echo " | ";
+
+            if($results->num_rows >= $startp + $limit){
+                echo "<a href='adminmainCITY.php?" . $formdata . "&startp=" . ($startp + $limit) ."'>Next</a>";
             }
             ?>
 
