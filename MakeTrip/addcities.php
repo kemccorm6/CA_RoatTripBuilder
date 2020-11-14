@@ -263,7 +263,7 @@ $cr2 = $r2-> fetch_assoc();
 <!--            <form action="addcities.php?typeid=--><?php //echo $currentfilter["typeID"];?><!--&citysearchstart=--><?php //echo $mapstartcurrentrow["cityID"]; ?><!--&citysearchend=--><?php //echo $mapendcurrentrow["cityID"]; ?><!--">-->
 
             <div class="input">
-                Your route will take:
+                Your route will take: <span id="totaltimespan"></span>
 <!--                <select name="citysearch">-->
 <!--                    <option value="ALL">Filter By:</option>-->
 <!--                    <option value="ALL">--------------</option>-->
@@ -415,11 +415,35 @@ $cr2 = $r2-> fetch_assoc();
                     (response, status) => {
                         if (status === "OK") {
                             directionsRenderer.setDirections(response);
+                            //console.log(response)
+                            legs = response["routes"][0]["legs"]
+
+                            var i;
+                            totaldistance = 0
+                            for (i=0; i < legs.length; i++){
+
+                                totaldistance += legs[i]["distance"]["value"];
+                                console.log(legs[i]["distance"]["value"]);
+
+                            }
+                            console.log("total distance");
+                            console.log( totaldistance );
+                            console.log("total time in hours");
+                            //console.log( totaldistance / 1000 * 0.6 / 60);
+                            var totaltime = totaldistance / 1000 * 0.6 / 60 ;
+                            totalhours = totaltime.toPrecision(1) ;
+                            totalminutes = (60 * (totaltime - totalhours)).toPrecision(2) ;
+                            var totaltimestr = totalhours.toString() + ":" + totalminutes.toString() ;
+                            document.getElementById("totaltimespan").innerHTML = totaltimestr ;
+                            console.log(totaltime) ;
                         } else {
                             window.alert("Directions request failed due to " + status);
                         }
                     }
                 );
+                console.log("finished");
+
+                console.log("what did it say");
 
 
             }
