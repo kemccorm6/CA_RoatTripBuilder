@@ -18,11 +18,15 @@ if ($mysql->connect_errno) {
     exit();
 }
 
-$usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
+if(!empty ($_SESSION["start"])) {
+    $usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"];
 //echo $usersql;
 
-$userresults = $mysql-> query($usersql);
-$currentrow = $userresults->fetch_assoc();
+    $userresults = $mysql->query($usersql);
+    $currentrow = $userresults->fetch_assoc();
+}else{
+    header("Location: ../Login/CA_RoadTripLOGIN.php");
+}
 ?>
 <html>
 <head>
@@ -324,7 +328,27 @@ text-align: center;
 
     <div class="bigbox">
         <hr><br>
-        <div class="triptitle">Roadtrip Name</div>
+        <div  class="triptitle"><span id="roadtripname" >Roadtrip Name</span>
+            <input type="button" value="Edit" id="editname">
+            <input type="button" value="Confirm" id="confirmname">
+
+            <script>
+
+
+
+                document.getElementById("confirmname").style.display = "none";
+
+                document.getElementById("editname").addEventListener("click", function(){
+
+                        document.getElementById("roadtripname").innerHTML = "<input type='text' placeholder='Edit Road Trip Name'>"
+                        document.getElementById("confirmname").style.display = "block";
+                        document.getElementById("editname").style.display = "none";
+
+
+                });
+            </script>
+
+        </div>
 
         <div class="banner">
             <img class="banner1" id="image1" src="fpbg.png">

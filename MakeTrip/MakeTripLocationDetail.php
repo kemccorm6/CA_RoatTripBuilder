@@ -23,6 +23,8 @@ if(!empty ($_SESSION["start"])) {
 
     $userresults = $mysql->query($usersql);
     $currentrow = $userresults->fetch_assoc();
+}else{
+    header("Location: ../Login/CA_RoadTripLOGIN.php");
 }
 
 ?>
