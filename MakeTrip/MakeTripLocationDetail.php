@@ -314,9 +314,22 @@ $loccurrentrow = $locresults->fetch_assoc();
         <div class="triptitle"><?php echo $loccurrentrow["locationname"] ?></div>
 
         <div class="banner">
-            <img class="banner1" id="image1" src="fpbg.png">
-            <img class="banner2" id="image2" src="fpbg.png">
-            <img class="banner3" id="image3" src="fpbg.png">
+
+            <?php
+            $imgsql = "SELECT * FROM images_table WHERE locationID= " . $_REQUEST["id"];
+
+            $ir = $mysql->query($imgsql);
+            $count =0;
+            while($imgrow = $ir->fetch_assoc()){
+                $count += 1;
+            ?>
+
+            <img class="banner<?php echo $count; ?>" id="image<?php echo $count; ?>" src="<?php echo $imgrow["imageurl"]; ?>">
+<!--            <img class="banner2" id="image2" src="--><?php //echo $imgrow["imageurl"]; ?><!--">-->
+<!--            <img class="banner3" id="image3" src="--><?php //echo $imgrow["imageurl"]; ?><!--">-->
+            <?php
+            }
+            ?>
         </div>
 
         <div class="detailsarea">

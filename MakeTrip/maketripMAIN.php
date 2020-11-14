@@ -122,7 +122,7 @@ if(!empty ($_SESSION["start"])) {
 
                 <select name="citysearchstart">
                     <?php
-                        $citysearchsql = "SELECT * FROM city_table ";
+                        $citysearchsql = "SELECT * FROM city_table ORDER BY city ASC";
 
                         $cityresults = $mysql->query($citysearchsql);
 
@@ -131,7 +131,7 @@ if(!empty ($_SESSION["start"])) {
                     }
                     ?>
 
-                    <option>Los Angeles</option>
+
                 </select>
             </div>
 <br>
@@ -139,7 +139,7 @@ if(!empty ($_SESSION["start"])) {
                 <div class="label">End City:</div>
                 <select name="citysearchend">
                     <?php
-                    $citysearchsql2 = "SELECT * FROM city_table ";
+                    $citysearchsql2 = "SELECT * FROM city_table ORDER BY city ASC";
 
                     $cityresults2 = $mysql->query($citysearchsql2);
 

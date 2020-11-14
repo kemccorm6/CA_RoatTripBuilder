@@ -344,8 +344,12 @@ $cr2 = $r2-> fetch_assoc();
 
         $locresults = $mysql->query($locationsql);
 
-
-//        echo "$locationsql";
+//        echo "<script>console.log('LAT MIN " . $latmin . " ');</script>";
+//        echo "<script>console.log('LAT MAX " . $latmax . " ');</script>";
+//        echo "<script>console.log('LONG MIN " . $longmin . " ');</script>";
+//        echo "<script>console.log('LONG MAX " . $longmax . " ');</script>";
+//        echo "<script>console.log('LONG MAX CITY " . $mapendcurrentrow["city"] . " ');</script>";
+//        echo "<script>console.log('" . $locationsql . "');</script>";
 //        echo "<br><br><br>";
 
 
@@ -493,7 +497,8 @@ $cr2 = $r2-> fetch_assoc();
 
         <?php
 
-        $locationsql = "SELECT * FROM location_table WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
+        $locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM location_table left join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
+            " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
             " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
 
         $locresults = $mysql->query($locationsql);
@@ -506,10 +511,16 @@ $cr2 = $r2-> fetch_assoc();
             ?>
 
 
+
             <div class="citybox" id="outPutBox<?php echo $loccurrentrow["locationID"] ?>">
 
                 <button type="button" class="removecity" id="but<?php echo $loccurrentrow["locationID"] ?>">X</button>
-                <div ><a href="MakeTripLocationDetail.php?id=<?php echo $loccurrentrow["locationID"] ?>"><img id="cityimage" src="sanfrancisco.jpg"></a></div>
+
+
+                <div ><a href="MakeTripLocationDetail.php?id=<?php echo $loccurrentrow["locationID"] ?>"><img id="cityimage" src="<?php echo $loccurrentrow["imageurl"]; ?>"></a></div>
+
+
+
                 <div id="cityname"><?php echo $loccurrentrow["locationname"]; ?></div>
                 <div id="citydescription"><?php echo $loccurrentrow["location_description"]; ?>
                  </div>
@@ -520,8 +531,11 @@ $cr2 = $r2-> fetch_assoc();
                     document.getElementById("outPutBox<?php echo $loccurrentrow["locationID"] ?>").style.display = "None" ;
                     displayTripPlaces();
                 })
+                console.log("Result: <?php echo $loccurrentrow["locationID"] ?>");
 
             </script>
+
+
 
 
         <?php
