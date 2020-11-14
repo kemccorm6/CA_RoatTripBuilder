@@ -319,7 +319,7 @@ text-align: center;
 <div class="container">
 
         <ul id="tabs">
-            <li><a href="userprofile.php" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">BACK</a></li>
+            <li><a href="userprofile.php" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">MY TRIPS</a></li>
         </ul>
 
     <div class="bigbox">

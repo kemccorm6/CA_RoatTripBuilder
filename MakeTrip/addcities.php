@@ -255,30 +255,31 @@ $cr2 = $r2-> fetch_assoc();
     <div class="makeatrip">
         <h1>Make a Trip from <em><?php echo $titlecurrentrow["city"] ?></em> to <em><?php echo $cr2["city"] ?></em> </h1>
         <h4>Here are all the locations between your two cities! Delete places you don't <br> wish to visit, and click on the location to get details and save the trip when you are done!</h4>
-        <button type="button" id="savetrip">Save Trip</button>
+        <a href="../UserProfile/MyRoadtripDetails.php"><button type="submit" id="savetrip">Save Trip</button></a>
 </div><br clear="all"/>
     <div class="container2">
     <div class="mapAPI">
         <div id="filter">
-            <form action="addcities.php">
+<!--            <form action="addcities.php?typeid=--><?php //echo $currentfilter["typeID"];?><!--&citysearchstart=--><?php //echo $mapstartcurrentrow["cityID"]; ?><!--&citysearchend=--><?php //echo $mapendcurrentrow["cityID"]; ?><!--">-->
 
             <div class="input">
-                <select name="citysearch">
-                    <option value="ALL">Filter By:</option>
-                    <option value="ALL">--------------</option>
+                Your route will take:
+<!--                <select name="citysearch">-->
+<!--                    <option value="ALL">Filter By:</option>-->
+<!--                    <option value="ALL">--------------</option>-->
+<!---->
+<!--                    --><?php
+//                    $filtersql = "SELECT * FROM type_table";
+//                    $filterresults = $mysql->query($filtersql);
+//                    while($currentfilter = $filterresults->fetch_assoc()){
+//                        echo "<option value='". $currentfilter["typeID"] ."'>" . $currentfilter["type"] . "</option>";
+//                    }
+//
+//                    ?>
+<!---->
+<!--                </select>-->
 
-                    <?php
-                    $filtersql = "SELECT * FROM type_table";
-                    $filterresults = $mysql->query($filtersql);
-                    while($currentfilter = $filterresults->fetch_assoc()){
-                        echo "<option value='". $currentfilter["typeID"] ."'>" . $currentfilter["type"] . "</option>";
-                    }
-
-                    ?>
-
-                </select>
-
-                <input type="submit" value="Go">
+<!--                <input type="submit" value="Go">-->
             </div>
 
             </div>
@@ -358,14 +359,21 @@ $cr2 = $r2-> fetch_assoc();
 
 
             function initMap() {
-                map = new google.maps.Map(document.getElementById("map"), {
+
+                const directionsService = new google.maps.DirectionsService();
+                const directionsRenderer = new google.maps.DirectionsRenderer();
+
+                const map = new google.maps.Map(document.getElementById("map"), {
                     center: { lat: avglatitude, lng: -avglongitude },
                     zoom: 7,
                 });
 
+                directionsRenderer.setMap(map);
 
-                startnewplace = new google.maps.Marker({position: {lat: <?php echo $mapstartcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapstartcurrentrow["city_longitude"]; ?>}, map: map});
-                var trippoint = [] ;
+
+                //startnewplace = new google.maps.Marker({position: {lat: <?php echo $mapstartcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapstartcurrentrow["city_longitude"]; ?>}, map: map});
+
+                const trippoint = [] ;
                 <?php
                 $i = 0;
                 while($loccurrentrow = $locresults-> fetch_assoc()){
@@ -373,22 +381,47 @@ $cr2 = $r2-> fetch_assoc();
                     $i += 1;
                     //echo "console.log(" . $i . ");";
                 //echo "trippoint[" . $i . "] = " . $i . " ;";
-                    $s = "trippoint[" . $i . "] = new google.maps.Marker({position: {lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . "}, map: map});";
-                    //echo "console.log('" . $s . "');" ;
+                    //$s = "trippoint[" . $i . "] = new google.maps.Marker({position: {lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . "}, map: map});";
+                    $s = "trippoint.push({ location : { lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . " } , stopover : true  });";
+                    echo "console.log('" . $s . "');" ;
                     echo $s ;
+
                     //echo "createMarker(trippoint[" . $i . "]);";
                     //echo "console.log( trippoint[" . $i . "] );" ;
                 }
                 //
                 //
                 ?>
-                createMarker(trippoint) ;
+                //createMarker(trippoint) ;
 
-                endnewplace = new google.maps.Marker({position: {lat: <?php echo $mapendcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapendcurrentrow["city_longitude"];  ?>}, map: map});
+                //endnewplace = new google.maps.Marker({position: {lat: <?php echo $mapendcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapendcurrentrow["city_longitude"];  ?>}, map: map});
                 // test = new google.maps.Marker({position: {lat: 39.4526, lng: -123.8135}, map: map});
-                createMarker(startnewplace);
-                createMarker(endnewplace);
+                //createMarker(startnewplace);
+                //createMarker(endnewplace);
                 // createMarker(test);
+
+                //Draw Route
+
+
+                directionsService.route(
+                    {
+                        origin: {lat: <?php echo $mapstartcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapstartcurrentrow["city_longitude"]; ?> } ,
+                        destination: {lat: <?php echo $mapendcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapendcurrentrow["city_longitude"];  ?>} ,
+                        waypoints :  trippoint ,
+                        travelMode: google.maps.TravelMode.DRIVING,
+                        optimizeWaypoints: true
+                    },
+
+                    (response, status) => {
+                        if (status === "OK") {
+                            directionsRenderer.setDirections(response);
+                        } else {
+                            window.alert("Directions request failed due to " + status);
+                        }
+                    }
+                );
+
+
             }
         </script>
 
