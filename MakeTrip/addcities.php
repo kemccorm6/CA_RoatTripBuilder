@@ -30,10 +30,10 @@ if(!empty ($_SESSION["start"])) {
     <title>Road Trip Builder</title>
 <!--    Google Map Integration-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ7GDJS8_HYW_ss1-CMpa5_H6ySas7sIQ&callback=initMap&libraries=&v=weekly"
-            defer
-    ></script>
+<!--    <script-->
+<!--            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ7GDJS8_HYW_ss1-CMpa5_H6ySas7sIQ&callback=initMap&libraries=&v=weekly"-->
+<!--            defer-->
+<!--    ></script>-->
 
     <link rel = "stylesheet"
           href = "../master2.css" />
@@ -134,7 +134,7 @@ margin-right: 80px;
             border-radius: 15px;
 float: left;
         }
-        #removecity {
+        .removecity {
             width: 30px;
             height: 30px;
             border-radius: 100px;
@@ -357,6 +357,9 @@ $cr2 = $r2-> fetch_assoc();
             var avglatitude = (<?php echo $mapstartcurrentrow["city_latitude"];  ?> + <?php echo $mapendcurrentrow["city_latitude"];  ?>)/2;
             var avglongitude = (<?php echo $mapstartcurrentrow["city_longitude"]; ?> + <?php echo $mapendcurrentrow["city_longitude"];  ?>)/2;
 
+            let dService;
+            let dRenderer;
+
 
             function initMap() {
 
@@ -364,14 +367,20 @@ $cr2 = $r2-> fetch_assoc();
                 const directionsRenderer = new google.maps.DirectionsRenderer();
 
                 const map = new google.maps.Map(document.getElementById("map"), {
-                    center: { lat: avglatitude, lng: -avglongitude },
+                    center: {lat: avglatitude, lng: -avglongitude},
                     zoom: 7,
                 });
 
                 directionsRenderer.setMap(map);
-
+                dService = directionsService ;
+                dRenderer = directionsRenderer;
 
                 //startnewplace = new google.maps.Marker({position: {lat: <?php echo $mapstartcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapstartcurrentrow["city_longitude"]; ?>}, map: map});
+                displayTripPlaces();
+            };
+            function displayTripPlaces() {
+                const directionsService = dService ;
+                const directionsRenderer = dRenderer;
 
                 const trippoint = [] ;
                 <?php
@@ -382,23 +391,23 @@ $cr2 = $r2-> fetch_assoc();
                     //echo "console.log(" . $i . ");";
                 //echo "trippoint[" . $i . "] = " . $i . " ;";
                     //$s = "trippoint[" . $i . "] = new google.maps.Marker({position: {lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . "}, map: map});";
-                    $s = "trippoint.push({ location : { lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . " } , stopover : true  });";
-                    echo "console.log('" . $s . "');" ;
-                    echo $s ;
 
+                    $t = "document.getElementById(\"outPutBox" . $loccurrentrow["locationID"]  . "\").style.display" ;
+                    //echo "console.log('" . $t . "');" ;
+                    echo "console.log( " .$t . ") ; " ;
+                    $s = "trippoint.push({ location : { lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . " } , stopover : true  });";
+                    //echo "console.log('" . $s . "');" ;
+                    //echo $s ;
+                    $w =  "if ( \"none\" != " . $t . ") { " . $s . " }; " ;
+                    echo "console.log('" . $w . "');" ;
+                    echo $w ;
                     //echo "createMarker(trippoint[" . $i . "]);";
                     //echo "console.log( trippoint[" . $i . "] );" ;
                 }
                 //
                 //
                 ?>
-                //createMarker(trippoint) ;
 
-                //endnewplace = new google.maps.Marker({position: {lat: <?php echo $mapendcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapendcurrentrow["city_longitude"];  ?>}, map: map});
-                // test = new google.maps.Marker({position: {lat: 39.4526, lng: -123.8135}, map: map});
-                //createMarker(startnewplace);
-                //createMarker(endnewplace);
-                // createMarker(test);
 
                 //Draw Route
 
@@ -431,8 +440,8 @@ $cr2 = $r2-> fetch_assoc();
                             console.log("total time in hours");
                             //console.log( totaldistance / 1000 * 0.6 / 60);
                             var totaltime = totaldistance / 1000 * 0.6 / 60 ;
-                            totalhours = totaltime.toPrecision(1) ;
-                            totalminutes = (60 * (totaltime - totalhours)).toPrecision(2) ;
+                            totalhours = Math.floor(totaltime) ;
+                            totalminutes = Math.floor(60 * (totaltime - totalhours)) ;
                             var totaltimestr = totalhours.toString() + ":" + totalminutes.toString() ;
                             document.getElementById("totaltimespan").innerHTML = totaltimestr ;
                             console.log(totaltime) ;
@@ -489,19 +498,30 @@ $cr2 = $r2-> fetch_assoc();
 
         $locresults = $mysql->query($locationsql);
 
+
+
+
         while($loccurrentrow = $locresults-> fetch_assoc()){
 
             ?>
 
 
-            <div class="citybox">
+            <div class="citybox" id="outPutBox<?php echo $loccurrentrow["locationID"] ?>">
 
-                <button type="button" id="removecity">X</button>
+                <button type="button" class="removecity" id="but<?php echo $loccurrentrow["locationID"] ?>">X</button>
                 <div ><a href="MakeTripLocationDetail.php?id=<?php echo $loccurrentrow["locationID"] ?>"><img id="cityimage" src="sanfrancisco.jpg"></a></div>
                 <div id="cityname"><?php echo $loccurrentrow["locationname"]; ?></div>
                 <div id="citydescription"><?php echo $loccurrentrow["location_description"]; ?>
                  </div>
             </div>
+
+            <script>
+                document.getElementById("but<?php echo $loccurrentrow["locationID"] ?>").addEventListener("click", function(){
+                    document.getElementById("outPutBox<?php echo $loccurrentrow["locationID"] ?>").style.display = "None" ;
+                    displayTripPlaces();
+                })
+
+            </script>
 
 
         <?php
@@ -510,6 +530,12 @@ $cr2 = $r2-> fetch_assoc();
 
 
         ?>
+
+        <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ7GDJS8_HYW_ss1-CMpa5_H6ySas7sIQ&callback=initMap&libraries=&v=weekly"
+                defer
+        ></script>
+
 
 <!--        End Location-->
 <!--        <div class="citybox">-->
