@@ -363,6 +363,7 @@ $cr2 = $r2-> fetch_assoc();
 
             let dService;
             let dRenderer;
+            let placesList;
 
 
             function initMap() {
@@ -387,26 +388,37 @@ $cr2 = $r2-> fetch_assoc();
                 const directionsRenderer = dRenderer;
 
                 const trippoint = [] ;
+                const placesList = [];
                 <?php
                 $i = 0;
                 while($loccurrentrow = $locresults-> fetch_assoc()){
                 //
-                    $i += 1;
+
                     //echo "console.log(" . $i . ");";
                 //echo "trippoint[" . $i . "] = " . $i . " ;";
                     //$s = "trippoint[" . $i . "] = new google.maps.Marker({position: {lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . "}, map: map});";
 
-                    $t = "document.getElementById(\"outPutBox" . $loccurrentrow["locationID"]  . "\").style.display" ;
+                    $t = "document.getElementById(\"outPutBox" . $i . "\").style.display" ;
+                    //in javascript how do we get the new attribute for locationid that we created if we know the id of the outputbox ($i)
+
+                    //document.getElementById(\"outPutBox" . $i . "\").getAttribute("locationid");
+
                     //echo "console.log('" . $t . "');" ;
-                    echo "console.log( " .$t . ") ; " ;
-                    $s = "trippoint.push({ location : { lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . " } , stopover : true  });";
+                    //echo "console.log( " .$t . ") ; " ;
+                    //$s = "trippoint.push({ location : { lat: " . $loccurrentrow["latitude"] . ", lng: -" . $loccurrentrow["longitude"] . " } , stopover : true  });";
+                    //$places = "placesList.push( " . $loccurrentrow["locationID"] . " );" ;
+                    $s = "trippoint.push({ location : { lat: parseFloat( document.getElementById(\"outPutBox" . $i . "\").getAttribute(\"lat\") ) , " .
+                       " lng: parseFloat( \"-\" + document.getElementById(\"outPutBox" . $i . "\").getAttribute(\"lng\") ) } ,  stopover : true  });";
+                    $places = "placesList.push( document.getElementById(\"outPutBox" . $i . "\").getAttribute(\"locationid\") );" ;
                     //echo "console.log('" . $s . "');" ;
                     //echo $s ;
-                    $w =  "if ( \"none\" != " . $t . ") { " . $s . " }; " ;
-                    echo "console.log('" . $w . "');" ;
+                    //echo "console.log( document.getElementById(\"outPutBox" . $i . "\").getAttribute(\"lat\") ) ;" ;
+                    $w =  "if ( \"none\" != " . $t . ") { " . $s . $places . " }; " ;
+                    //echo "console.log('" . $w . "');" ;
                     echo $w ;
-                    //echo "createMarker(trippoint[" . $i . "]);";
+//                    //echo "createMarker(trippoint[" . $i . "]);";
                     //echo "console.log( trippoint[" . $i . "] );" ;
+                    $i += 1;
                 }
                 //
                 //
@@ -415,7 +427,7 @@ $cr2 = $r2-> fetch_assoc();
 
                 //Draw Route
 
-
+                console.log(document.getElementById("sb"));
                 directionsService.route(
                     {
                         origin: {lat: <?php echo $mapstartcurrentrow["city_latitude"];  ?>, lng: -<?php echo $mapstartcurrentrow["city_longitude"]; ?> } ,
@@ -428,7 +440,7 @@ $cr2 = $r2-> fetch_assoc();
                     (response, status) => {
                         if (status === "OK") {
                             directionsRenderer.setDirections(response);
-                            //console.log(response)
+                            console.log(response);
                             legs = response["routes"][0]["legs"]
 
                             var i;
@@ -436,19 +448,75 @@ $cr2 = $r2-> fetch_assoc();
                             for (i=0; i < legs.length; i++){
 
                                 totaldistance += legs[i]["distance"]["value"];
-                                console.log(legs[i]["distance"]["value"]);
+                                //console.log(legs[i]["distance"]["value"]);
 
                             }
-                            console.log("total distance");
-                            console.log( totaldistance );
-                            console.log("total time in hours");
+                            //console.log("total distance");
+                            //console.log( totaldistance );
+                            //console.log("total time in hours");
                             //console.log( totaldistance / 1000 * 0.6 / 60);
                             var totaltime = totaldistance / 1000 * 0.6 / 60 ;
                             totalhours = Math.floor(totaltime) ;
                             totalminutes = Math.floor(60 * (totaltime - totalhours)) ;
                             var totaltimestr = totalhours.toString() + " hrs and " + totalminutes.toString() + " mins." ;
                             document.getElementById("totaltimespan").innerHTML = totaltimestr ;
-                            console.log(totaltime) ;
+                            var waypointorder = response["routes"][0]["waypoint_order"];
+                            //console.log( placesList ) ;
+                            sbar = document.getElementById("sb");
+                            newsbar = "";
+                            resultwaypoints = [] ;
+                            const domparser = new DOMParser() ;
+                            for (i=0; i < waypointorder.length ; i++) {
+                                x1 =  placesList[waypointorder[i]] ;  //this is the location id of the entry
+                                x1elt = sbar.querySelector("div[locationid='" + x1 +"']");
+                                x2elt = domparser.parseFromString( x1elt.outerHTML , "text/html" ).querySelector("div[class='citybox']") ;
+
+                                console.log('x2 elt');
+                                console.log(x2elt);
+                                //console.log(x1elt);
+                                //y1 = "script" + placesList[waypointorder[i]] ;
+                                //y1elt = sbar.querySelector("#" + y1) ;
+                                //console.log(sbar.querySelector("#" + y1));
+                                p = placesList[waypointorder[i]]; 
+                                resultwaypoints.push(x2elt) ;
+
+                                //newsbar += x1elt.outerHTML + y1 + "<" + "/" + "script" + ">" ;
+                            }
+                            //document.getElementById("").innerHTML = placelist;
+                            console.log(resultwaypoints) ;
+                            //console.log(totaltime) ;
+                            //console.log(newsbar);
+                            sbarchildren = sbar.querySelectorAll("div[class='citybox']");
+
+                            //sbarchildren[0].querySelectorAll("#cityname")[0].innerHTML = 'sun of beach';
+                            //console.log(citydiv);
+                            console.log(sbarchildren);
+
+                            j = 0;
+                            for(i=0; i < sbarchildren.length; i++){
+                                if(sbarchildren[i].style.display != "none"){
+                                    console.log("updating city name");
+                                    console.log(resultwaypoints[j].querySelectorAll("#cityname")[0]) ;
+                                    sbarchildren[i].querySelectorAll("#cityname")[0].innerHTML = resultwaypoints[j].querySelectorAll("#cityname")[0].innerHTML ;
+                                    sbarchildren[i].querySelectorAll("#citydescription")[0].innerHTML = resultwaypoints[j].querySelectorAll("#citydescription")[0].innerHTML ;
+                                    sbarchildren[i].querySelectorAll("#cityimage")[0].src = resultwaypoints[j].querySelectorAll("#cityimage")[0].src ;
+                                    sbarchildren[i].querySelectorAll("#piclink")[0].href = resultwaypoints[j].querySelectorAll("#piclink")[0].href ;
+                                //lat and long stuff
+
+                                    sbarchildren[i].setAttribute("lat" , resultwaypoints[j].getAttribute("lat") ) ;
+                                    sbarchildren[i].setAttribute("lng" , resultwaypoints[j].getAttribute("lng") ) ;
+                                    //sbarchildren[i].querySelectorAll("div[lng]")[0].val = resultwaypoints[j].querySelectorAll("div[lng]")[0].val ;
+
+                                    j += 1;
+                                }
+                            }
+
+                            console.log(sbarchildren);
+
+
+
+
+                            //console.log(document.getElementById("sb"));
                         } else {
                             window.alert("Directions request failed due to " + status);
                         }
@@ -480,7 +548,7 @@ $cr2 = $r2-> fetch_assoc();
 
 
         ?>
-    <div class="sidebar">
+    <div class="sidebar" id="sb">
 
 <!--        Start location-->
 
@@ -505,45 +573,70 @@ $cr2 = $r2-> fetch_assoc();
 
 
 
-
+        $newcounter =0;
         while($loccurrentrow = $locresults-> fetch_assoc()){
 
             ?>
 
 
 
-            <div class="citybox" id="outPutBox<?php echo $loccurrentrow["locationID"] ?>">
+            <div class="citybox" locationid="<?php echo $loccurrentrow["locationID"] ?>" id="outPutBox<?php echo $newcounter ?>" lat="<?php echo strval($loccurrentrow["latitude"]) ; ?>" lng="<?php echo strval($loccurrentrow["longitude"]) ; ?>" >
 
-                <button type="button" class="removecity" id="but<?php echo $loccurrentrow["locationID"] ?>">X</button>
-
-
-                <div ><a href="MakeTripLocationDetail.php?id=<?php echo $loccurrentrow["locationID"] ?>"><img id="cityimage" src="<?php echo $loccurrentrow["imageurl"]; ?>"></a></div>
+                <button type="button" class="removecity" id="but<?php echo $newcounter ?>">X</button>
 
 
+                <div ><a id="piclink"><img id="cityimage" src="<?php echo $loccurrentrow["imageurl"]; ?>"></a></div>
 
-                <div id="cityname"><?php echo $loccurrentrow["locationname"]; ?></div>
+<!--                href="MakeTripLocationDetail.php?id=--><?php //echo $loccurrentrow["locationID"] ?>
+
+
+
+                <div id="cityname"> <?php echo $loccurrentrow["locationname"]; ?></div>
                 <div id="citydescription"><?php echo $loccurrentrow["location_description"]; ?>
                  </div>
             </div>
-
-            <script>
-                document.getElementById("but<?php echo $loccurrentrow["locationID"] ?>").addEventListener("click", function(){
-                    document.getElementById("outPutBox<?php echo $loccurrentrow["locationID"] ?>").style.display = "None" ;
-                    displayTripPlaces();
-                })
-                console.log("Result: <?php echo $loccurrentrow["locationID"] ?>");
-
-            </script>
-
-
-
-
         <?php
-
-            }
-
+        $newcounter++;
+        }
 
         ?>
+
+
+
+        <script>
+            <?php
+
+                $newcounter =0;
+
+                $locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM location_table left join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
+                    " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
+                    " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+
+                $locresults = $mysql->query($locationsql);
+
+                while($loccurrentrow = $locresults-> fetch_assoc()){
+
+             ?>
+
+
+
+//DELETE BUTTON
+               document.getElementById("but<?php echo $newcounter ?>").addEventListener("click", function(){
+                   document.getElementById("outPutBox<?php echo $newcounter ?>").style.display = "None" ;
+                 console.log("pushed button<?php echo $loccurrentrow["locationID"] ?>");
+                    displayTripPlaces();
+                })
+               console.log("Result: <?php echo $loccurrentrow["locationID"] ?>");
+                <?php
+                $newcounter++;
+                }
+            ?>
+        </script>
+
+
+
+
+
 
         <script
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ7GDJS8_HYW_ss1-CMpa5_H6ySas7sIQ&callback=initMap&libraries=&v=weekly"

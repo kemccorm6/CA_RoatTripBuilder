@@ -52,7 +52,7 @@ $currentrow = $userresults->fetch_assoc();
             background-repeat: no-repeat;
             height: 3500px;
 
-        }
+        } 
         #badge {
             width: 900px;
             margin: auto;

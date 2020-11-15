@@ -326,7 +326,7 @@ text-align: center;
             <li><a href="userprofile.php" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">MY TRIPS</a></li>
         </ul>
 
-    <div class="bigbox">
+    <div class="bigbox"> 
         <hr><br>
         <div  class="triptitle"><span id="roadtripname" >Roadtrip Name</span>
             <input type="button" value="Edit" id="editname">
