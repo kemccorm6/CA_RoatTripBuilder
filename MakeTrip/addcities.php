@@ -94,6 +94,9 @@ margin-top: 50px;
             height: 800px;
             float: left;
             margin-left: 30px;
+            overflow: scroll;
+
+
         }
         .container2 {
             width: 1300px;
@@ -588,6 +591,11 @@ $cr2 = $r2-> fetch_assoc();
                 <div ><a id="piclink"><img id="cityimage" src="<?php echo $loccurrentrow["imageurl"]; ?>"></a></div>
 
 <!--                href="MakeTripLocationDetail.php?id=--><?php //echo $loccurrentrow["locationID"] ?>
+<!--                //DIVE DEEPER INTO LCOATION BUTTON-->
+<!---->
+<!--                $("#piclink").on('click', function(){-->
+<!--                window.location = "MakeTripLocationDetail.php";-->
+<!--                });-->
 
 
 
@@ -617,6 +625,10 @@ $cr2 = $r2-> fetch_assoc();
                 while($loccurrentrow = $locresults-> fetch_assoc()){
 
              ?>
+
+
+
+
 
 
 
