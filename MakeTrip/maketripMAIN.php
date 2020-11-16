@@ -116,7 +116,10 @@ if(!empty ($_SESSION["start"])) {
     <div class="makeatrip">
 
                         <h1>Make a Trip</h1>
-        <form action="addcities.php">
+        <form action="CALCULATINGTrip.php">
+
+
+
             <div class="input">
             <div class="label">Start City:</div>
 

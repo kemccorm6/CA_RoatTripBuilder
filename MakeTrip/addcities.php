@@ -572,6 +572,12 @@ $cr2 = $r2-> fetch_assoc();
             " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
             " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
 
+
+        //$locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM " .
+        //     "trip_points_table left join location_table on trip_points_table.locationID = location_table.locationID " .
+        //     " join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
+        //    " WHERE tripID = " . $_SESSION["SessionTripId"];
+
         $locresults = $mysql->query($locationsql);
 
 
@@ -588,7 +594,7 @@ $cr2 = $r2-> fetch_assoc();
                 <button type="button" class="removecity" id="but<?php echo $newcounter ?>">X</button>
 
 
-                <div ><a id="piclink"><img id="cityimage" src="<?php echo $loccurrentrow["imageurl"]; ?>"></a></div>
+                <div><a href="MakeTripLocationDetail.php?id=<?php echo $loccurrentrow["locationID"] ?>" id="piclink" ><img id="cityimage" src="<?php echo $loccurrentrow["imageurl"]; ?>"></a></div>
 
 <!--                href="MakeTripLocationDetail.php?id=--><?php //echo $loccurrentrow["locationID"] ?>
 <!--                //DIVE DEEPER INTO LCOATION BUTTON-->
