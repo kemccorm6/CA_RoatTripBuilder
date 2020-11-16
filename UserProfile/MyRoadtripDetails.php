@@ -322,16 +322,28 @@ text-align: center;
 <!--<hr>-->
 <div class="container">
 
+<?php
+    $rts = "SELECT * FROM saved_trips_table WHERE userID=" . $_SESSION["UserId"] . " AND savedtripID = " . $_REQUEST["tripid"];
+    $tripresults = $mysql->query($rts);
+
+    $tripcr = $tripresults->fetch_assoc();
+
+
+?>
         <ul id="tabs">
             <li><a href="userprofile.php" name="tab1" id="tab12" style="width: 90px; text-align: center; padding: .7em 1.5em;">MY TRIPS</a></li>
         </ul>
 
     <div class="bigbox"> 
         <hr><br>
-        <div  class="triptitle"><span id="roadtripname" >Roadtrip Name</span>
-            <input type="button" value="Edit" id="editname">
-            <input type="button" value="Confirm" id="confirmname">
 
+
+            <form action="Title_MM.php">
+                <input type="hidden" name="tripid" value="<?php echo $_REQUEST["tripid"]; ?>">
+                <div  class="triptitle"><span id="roadtripname" ><?php echo $tripcr["trip_name"]; ?></span>
+                <input type="button" value="Edit" id="editname">
+                <input type="submit" value="Confirm" id="confirmname">
+            </form>
             <script>
 
 
@@ -340,7 +352,7 @@ text-align: center;
 
                 document.getElementById("editname").addEventListener("click", function(){
 
-                        document.getElementById("roadtripname").innerHTML = "<input type='text' placeholder='Edit Road Trip Name'>"
+                        document.getElementById("roadtripname").innerHTML = "<input type='text' name='newtitletext' placeholder='<?php echo $tripcr["trip_name"]; ?>'>"
                         document.getElementById("confirmname").style.display = "block";
                         document.getElementById("editname").style.display = "none";
 
@@ -357,7 +369,29 @@ text-align: center;
         </div>
 
         <div class="description">
-            <p> Write a description about your roadtrip. Include goals, ideas, key places and memories!</p>
+
+            <form action="Desc_MM.php">
+                <input type="hidden" name="tripid" value="<?php echo $_REQUEST["tripid"]; ?>">
+                <p id="descriptionwords"> <?php echo $tripcr["trip_description"]; ?></p>
+                <input type="button" value="Edit" id="editdescriptione">
+                <input type="submit" value="Confirm" id="confirmdescription">
+
+            </form>
+
+            <script>
+                document.getElementById("confirmdescription").style.display = "none";
+
+                document.getElementById("editdescriptione").addEventListener("click", function(){
+
+                    document.getElementById("descriptionwords").innerHTML = "<input type='text' name='newdesctext' placeholder='<?php echo $tripcr["trip_description"]; ?>'>"
+                    document.getElementById("confirmdescription").style.display = "block";
+                    document.getElementById("editdescriptione").style.display = "none";
+
+
+                });
+
+            </script>
+
         </div>
 
         <div class="steps">

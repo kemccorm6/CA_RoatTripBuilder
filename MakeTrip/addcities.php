@@ -258,7 +258,7 @@ $cr2 = $r2-> fetch_assoc();
     <div class="makeatrip">
         <h1>Make a Trip from <em><?php echo $titlecurrentrow["city"] ?></em> to <em><?php echo $cr2["city"] ?></em> </h1>
         <h4>Here are all the locations between your two cities! Delete places you don't <br> wish to visit, and click on the location to get details and save the trip when you are done!</h4>
-        <a href="../UserProfile/MyRoadtripDetails.php"><button type="submit" id="savetrip">Save Trip</button></a>
+        <a href="TRIP_SUM_MM.php?tripid=<?php echo $_REQUEST["tripid"]; ?>"><button type="submit" id="savetrip">Save Trip</button></a>
 </div><br clear="all"/>
     <div class="container2">
     <div class="mapAPI">
