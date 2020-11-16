@@ -313,23 +313,12 @@ if (empty($_SESSION["start"])){
             font-size: 12pt;
             padding-top: 10px;
         }
-        #prodtile1 {
-        }
-        #prodtile2 {
-        }
-        #prodtile3 {
-        }
-
-        #prodtile4 {
-
-        }
 
         .prodimgtile {
             width: 100%;
             border-radius: 10px;
             min-height: 20vw;
             background-color: #6E8B55;
-
         }
 
         #prodimgtile1 {
