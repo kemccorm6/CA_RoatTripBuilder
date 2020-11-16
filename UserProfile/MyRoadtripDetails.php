@@ -465,15 +465,13 @@ text-align: center;
                     <div id="stepcircle">End</div>
                 </div>
                 <div class="end-location" id="stopinfo">
-                    <div id="locationpicture"></div>
-                    <div id="locationname">Location Name</div>
+
+                    <div id="locationname"><?php echo $cecr["cityEND"]; ?></div>
                     <div id="typesrow">
-                        <div class="types" id="type1">Pet Friendly</div>
-                        <div class="types" id="type2">Wifi</div>
-                        <div class="types" id="type3">Mountain</div>
+
                     </div><br>
                     <div id="notes">
-                        This mountain and park is a great place for picnics and hiking! Beautiful view at top.
+                        End city
                     </div>
                 </div>
 

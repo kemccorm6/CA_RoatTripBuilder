@@ -513,7 +513,7 @@ if (empty($_SESSION["start"])){
                     while($roadtripcr = $rtresults1->fetch_assoc()){
 
 
-                    ?>
+                    ?> 
 
                     <div class="prodtile" id="prodtile1">
                         <input type="hidden" name="tripid" value="<?php echo $roadtripcr["savedtripID"]; ?>">
