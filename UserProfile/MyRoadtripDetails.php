@@ -401,18 +401,31 @@ text-align: center;
                     <div id="stepcircle">Start</div>
                 </div>
 
+                <?php
+                    $cityse = "SELECT * FROM StartEndCities WHERE savedtripID = ". $_REQUEST["tripid"] ." AND userID =" . $_SESSION["UserId"];
+                    $cer = $mysql->query($cityse);
+
+                    $cecr = $cer->fetch_assoc();
+
+                ?>
+
                 <div class="start-location" id="stopinfo">
-                    <div id="locationpicture"></div>
-                    <div id="locationname">Location Name</div>
+
+                    <div id="locationname"><?php echo $cecr["citySTART"]; ?></div>
                     <div id="typesrow">
-                        <div class="types" id="type1">Pet Friendly</div>
-                        <div class="types" id="type2">Wifi</div>
-                        <div class="types" id="type3">Mountain</div>
+
                     </div><br>
                     <div id="notes">
-                        This mountain and park is a great place for picnics and hiking! Beautiful view at top.
+                        Start city
                     </div>
                 </div>
+
+                <?php
+
+                $lssql = "SELECT * FROM LocationUserTrip WHERE  "
+
+                ?>
+
 
                 <div class="stop-1" id="step#">
                     <div id="stepcircle">#1</div>

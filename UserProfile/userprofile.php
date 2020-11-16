@@ -374,6 +374,11 @@ if (empty($_SESSION["start"])){
         input #adminpage {
             background-color: #FFFFFF;
         }
+        .overflowbox{
+            overflow: scroll;
+
+            height: 900px;
+        }
 
 
     </style>
@@ -387,10 +392,10 @@ if (empty($_SESSION["start"])){
                 // window.location.href="../MakeTrip/maketripMAIN.php";
                 return false;
             });
-            $(".prodtile").click(function (){
-                window.location.href="MyRoadtripDetails.php";
-                return false;
-            });
+            //$(".prodtile").click(function (){
+            //    window.location.href="MyRoadtripDetails.php?tripid=<?php //echo $roadtripcr["savedtripID"] . "&userID=" . $_SESSION["UserId"]; ?>//";
+            //    return false;
+            //});
 
             $('#tabs a').click(function(e) {
                 e.preventDefault();
@@ -498,33 +503,38 @@ if (empty($_SESSION["start"])){
 
                 <div id="tab2">
                     <h3>My Roadtrips</h3>
+
+                    <div class="overflowbox">
+
+                    <?php
+                    $rtsqlii = "SELECT * FROM saved_trips_table WHERE userID =" . $_SESSION["UserId"];
+
+                    $rtresults1 = $mysql->query($rtsqlii);
+                    while($roadtripcr = $rtresults1->fetch_assoc()){
+
+
+                    ?>
+
                     <div class="prodtile" id="prodtile1">
+                        <input type="hidden" name="tripid" value="<?php echo $roadtripcr["savedtripID"]; ?>">
                         <div class="prodimgtile" id="prodimgtile1"></div>
                         <div class="roadtripinfo">
-                            <div id="triptitle"> Forest Mountain Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Fall </div>
+                            <div id="triptitle"> <?php echo $roadtripcr["trip_name"] ?> </div>
+                            <div id="tripnotes"> <?php echo $roadtripcr["trip_description"] ?> </div>
                         </div>
                     </div>
-                    <div class="prodtile" id="prodtile2">
-                        <div class="prodimgtile" id="prodimgtile2"></div>
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> Beach Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Summer </div>
-                        </div>
-                    </div>
-                    <div class="prodtile" id="prodtile3">
-                        <div class="prodimgtile" id="prodimgtile3"></div>
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> Desert Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Spring </div>
-                        </div>
-                    </div>
-                    <div class="prodtile" id="prodtile4">
-                        <div class="prodimgtile" id="prodimgtile4"></div>
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> Desert Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Winter </div>
-                        </div>
+
+                        <script>
+                            $(".prodtile").click(function (){
+                                window.location.href="MyRoadtripDetails.php?tripid=<?php echo $roadtripcr["savedtripID"] . "&userID=" . $_SESSION["UserId"]; ?>";
+                                return false;
+                            });
+                        </script>
+
+                    <?php
+                    }
+                    ?>
+
                     </div>
 
 
