@@ -50,7 +50,7 @@ if(!$results){
 
 </head>
 <body>
-<?php include "../masterHTML.php" ?>
+<?php include "../newheader.php" ?>
 <br><br>
 Congratulations you added the <?php $_REQUEST['newtype'] ?> type!
 <br>

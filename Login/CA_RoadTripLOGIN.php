@@ -30,9 +30,7 @@ if ($mysql->connect_errno) {
 <head>
 
     <script src="http://code.jquery.com/jquery.js"></script>
-    <link rel = "stylesheet"
-          type = "text/css"
-          href = "../master2.css" />
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
@@ -41,6 +39,12 @@ body {
     background-size: 2250px 1250px ;
     background-color: white;
 }
+.container {
+    width: 80vw;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+
+}
 
 
         .createacc {
@@ -48,7 +52,7 @@ body {
             height: 500px;
             background-color: #F06A00;
             margin: auto;
-            margin-top: 100px;
+
             border-radius: 15px;
             text-align: center;
             color: white;
@@ -123,22 +127,9 @@ margin: auto;
     </style>
 </head>
 <body>
-<?php include"../masterHTML.php" ?>
-<!--<div class="topheader">-->
-<!--    <a href="../frontpage/frontpageV2.php">-->
-<!--        <img src="myalogo1.png" id="logo"></a>-->
-<!--    <div class="navbar">-->
-<!--        <div class="navitem"><br><br><a href="../Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="../MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="../Community/communityMAIN.php">COMMUNITY</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="../Mission/missionMAIN.php">OUR MISSION</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="../Team/teamMAIN.php">OUR TEAM</a> </div>-->
-<!--    </div>-->
-<!---->
-<!--</div>-->
+<?php include"../newheader.php" ?>
 
 <div class="container">
-
 
     <div class="createacc" id="createacc2" style="height: 500px;">
         <div id="title1">Log In</div>

@@ -280,7 +280,7 @@ if(!empty ($_SESSION["start"])) {
     });
 </script>
 <body>
-<?php include "../masterHTML.php" ?>
+<?php include "../newheader.php" ?>
 <!--<div class="topheader">-->
 <!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
 <!--        <img src="myalogo1.png" id="logo"></a>-->

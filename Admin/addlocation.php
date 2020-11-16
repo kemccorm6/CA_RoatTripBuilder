@@ -27,9 +27,7 @@ $currentrow = $userresults->fetch_assoc();
 <html>
 <head>
     <title>Location Add</title>
-    <link rel = "stylesheet"
-          type = "text/css"
-          href = "../master2.css" />
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
@@ -112,7 +110,7 @@ $currentrow = $userresults->fetch_assoc();
     </style>
 </head>
 <body>
-<?php include "../masterHTML.php" ?>
+<?php include "../newheader.php" ?>
 <!--<div class="topheader">-->
 <!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
 <!--        <img src="myalogo1.png" id="logo"></a>-->

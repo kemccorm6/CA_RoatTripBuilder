@@ -110,7 +110,7 @@ if(!$results){
 </style>
 </head>
 <body>
-<?php include "../masterHTML.php" ?>
+<?php include "../newheader.php" ?>
 <!--<div class="topheader">-->
 <!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
 <!--        <img src="EditConfirmationPages/myalogo1.png" id="logo"></a>-->

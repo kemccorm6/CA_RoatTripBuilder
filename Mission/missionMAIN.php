@@ -69,7 +69,7 @@ if(!empty ($_SESSION["start"])) {
 </head>
 <body>
 
-<?php include "../masterHTML.php" ?>
+<?php include "../newheader.php" ?>
 <!--<div class="topheader">-->
 <!--    <a href="../frontpage/frontpageV2.php">-->
 <!--        <img src="myalogo1.png" id="logo"></a>-->

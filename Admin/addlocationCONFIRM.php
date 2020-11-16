@@ -65,7 +65,7 @@ $currentrow = $userresults->fetch_assoc();
 
 </head>
 <body>
-<?php include "../masterHTML.php" ?>
+<?php include "../newheader.php" ?>
 <br><br>
 
 Congrats you added the <?php echo $_REQUEST['newlocationname']; ?> location!

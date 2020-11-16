@@ -36,26 +36,7 @@ if ($mysql->connect_errno) {
             /*background-color: #ecf2d6;*/
             background: linear-gradient(to bottom, #f1f0c9, #ecf2d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
-        .navbar {
-            width: 70%;
-            left: 0;
-            height: 50px;
-            top: 60px;
-            position: absolute;
-            /*background-color: red;*/
-            float: left;
-            margin-left: 300px;
-            padding: 5px;
-            line-height: 10px;
-            color: white;
-        }
-        .navitem {
-            width: 20%;
-        font-size: 18pt;
-            float: left;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-            text-align: center;
-        }
+
         .createacc {
             width: 50%;
             height: 500px;
@@ -119,70 +100,8 @@ if ($mysql->connect_errno) {
     </style>
 </head>
 <body>
-<?php include"../masterHTML.php" ?>
-<!--<div class="topheader">-->
-<!--    <img src="myalogo1.png" id="logo">-->
-<!--<div class="navbar">-->
-<!--    <div class="navitem"><br><br>LOGIN</div>-->
-<!--    <div class="navitem"><br><br>MAKE A TRIP</div>-->
-<!--    <div class="navitem"><br><br>COMMUNITY</div>-->
-<!--    <div class="navitem"><br><br>OUR MISSION</div>-->
-<!--    <div class="navitem"><br><br>OUR TEAM</div>-->
-<!--</div>-->
-<!--    <div class="login">-->
-<!--        <a style="text-decoration:none; color:white" href="login.html">Login</a>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<hr>-->
-<!--<div class="menu" style="border-right:1px solid #000;height:3500px">-->
-<!--    <div class="menuitem">-->
-<!---->
-<!--        <a href="login"></a>-->
-<!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="menuitem1">-->
-<!--        <div id="single">-->
-<!--            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/user.svg" id="icon"/>-->
-<!--            <a style="text-decoration:none; color:white" href="login">User Login&nbsp;</a></div>-->
-<!--        <hr>-->
-<!--        <div id="single">-->
-<!--            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/team.svg" id="icon"/>-->
-<!--            <a style="text-decoration:none; color:white" href="login">Admin Login</a></div>-->
-<!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="menuitem">-->
-<!---->
-<!--        <a href="login"></a>-->
-<!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="menuitem1">-->
-<!--        <div id="single">-->
-<!--            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/suitcases.svg" id="icon"/>-->
-<!--            <a style="text-decoration:none; color:white" href="login">Make a Trip</a></div>-->
-<!--        <hr>-->
-<!--        <div id="single">-->
-<!--            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/conversation.svg" id="icon"/>-->
-<!--            <a style="text-decoration:none; color:white" href="login">Discover Community</a></div>-->
-<!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="menuitem">-->
-<!--        <a href="login"></a>-->
-<!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="menuitem1">-->
-<!--        <div id="single">-->
-<!--            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/target.svg" id="icon"/>-->
-<!--            <a style="text-decoration:none; color:white" href="login">Our Mission</a></div>-->
-<!--        <hr>-->
-<!--        <div id="single">-->
-<!--            <img src="http://webdev.iyaclasses.com/~kemccorm/CA%20Raod%20Trip/support.svg" id="icon"/>-->
-<!--            <a style="text-decoration:none; color:white" href="login">Our Team</a></div>-->
-<!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="menuitem">-->
-<!--        <a href="login"></a>-->
-<!--    </div><hr>-->
-<!--</div>-->
+<?php include"../newheader.php" ?>
+
 <div class="container">
     <div class="createacc">
         <div id="title1">Create an Account</div>
