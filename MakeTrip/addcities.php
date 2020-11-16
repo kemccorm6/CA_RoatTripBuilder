@@ -342,8 +342,11 @@ $cr2 = $r2-> fetch_assoc();
 //        echo "<br>";
 //        echo "<br>";
 
-        $locationsql = "SELECT * FROM location_table WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
-                       " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+//        $locationsql = "SELECT * FROM location_table WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
+//                       " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+
+        $locationsql = "SELECT location_table.* FROM location_table, trip_points_table WHERE 
+                        location_table.locationID = trip_points_table.locationID AND tripID =" . $_REQUEST["tripid"];
 
         $locresults = $mysql->query($locationsql);
 
@@ -368,6 +371,8 @@ $cr2 = $r2-> fetch_assoc();
             let dRenderer;
             let placesList;
 
+            let waypointorderglobal;
+
 
             function initMap() {
 
@@ -391,7 +396,8 @@ $cr2 = $r2-> fetch_assoc();
                 const directionsRenderer = dRenderer;
 
                 const trippoint = [] ;
-                const placesList = [];
+                placesList = [];
+                waypointorderglobal = [];
                 <?php
                 $i = 0;
                 while($loccurrentrow = $locresults-> fetch_assoc()){
@@ -470,6 +476,7 @@ $cr2 = $r2-> fetch_assoc();
                             resultwaypoints = [] ;
                             const domparser = new DOMParser() ;
                             for (i=0; i < waypointorder.length ; i++) {
+                                waypointorderglobal.push( waypointorder[i]);
                                 x1 =  placesList[waypointorder[i]] ;  //this is the location id of the entry
                                 x1elt = sbar.querySelector("div[locationid='" + x1 +"']");
                                 x2elt = domparser.parseFromString( x1elt.outerHTML , "text/html" ).querySelector("div[class='citybox']") ;
@@ -531,6 +538,10 @@ $cr2 = $r2-> fetch_assoc();
 
 
             }
+
+
+
+
         </script>
 
 
@@ -568,9 +579,12 @@ $cr2 = $r2-> fetch_assoc();
 
         <?php
 
-        $locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM location_table left join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
-            " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
-            " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+        $locationsql = "SELECT location_table.*, OneImageForLocation.imageurl FROM location_table, trip_points_table, OneImageForLocation WHERE 
+                        location_table.locationID = trip_points_table.locationID AND location_table.locationID = OneImageForLocation.locationID AND tripID =" . $_REQUEST["tripid"];
+
+//        $locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM location_table left join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
+//            " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
+//            " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
 
 
         //$locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM " .
@@ -590,6 +604,7 @@ $cr2 = $r2-> fetch_assoc();
 
 
             <div class="citybox" locationid="<?php echo $loccurrentrow["locationID"] ?>" id="outPutBox<?php echo $newcounter ?>" lat="<?php echo strval($loccurrentrow["latitude"]) ; ?>" lng="<?php echo strval($loccurrentrow["longitude"]) ; ?>" >
+
 
                 <button type="button" class="removecity" id="but<?php echo $newcounter ?>">X</button>
 
@@ -615,41 +630,56 @@ $cr2 = $r2-> fetch_assoc();
 
         ?>
 
+    <script>
+        <?php
 
+        $newcounter =0;
 
-        <script>
-            <?php
+        //                $locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM location_table left join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
+        //                    " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
+        //                    " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
 
-                $newcounter =0;
+        $locationsql = "SELECT location_table.* FROM location_table, trip_points_table WHERE 
+                        location_table.locationID = trip_points_table.locationID AND tripID =" . $_REQUEST["tripid"];
 
-                $locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM location_table left join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
-                    " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
-                    " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+        $locresults = $mysql->query($locationsql);
 
-                $locresults = $mysql->query($locationsql);
+        while($loccurrentrow = $locresults-> fetch_assoc()){
 
-                while($loccurrentrow = $locresults-> fetch_assoc()){
-
-             ?>
-
-
-
-
+        ?>
 
 
 
-//DELETE BUTTON
-               document.getElementById("but<?php echo $newcounter ?>").addEventListener("click", function(){
-                   document.getElementById("outPutBox<?php echo $newcounter ?>").style.display = "None" ;
-                 console.log("pushed button<?php echo $loccurrentrow["locationID"] ?>");
-                    displayTripPlaces();
-                })
-               console.log("Result: <?php echo $loccurrentrow["locationID"] ?>");
-                <?php
-                $newcounter++;
-                }
-            ?>
-        </script>
+
+
+        document.getElementById("but<?php echo $newcounter; ?>").addEventListener("click", function(){
+            console.log( "sending waypoint order");
+            console.log( waypointorderglobal);
+            console.log( placesList) ;
+            window.location.assign("LOCATION_DELETE_MIDDLEMAN.php?tripid=" + <?php echo $_REQUEST['tripid'] ?> + "&citysearchstart=" + <?php echo $_REQUEST['citysearchstart'] ?> + "&citysearchend=" +
+                <?php echo $_REQUEST['citysearchend']?> + "&deletedlocationid=" + placesList[waypointorderglobal[<?php echo $newcounter ?>]]);  //document.getElementById("outPutBox<?php echo $newcounter ?>").getAttribute('locationid')
+        });
+
+
+
+        //DELETE BUTTON
+        //               document.getElementById("but<?php //echo $newcounter ?>//").addEventListener("click", function(){
+        //                   document.getElementById("outPutBox<?php //echo $newcounter ?>//").style.display = "None" ;
+        //                 console.log("pushed button<?php //echo $loccurrentrow["locationID"] ?>//");
+        //                    displayTripPlaces();
+        //                })
+        console.log("Result: <?php echo $loccurrentrow["locationID"] ?>");
+        <?php
+        $newcounter++;
+        }
+        ?>
+
+
+
+
+    </script>
+
+
 
 
 
