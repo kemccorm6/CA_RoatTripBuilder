@@ -44,7 +44,22 @@ if (empty($_SESSION["start"])){
     if(!$results){
         echo "Something went wrong check error: " . $mysql->error;
         exit();
+    }else{
+
+        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to California Dreamin! A roadtrip building app for California Exploreres.
+        Click Make A Trip to get started"; //message here
+
+        $emailSubject = "Welcome!";
+        $to = $_REQUEST["newemail"];
+
+        //change the webmaster@example.com to whatever email address you want it to come from
+      //  $headers = 'From: webmaster@example.com' . "\r\n" .
+       // 'Reply-To: webmaster@example.com';
+
+        //send email
+        $mail= mail($to, $emailSubject, $message);
     }
+
         $_SESSION["username"] = $_REQUEST["newusername"];
         $_SESSION["password"] = $_REQUEST["newpassword"];
 
