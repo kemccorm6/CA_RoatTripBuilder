@@ -258,7 +258,29 @@ $cr2 = $r2-> fetch_assoc();
     <div class="makeatrip">
         <h1>Make a Trip from <em><?php echo $titlecurrentrow["city"] ?></em> to <em><?php echo $cr2["city"] ?></em> </h1>
         <h4>Here are all the locations between your two cities! Delete places you don't <br> wish to visit, and click on the location to get details and save the trip when you are done!</h4>
-        <a href="../UserProfile/MyRoadtripDetails.php"><button type="submit" id="savetrip">Save Trip</button></a>
+        <button type="submit" id="savetrip">Save Trip</button>
+
+<!--        <a href="TRIP_SUM_MM.php?tripid=--><?php //echo $_REQUEST["tripid"]; ?><!--"></a>-->
+
+        <script>
+            document.getElementById("savetrip").addEventListener("click", function (){
+                res = "" ;
+                for(i = 0 ; i < waypointorderglobal.length ; i ++ ) {
+                    if (i == 0 ) {
+                        res = placesList[waypointorderglobal[i]] ;
+                    } else {
+                        res += "_" + placesList[waypointorderglobal[i]];
+                    }
+
+                }
+                //locorder = waypointorderglobal.toString().replaceAll(",", "_");
+                locorder = res ;
+                window.location.assign("TRIP_SUM_MM.php?tripid=<?php echo $_REQUEST["tripid"]; ?>&pointorder=" + locorder);
+            });
+        </script>
+
+
+
 </div><br clear="all"/>
     <div class="container2">
     <div class="mapAPI">
@@ -346,7 +368,7 @@ $cr2 = $r2-> fetch_assoc();
 //                       " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
 
         $locationsql = "SELECT location_table.* FROM location_table, trip_points_table WHERE 
-                        location_table.locationID = trip_points_table.locationID AND tripID =" . $_REQUEST["tripid"];
+                        location_table.locationID = trip_points_table.locationID AND tripID =" . $_REQUEST["tripid"] . " ORDER BY trippointID ASC";
 
         $locresults = $mysql->query($locationsql);
 
@@ -580,7 +602,7 @@ $cr2 = $r2-> fetch_assoc();
         <?php
 
         $locationsql = "SELECT location_table.*, OneImageForLocation.imageurl FROM location_table, trip_points_table, OneImageForLocation WHERE 
-                        location_table.locationID = trip_points_table.locationID AND location_table.locationID = OneImageForLocation.locationID AND tripID =" . $_REQUEST["tripid"];
+                        location_table.locationID = trip_points_table.locationID AND location_table.locationID = OneImageForLocation.locationID AND tripID =" . $_REQUEST["tripid"] . " ORDER BY trippointID ASC";
 
 //        $locationsql = "SELECT location_table.* , OneImageForLocation.imageurl FROM location_table left join OneImageForLocation on location_table.locationID = OneImageForLocation.locationID" .
 //            " WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
@@ -640,7 +662,7 @@ $cr2 = $r2-> fetch_assoc();
         //                    " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
 
         $locationsql = "SELECT location_table.* FROM location_table, trip_points_table WHERE 
-                        location_table.locationID = trip_points_table.locationID AND tripID =" . $_REQUEST["tripid"];
+                        location_table.locationID = trip_points_table.locationID AND tripID =" . $_REQUEST["tripid"] . " ORDER BY trippointID ASC";
 
         $locresults = $mysql->query($locationsql);
 
@@ -654,10 +676,12 @@ $cr2 = $r2-> fetch_assoc();
 
         document.getElementById("but<?php echo $newcounter; ?>").addEventListener("click", function(){
             console.log( "sending waypoint order");
-            console.log( waypointorderglobal);
+            console.log( waypointorderglobal.toString().replaceAll(",","#"));
             console.log( placesList) ;
+
+
             window.location.assign("LOCATION_DELETE_MIDDLEMAN.php?tripid=" + <?php echo $_REQUEST['tripid'] ?> + "&citysearchstart=" + <?php echo $_REQUEST['citysearchstart'] ?> + "&citysearchend=" +
-                <?php echo $_REQUEST['citysearchend']?> + "&deletedlocationid=" + placesList[waypointorderglobal[<?php echo $newcounter ?>]]);  //document.getElementById("outPutBox<?php echo $newcounter ?>").getAttribute('locationid')
+                <?php echo $_REQUEST['citysearchend']?> + "&deletedlocationid=" + placesList[waypointorderglobal[<?php echo $newcounter ?>]] );  //document.getElementById("outPutBox<?php echo $newcounter ?>").getAttribute('locationid')
         });
 
 

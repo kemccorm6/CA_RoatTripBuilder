@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+//session_destroy();
+//$_SESSION["start"] = "";
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
@@ -20,6 +21,8 @@ if($mysql->connect_errno) {
     exit();
 }
 
+
+
 if(!empty ($_SESSION["start"])){
 
 
@@ -28,6 +31,8 @@ $usersql = "SELECT * FROM user_data_table WHERE userID = " . $_SESSION["UserId"]
 
 $userresults = $mysql-> query($usersql);
 $currentrow = $userresults->fetch_assoc();
+
+
 }
 
 ?>
@@ -326,7 +331,7 @@ $currentrow = $userresults->fetch_assoc();
                         <!--                        </form>-->
 <!--                        <br><br>-->
 <!--                        <input type="submit" value="Search" class="submit">-->
-<!--                        <!--                    </form>-->
+<!--                                         </form>-->
 <!---->
 <!--                    </div>-->
 <!--                    <br><br>-->
