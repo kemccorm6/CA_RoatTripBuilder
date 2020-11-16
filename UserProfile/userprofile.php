@@ -46,10 +46,10 @@ if (empty($_SESSION["start"])){
         exit();
     }else{
 
-        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to California Dreamin! A roadtrip building app for California Exploreres.
-        Click Make A Trip to get started"; //message here
+        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to California Dreamin! A roadtrip building app for California Exploreres. Click Make A Trip to get started and explore our database of beautiful roadside attractions and national parks. After your trip, save and publish your route for others to see! And don't forget to leave a review at your favorite stops.
+        Happy exploring!"; //message here
 
-        $emailSubject = "Welcome!";
+        $emailSubject = "Welcome to California Dreamin!";
         $to = $_REQUEST["newemail"];
 
         //change the webmaster@example.com to whatever email address you want it to come from
