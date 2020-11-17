@@ -7,8 +7,10 @@
         body {
             margin: 0 !important;
             padding: 0 !important;
-            background-image: url("../tiretracks.gif");
-            background-size: 2250px 1250px ;
+            background-image: url("../tiretracks3.gif");
+            background-size: cover;
+            background-position: top center;
+           /* background-size: 2250px 1250px ; */
 
         }
         .header {
