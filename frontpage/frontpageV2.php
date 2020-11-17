@@ -56,76 +56,74 @@ $currentrow = $userresults->fetch_assoc();
 
 
         .side1 {
-            width: 1000px;
+            width: 800px;
             float: right;
             display: block;
             background-image: url("fpbg.png");
-            background-size: 90%;
+            background-size: 89%;
             background-position: top;
             background-repeat: no-repeat;
-            height: 3500px;
+            height: 3000px;
             overflow: scroll;
 
         } 
         #badge {
-            width: 900px;
+            width: 700px;
             margin: auto;
         }
         .sticky {
             position: fixed;
             top: 0;
-            right: 42px;
+            right: 50px;
         }
         .header {
             margin: auto;
         }
         .side2 {
 
-            width: 400px;
+            width: 600px;
             float: right;
 
         }
         #mission1 {
-            width: 400px;
+            width: 350px;
+            float: left;
+
         }
         #mission22 {
-            width: 400px;
+            width: 300px;
             position: relative;
             top: 0px;
+            float: right;
             margin: auto;
+        }
+        .missionarea {
+            width: 100%;
+            height: 500px;
+
         }
         #step1 {
             position: relative;
-            width: 350px;
+            top: 15px;
+            width: 300px;
+            display: block;
+            margin: auto;
 
         }
         #step2 {
             position: relative;
-            width: 350px;
-            top: 75px;
+            width: 300px;
+            top: 45px;
+            display: block;
+            margin: auto;
         }
         #step3 {
             position: relative;
-            width: 350px;
+            width: 300px;
             top: 75px;
-        }  #step4 {
-               position: relative;
-               width: 350px;
-               top: 75px;
-           }
-        #step5 {
-            position: relative;
-            width: 350px;
-            top: 75px;
+            display: block;
+            margin: auto;
         }
-        #step6 {
-            position: relative;
-            width: 350px;
-            top: 75px;
-        }
-
-
-
         h1 {
             text-align: center;
         }
@@ -139,13 +137,56 @@ $currentrow = $userresults->fetch_assoc();
 
         #tire {
             position: relative;
-
+width: 200px;
+            float: left;
             margin: auto;
             display: block;
 
         }
+.datavissection {
+    box-shadow: 1px 1px 6px black;
+    background: linear-gradient(196deg, #fcec41, #d84848, #fea738, #fe6a38);
+    background-size: 800% 800%;
+    -moz-animation: AnimationName 28s ease infinite;
+    animation: AnimationName 28s ease infinite;
+    color: white;
+    font-family: Poppins;
 
+    border-radius: 15px;
+}
+        @-moz-keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
+        }
+        .cities {
+            margin-left: 30px;
+            line-height: 40pt;
+        }
+        .cityname {
+            font-size: 15pt;
+      padding-top: 25px;
+            padding-left: 10px;
 
+        }
+
+        #cityphoto {
+            float: left;
+            box-shadow: 1px 1px 6px black;
+
+        }
+#datatitle {
+    font-size: 17pt;
+    margin: auto;
+    padding-top: 0;
+    padding-bottom: 5px;
+    text-align: center;
+}
     </style>
 </head>
 <body>
@@ -163,9 +204,15 @@ $currentrow = $userresults->fetch_assoc();
     </div>
 
     <div class="side2">
-        <div>
-        See the most popular locations from our users:
-            <br><br>
+        <div class="missionarea">
+        <img src="mission1.png" id="mission1">
+        <img src="mission2.png" id="mission22">
+            <img src="giphy.gif" id="tire">
+        </div>
+
+        <div class="datavissection">
+            <div id="datatitle"> <br>See the most popular <br>locations from our users:</div>
+
             <?php
             $dataviz = "SELECT * FROM DataVizImage";
             $resdv = $mysql->query($dataviz);
@@ -174,9 +221,9 @@ $currentrow = $userresults->fetch_assoc();
 
                 ?>
 
-                <div>
-                    <img style="border-radius: 200px;width:<?php echo $crdata["TripCount"]*5; ?>px;height:<?php echo $crdata["TripCount"]*5; ?>px;" src="<?php echo $crdata["imageurl"]; ?>">
-                    <?php echo $crdata["locationname"]; ?>
+                <div class="cities">
+                    <img id="cityphoto" style="border-radius: 200px;width:<?php echo $crdata["TripCount"]*5; ?>px;height:<?php echo $crdata["TripCount"]*5; ?>px;" src="<?php echo $crdata["imageurl"]; ?>">
+                   <div class="cityname"> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $crdata["locationname"]; ?></div>
                     <br>
                 </div>
 
@@ -186,123 +233,13 @@ $currentrow = $userresults->fetch_assoc();
             ?>
         </div>
 
-        <img src="mission1.png" id="mission1">
-<!--        <div class="makeatrip">-->
-<!--            <div class="left-col">-->
-<!--                <h1>Make a Trip</h1>-->
-<!--                <hr>-->
-<!--                <br>-->
-<!--                <form method="get" action="../results/results.php">-->
-<!---->
-<!--                    <div class="label">Location:</div>-->
-<!--                    <div class="input">-->
-<!---->
-<!--                        <select name="locationsearch">-->
-<!--                            <option value="ALL">SELECT LOCATION</option>-->
-<!--                            <option value="ALL">--------------</option>-->
-<!---->
-<!--                            --><?php
-//
-//                            $sql = "SELECT * FROM location_table".
-//                                " WHERE locationname != '' AND locationname != ' '";
-//
-//                            $results = $mysql->query($sql);
-//
-//                            while($currentrow = $results->fetch_assoc()){
-//                                echo "<option>" . $currentrow["locationname"] . "</option>";
-//                            }
-//                            ?>
-<!---->
-<!--                        </select>-->
-<!---->
-<!---->
-<!--                                             <form>-->
-<!--                                                   <select name="location">-->
-<!--                                                      <option value="ALL">Select a Location</option>-->
-<!--                                                       <option value="ALL">---------------</option>-->
-<!--                                                 </select>-->
-<!--                                          </form>-->
-<!---->
-<!---->
-<!--                    </div> <br clear="all"/>-->
-<!--                    <div class="label">City:</div>-->
-<!--                    <div class="input">-->
-<!---->
-<!--                        <select name="citysearch">-->
-<!--                            <option value="ALL">SELECT CITY</option>-->
-<!--                            <option value="ALL">--------------</option>-->
-<!---->
-<!--                            --><?php
-//
-//                            $sql = "SELECT * FROM city_table".
-//                                " WHERE city != '' AND city != ' '";
-//
-//                            $results = $mysql->query($sql);
-//
-//                            while($currentrow = $results->fetch_assoc()){
-//                                echo "<option>" . $currentrow["city"] . "</option>";
-//                            }
-//                            ?>
-<!---->
-<!--                        </select>-->
-<!---->
-<!--                                               <form>-->
-<!--                                                   <select name="city">-->
-<!--                                                        <option value="ALL">Select a City</option>-->
-<!--                                                    <option value="ALL">---------------</option>-->
-<!--                                                  </select>-->
-<!--                                              </form>-->
-<!---->
-<!---->
-<!--                    </div> <br clear="all"/>-->
-<!---->
-<!--                    <div class="label">Type:</div>-->
-<!--                    <div class="input">-->
-<!---->
-<!--                        <select name="typesearch">-->
-<!--                            <option value="ALL">SELECT TYPE</option>-->
-<!--                            <option value="ALL">--------------</option>-->
-<!---->
-<!--                            --><?php
-//
-//                            $sql = "SELECT * FROM type_table".
-//                                " WHERE type != '' AND type != ' '";
-//
-//                            $results = $mysql->query($sql);
-//
-//                            while($currentrow = $results->fetch_assoc()){
-//                                echo "<option>" . $currentrow["type"] . "</option>";
-//                            }
-//                            ?>
-<!---->
-<!--                        </select>-->
 
 
-                        <!--                        <form>-->
-                        <!--                            <select name="city">-->
-                        <!--                                <option value="ALL">Select a Type</option>-->
-                        <!--                                <option value="ALL">---------------</option>-->
-                        <!--                            </select>-->
-                        <!---->
-                        <!--                        </form>-->
-<!--                        <br><br>-->
-<!--                        <input type="submit" value="Search" class="submit">-->
-<!--                                         </form>-->
-<!---->
-<!--                    </div>-->
-<!--                    <br><br>-->
-<!---->
-<!--            </div>-->
-<!--        </div>-->
-        <img src="mission2.png" id="mission22">
-        <img src="giphy.gif" id="tire">
 
-        <img src="step1.png" id="step1">
-        <img src="step2.png" id="step2">
-        <img src="step3.png" id="step3">
-        <img src="step4.png" id="step4">
-        <img src="step5.png" id="step5">
-        <img src="step6.png" id="step6">
+        <img src="step1start.png" id="step1">
+        <img src="step2end.png" id="step2">
+        <img src="step3sites.png" id="step3">
+
 
 
     </div>
