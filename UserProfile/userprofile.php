@@ -46,18 +46,19 @@ if (empty($_SESSION["start"])){
         exit();
     }else{
 
-        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to <a href='http://webdev.iyaclasses.com/~kemccorm/CA_RoatTripBuilder/frontpage/frontpageV2.php'> California Dreamin!</a> A roadtrip building app for California Exploreres. Click Make A Trip to get started and explore our database of beautiful roadside attractions and national parks. After your trip, save and publish your route for others to see! And don't forget to leave a review at your favorite stops.
-        Happy exploring!"; //message here
+        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to " . "<a href='http://webdev.iyaclasses.com/~kemccorm/CA_RoatTripBuilder/frontpage/frontpageV2.php'>" . "California Dreamin!" . "</a>" . " A road trip building app for California Explorers. Click Make A Trip to get started and explore our database of beautiful roadside attractions and national parks. After your trip, save and publish your route for others to see! And don't forget to leave a review at your favorite stops.
+        Happy exploring!" . "<img src='http://webdev.iyaclasses.com/~kemccorm/CA_RoatTripBuilder/myalogo1.png' alt=''>"; //message here
+
 
         $emailSubject = "Welcome to California Dreamin!";
         $to = $_REQUEST["newemail"];
 
         //change the webmaster@example.com to whatever email address you want it to come from
-      //  $headers = 'From: webmaster@example.com' . "\r\n" .
-       // 'Reply-To: webmaster@example.com';
+     $headers = 'From: kwyllie@webdev.iyaclasses.com' . "\r\n" .
+        'Reply-To: kwyllie@webdev.iyaclasses.com' . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-type:text/html;charset=iso-8859-1';
 
         //send email
-        $mail= mail($to, $emailSubject, $message);
+        $mail= mail($to, $emailSubject, $message, $headers);
     }
 
         $_SESSION["username"] = $_REQUEST["newusername"];
