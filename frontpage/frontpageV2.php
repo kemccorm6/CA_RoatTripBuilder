@@ -239,6 +239,29 @@ $currentrow = $userresults->fetch_assoc();
     </div>
 
     <div class="side2">
+        <div>
+        See the most popular locations from our users:
+            <br><br>
+            <?php
+            $dataviz = "SELECT * FROM DataVizImage";
+            $resdv = $mysql->query($dataviz);
+
+            while($crdata = $resdv->fetch_assoc()){
+
+                ?>
+
+                <div style="border:solid 1px black;">
+                    <img style="border-radius: 200px;width:<?php echo $crdata["TripCount"]*5; ?>px;height:<?php echo $crdata["TripCount"]*5; ?>px;" src="<?php echo $crdata["imageurl"]; ?>">
+                    <?php echo $crdata["locationname"]; ?>
+                    <br>
+                </div>
+
+
+            <?php
+            }
+            ?>
+        </div>
+
         <img src="mission1.png" id="mission1">
 <!--        <div class="makeatrip">-->
 <!--            <div class="left-col">-->
