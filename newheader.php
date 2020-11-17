@@ -7,7 +7,7 @@
         body {
             margin: 0 !important;
             padding: 0 !important;
-            background-image: url("../tiretracks.png");
+            background-image: url("../tiretracks.gif");
             background-size: 2250px 1250px ;
 
         }
@@ -36,6 +36,11 @@
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.25);
     border-radius: 22px;
 }
+.brand:hover {
+    width: 260px;
+    height: 140px;
+    animation: ease-in-out;
+}
 .navitemleft {
     width: 20%;
     float: right;
@@ -53,6 +58,14 @@
     font-weight: normal;
     color: #37472A;
 }
+.navitemleft:hover {
+    background-color: #FFAC00;
+    color: #FFFFFF;
+}
+        .navitemright:hover {
+            background-color: #FFAC00;
+            color: #FFFFFF;
+        }
 .navitemright {
     width: 20%;
     float: left;
@@ -111,6 +124,14 @@ ul {
 line-height: 36pt;
     text-align: center;
 }
+.loginbutton:hover {
+    background: #FFFFFF;
+    color: #FFAC00;
+}
+        .logged:hover {
+            background: #FFFFFF;
+            color: #FFAC00;
+        }
 .logged {
     text-align: center;
     font-size: 12pt;
