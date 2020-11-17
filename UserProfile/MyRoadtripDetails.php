@@ -50,7 +50,7 @@ if(!empty ($_SESSION["start"])) {
             width:1000px;
             padding: 15px;
             margin:auto;
-            height: 1300px;
+
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
             margin-bottom: 100px;
@@ -138,21 +138,8 @@ if(!empty ($_SESSION["start"])) {
             height: 200px;
         }
         img {
-object-fit: cover;
+            object-fit: cover;
         }
-        .banner2 {
-            width: 33%;
-            height: 200px;
-        padding: 0;
-            margin: 0;
-        }
-        .banner3 {
-            width: 33%;
-            height: 200px;
-        }
-
-
-
 .description {
     width: 850px;
     background-color: #FFFFFF;
@@ -164,63 +151,21 @@ object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
 }
-        html, body, .grid-container { height: 80%; margin: auto; }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 0.5fr 2fr;
-            grid-template-rows: repeat(6, 1fr);
-            gap: 13px 0px;
-            margin-top: 50px;
-            width: 90%;
-
-            grid-template-areas:
-    "start start-location"
-    "stop-1 destination-1"
-    "stop-2 destination-2"
-
-    "end end-location";
-        }
-
-        .start { grid-area: start; }
-
-        .start-location { grid-area: start-location; }
-
-        .stop-1 { grid-area: stop-1; }
-
-        .destination-1 { grid-area: destination-1; }
-
-        .stop-2 { grid-area: stop-2; }
-
-
-
-        .end { grid-area: end; }
-
-        .end-location { grid-area: end-location; }
-
-        .destination-2 { grid-area: destination-2; }
-
-
-        .grid-container * {
-
-            position: relative;
-        }
-
-
-        /* For presentation only, no need to copy the code below */
+#editdescriptione {
+    margin-bottom: 10px;
+}
 
         #stepcircle{
             width:75px;
             height:75px;
             border-radius: 150px;
-            margin: auto;
+            float: right;
             background-color: #FFFFFF;
             border: 1px solid white;
-text-align: center;
+            text-align: center;
             line-height: 60pt;
             color: black;
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
-
             top: 25%;
             left: 0%;
         }
@@ -228,6 +173,12 @@ text-align: center;
             background-color: #FFFFFF;
             padding: 15px;
             display: block;
+            height: 150px;
+            width: 700px;
+            margin-top: 10px;
+            border-radius: 20px;
+            float: right;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
         }
         #stopinfo :hover{
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
@@ -269,6 +220,13 @@ text-align: center;
     font-size: 10pt;
     float: left;
  margin-left: 30px;
+}
+.teststeps {
+    background-color: #D14A0A;
+    width: 900px;
+    margin: auto;
+    margin-top: 30px;
+
 }
 
 
@@ -322,7 +280,6 @@ text-align: center;
     <div class="bigbox"> 
         <hr><br>
 
-
             <form action="Title_MM.php">
                 <input type="hidden" name="tripid" value="<?php echo $_REQUEST["tripid"]; ?>">
                 <div  class="triptitle"><span id="roadtripname" ><?php echo $tripcr["trip_name"]; ?></span>
@@ -330,22 +287,14 @@ text-align: center;
                 <input type="submit" value="Confirm" id="confirmname">
             </form>
             <script>
-
-
-
                 document.getElementById("confirmname").style.display = "none";
-
                 document.getElementById("editname").addEventListener("click", function(){
-
                         document.getElementById("roadtripname").innerHTML = "<input type='text' name='newtitletext' placeholder='<?php echo $tripcr["trip_name"]; ?>'>"
                         document.getElementById("confirmname").style.display = "block";
                         document.getElementById("editname").style.display = "none";
-
-
                 });
             </script>
-
-        </div>
+        </div> <!-- close edit name -->
 
 
 <!--    ONE IMAGE FOR LOCATION-->
@@ -358,36 +307,25 @@ order by t.waypointorder
 limit 3
 ";
     $imageResults = $mysql->query($imagebannersql);
-
     $imgcounter=1;
     while($ICR = $imageResults->fetch_assoc()){
-
-
     ?>
-
-
             <img class="banner1" id="image<?php $imgcounter; ?>" src="<?php echo $ICR["imageurl"]; ?>">
-
 <!--            <img class="banner2" id="image2" src="--><?php //$ICR["imageurl"]; ?><!--">-->
 <!--            <img class="banner3" id="image3" src="--><?php //$ICR["imageurl"]; ?><!--">-->
-
-
     <?php
         $imgcounter++;
     }
     ?>
-    </div>
+    </div> <!-- close image -->
 
         <div class="description">
-
             <form action="Desc_MM.php">
                 <input type="hidden" name="tripid" value="<?php echo $_REQUEST["tripid"]; ?>">
                 <p id="descriptionwords"> <?php echo $tripcr["trip_description"]; ?></p>
                 <input type="button" value="Edit" id="editdescriptione">
                 <input type="submit" value="Confirm" id="confirmdescription">
-
             </form>
-
             <script>
                 document.getElementById("confirmdescription").style.display = "none";
 
@@ -396,108 +334,86 @@ limit 3
                     document.getElementById("descriptionwords").innerHTML = "<input type='text' name='newdesctext' placeholder='<?php echo $tripcr["trip_description"]; ?>'>"
                     document.getElementById("confirmdescription").style.display = "block";
                     document.getElementById("editdescriptione").style.display = "none";
-
-
                 });
-
             </script>
+        </div> <!-- close description -->
 
-        </div>
+        <div class="teststeps">
+            <table style="width:100%">
 
-        <div class="steps">
-            <div class="grid-container">
+                <tr>
+                    <th>Stop #</th>
+                    <th>Location Details</th>
+                </tr>
 
-                <div class="start" id="step#">
-                    <div id="stepcircle">Start</div>
-                </div>
+                <tr>
+                    <td> <div id="stepcircle">Start</div></td>
 
-                <?php
-                    $cityse = "SELECT * FROM StartEndCities WHERE savedtripID = ". $_REQUEST["tripid"] ." AND userID =" . $_SESSION["UserId"];
-                    $cer = $mysql->query($cityse);
+                    <td>
+                        <div id="stopinfo" style="height: 60px;">
+                            <?php
+                            $cityse = "SELECT * FROM StartEndCities WHERE savedtripID = ". $_REQUEST["tripid"] ." AND userID =" . $_SESSION["UserId"];
+                            $cer = $mysql->query($cityse);
+                            $cecr = $cer->fetch_assoc();
+                            ?>
 
-                    $cecr = $cer->fetch_assoc();
-
-                ?>
-
-                <div class="start-location" id="stopinfo">
-
-                    <div id="locationname"><?php echo $cecr["citySTART"]; ?></div>
-                    <div id="typesrow">
-
-                    </div><br>
-                    <div id="notes">
-                        Start city
-                    </div>
-                </div>
-
-
-
-                <?php
-                    $namedescsql = "SELECT UserLocDetails.*, OneImageForLocation.imageurl FROM UserLocDetails, OneImageForLocation WHERE 
-                                    UserLocDetails.locationID = OneImageForLocation.locationID AND tripID = ". $_REQUEST["tripid"] . " AND userID = " . $_SESSION["UserId"] . " ORDER BY waypointorder";
-                    //echo $namedescsql;
-                    $resultpage = $mysql->query($namedescsql);
-                    while($tripRow = $resultpage->fetch_assoc()) {
-                        echo '';
-                        echo '';
-//                        echo $tripRow["waypointorder"] + 1;
-//                        echo $tripRow["locationname"];
-//                        echo "<br>";
-
-
-                ?>
-
-
-                        <div class="borderbox">
-<!--                <div class="stop-1" id="step#">-->
-                                <div id="stepcircle"><?php echo $tripRow["waypointorder"] + 1; ?></div>
-            <!--                </div>-->
-<!--                            <div class="destination-1" id="stopinfo">-->
-                                <div>
-                                <a href="../MakeTrip/MakeTripLocationDetail.php?id=<?php echo $tripRow["locationID"]; ?>"><div><img id="locationpicture" src="<?php echo $tripRow["imageurl"]; ?>"></div></a>
-                                <div id="locationname"><?php echo $tripRow["locationname"]; ?></div>
-                                <div id="typesrow">
-                                    <div class="types" id="type1">Pet Friendly</div>
-                                    <div class="types" id="type2">Wifi</div>
-                                    <div class="types" id="type3">Mountain</div>
-                                </div><br>
-                                <div id="notes">
-                                    <?php echo $tripRow["location_description"] ?>
-                                </div>
-                            </div>
-
+                            <div id="locationname"><?php echo $cecr["citySTART"]; ?></div>
+                            <div id="typesrow">
+                            </div><br>
+                            <div id="notes">Start city</div>
                         </div>
+                        <?php
+                        $namedescsql = "SELECT UserLocDetails.*, OneImageForLocation.imageurl FROM UserLocDetails, OneImageForLocation WHERE 
+                                    UserLocDetails.locationID = OneImageForLocation.locationID AND tripID = ". $_REQUEST["tripid"] . " AND userID = " . $_SESSION["UserId"] . " ORDER BY waypointorder";
+                        //echo $namedescsql;
+                        $resultpage = $mysql->query($namedescsql);
+                        while($tripRow = $resultpage->fetch_assoc()) {
+                        echo '';
+                        echo '';
+                        //                        echo $tripRow["waypointorder"] + 1;
+                        //                        echo $tripRow["locationname"];
+                        //                        echo "<br>";
+                        ?>
+                    </td>
+                </tr>
 
-                <?php
-                }
-                ?>
+                <tr>
+                    <td><div id="stepcircle"><?php echo $tripRow["waypointorder"] + 1; ?></div></td>
 
+                    <td>
+                        <div id="stopinfo">
+                            <a href="../MakeTrip/MakeTripLocationDetail.php?id=<?php echo $tripRow["locationID"]; ?>"><div><img id="locationpicture" src="<?php echo $tripRow["imageurl"]; ?>"></div></a>
+                            <div id="locationname"><?php echo $tripRow["locationname"]; ?></div>
+                            <div id="typesrow">
+                                <div class="types" id="type1">Pet Friendly</div>
+                                <div class="types" id="type2">Wifi</div>
+                                <div class="types" id="type3">Mountain</div>
+                            </div><br>
+                            <div id="notes">
+                                <?php echo $tripRow["location_description"] ?>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
 
+                    <td>
+                        <div id="stepcircle">End</div>
+                    </td>
 
-
-
-
-                <div class="end" id="step#">
-                    <div id="stepcircle">End</div>
-                </div>
-                <div class="end-location" id="stopinfo">
-
-                    <div id="locationname"><?php echo $cecr["cityEND"]; ?></div>
-                    <div id="typesrow">
-
-                    </div><br>
-                    <div id="notes">
-                        End city
-                    </div>
-                </div>
-
-
-            </div>
-
-            </div>
+                    <td>
+                        <div style="height: 60px;" id="stopinfo">
+                            <div id="locationname"><?php echo $cecr["cityEND"]; ?></div>
+                            <div id="typesrow"></div><br>
+                            <div id="notes">End city</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-
-
     </div><!-- Close Big Box -->
 </div> <!-- Close Container -->
 
