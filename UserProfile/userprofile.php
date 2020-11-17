@@ -46,7 +46,7 @@ if (empty($_SESSION["start"])){
         exit();
     }else{
 
-        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to California Dreamin! A roadtrip building app for California Exploreres. Click Make A Trip to get started and explore our database of beautiful roadside attractions and national parks. After your trip, save and publish your route for others to see! And don't forget to leave a review at your favorite stops.
+        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to <a href='http://webdev.iyaclasses.com/~kemccorm/CA_RoatTripBuilder/frontpage/frontpageV2.php'> California Dreamin!</a> A roadtrip building app for California Exploreres. Click Make A Trip to get started and explore our database of beautiful roadside attractions and national parks. After your trip, save and publish your route for others to see! And don't forget to leave a review at your favorite stops.
         Happy exploring!"; //message here
 
         $emailSubject = "Welcome to California Dreamin!";
