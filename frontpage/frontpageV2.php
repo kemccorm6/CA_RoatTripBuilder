@@ -157,7 +157,7 @@ $currentrow = $userresults->fetch_assoc();
     <div class="side1">
 
         <div class="header" id="badge">
-            <img src="badgetan2.svg" >
+            <img src="badge.svg" >
 
         </div>
     </div>
