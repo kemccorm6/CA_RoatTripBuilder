@@ -75,7 +75,7 @@ if(!empty ($_SESSION["start"])) {
         #tabs a {
             position: relative;
             background: #ddd;
-            background-image: linear-gradient(to bottom, #fff, #ddd);
+            background-image: linear-gradient(to bottom, #FFD788, #E9C37C);
             padding: .7em 3.5em;
             float: left;
             text-decoration: none;
@@ -83,6 +83,7 @@ if(!empty ($_SESSION["start"])) {
             text-shadow: 0 1px 0 rgba(255,255,255,.8);
             border-radius: 5px 0 0 0;
             box-shadow: 0 2px 2px rgba(0,0,0,.4);
+            color: black;
         }
 
         #tabs a:hover,
@@ -104,7 +105,7 @@ if(!empty ($_SESSION["start"])) {
             bottom: 0;
             width: 1em;
             background: #ddd;
-            background-image: linear-gradient(to bottom, #fff, #ddd);
+            background-image: linear-gradient(to bottom, #FFD788, #E9C37C);
             box-shadow: 2px 2px 2px rgba(0,0,0,.4);
             transform: skew(10deg);
             border-radius: 0 5px 0 0;

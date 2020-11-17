@@ -48,20 +48,28 @@ if(!empty ($_SESSION["start"])) {
             font-family: 'Poppins', sans-serif;
         }
         .communitytitle {
-            background: -webkit-linear-gradient(to bottom, #F06A00, #823001);
-            background: linear-gradient(to bottom, #F06A00, #823001);
-            height: 40px;
-            width: 20vw;
+            background: linear-gradient(196deg, #fcec41, #d84848, #fea738, #fe6a38);
+            background-size: 800% 800%;
+            -moz-animation: AnimationName 28s ease infinite;
+            animation: AnimationName 28s ease infinite;
+            height: 125px;
+            width: 38vw;
             border-radius: 15px;
-           padding: 10px;
-            font-size: 20pt;
+           padding: 15px;
+
             color: #FFFFFF;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            text-align: center;
+            text-align: left;
         }
+        h2 {
+            font-size: 25pt;
+            margin: 0;
+            padding: 0;
+        }
+
         .flex {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             overflow: auto;
         }
         .flex-item {
@@ -69,7 +77,7 @@ if(!empty ($_SESSION["start"])) {
         }
         .scrollcontainer {
             width: 81vw;
-            height: 350px;
+            height: 750px;
 
         }
 
@@ -80,17 +88,32 @@ background-color: #FFFFFF;
             width: 250px;
             display: block;
             margin: 10px;
-            overflow: auto;
+            overflow-wrap: normal;
+            ov
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         }
         .sharedtrips {
-            background: -webkit-linear-gradient(to bottom, #F06A00, #823001);
-             background: linear-gradient(to bottom, #F06A00, #823001);
+            background: linear-gradient(196deg, #fcec41, #d84848, #fea738, #fe6a38);
+            background-size: 800% 800%;
+            -moz-animation: AnimationName 28s ease infinite;
+            animation: AnimationName 28s ease infinite;
+
             padding: 10px 0px 15px 10px;
             border-radius: 20px;
             width: 81vw;
             box-shadow: -3px 6px 6px rgba(0, 0, 0, 0.4);
 
+        }
+        @-moz-keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
         }
 #sharedtripstitle {
     font-size: 18pt;
@@ -114,30 +137,7 @@ background-color: #FFFFFF;
             background-position: center;
             background-repeat: no-repeat;
         }
-        #prodimgtile2 {
-            background-image: url("../UserProfile/fpbg.png");
-            background-size: 110%;
-            background-position: top;
-            background-repeat: no-repeat;
-        }
-        #prodimgtile3 {
-            background-image: url("../UserProfile/fpbg.png");
-            background-size: 110%;
-            background-position: bottom;
-            background-repeat: no-repeat;
-        }
-        #prodimgtile4 {
-            background-image: url("../UserProfile/fpbg.png");
-            background-size: 110%;
-            background-position: center bottom;
-            background-repeat: no-repeat;
-        }
-        #prodimgtile5 {
-            background-image: url("../UserProfile/fpbg.png");
-            background-size: 110%;
-            background-position: center bottom;
-            background-repeat: no-repeat;
-        }
+
         #roadtripinfo {
             margin-top: 10px;
 
@@ -155,6 +155,7 @@ background-color: #FFFFFF;
             margin-left: 10px;
             overflow-wrap: break-word;
             hyphens: auto;
+            padding: 10px;
         }
         hr {
             width: 220px;
@@ -187,7 +188,8 @@ background-color: #FFFFFF;
 
 <div class="outercontainer">
     <div class="communitytitle">
-        Community Trips
+       <h2>Community Trips</h2>
+        <p>Find inspiration for your next adventure by checking out trips made by other memebers in the California Dreamin' community <p>
     </div>
 <br><br>
      <div class="sharedtrips">

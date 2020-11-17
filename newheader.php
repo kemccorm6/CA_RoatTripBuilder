@@ -4,15 +4,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: "Village";
+            src: url(http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Village-wLn3.ttf) format("truetype");
+        }
         body {
             margin: 0 !important;
             padding: 0 !important;
             background-image: url("../tiresmirror.gif");
-            background-size: contain;
-            background-repeat: revert;
+
+            background-repeat: repeat;
             background-position: top center;
-           /* background-size: 2250px 1250px ; */
+
+            background-size: 2000px 2500px ; */
         }
+
         .header {
             height: 200px;
         }
@@ -123,7 +129,7 @@ ul {
     font-weight: normal;
     font-size: 36px;
     color: #FFFFFF;
-line-height: 36pt;
+line-height: 40pt;
     text-align: center;
 }
 .loginbutton:hover {
@@ -186,6 +192,7 @@ line-height: 36pt;
     </style>
 </head>
 <body>
+
 <div class="header">
     <div class="mainstripe">
 <div class="leftnav">
@@ -218,6 +225,7 @@ line-height: 36pt;
 
     </div>
 </div>
+
 </body>
 </html>
 

@@ -49,24 +49,36 @@ if(!$results){
           href = "../master2.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<style>
+    .confirmed {
+        width: 800px;
 
+        font-size: 25pt;
+        margin: auto;
+        height: 100px;
+        padding: 100px;
+        border-radius: 20px;
+        background-color: #FFAC00;
+        text-align: center;
+    }
+</style>
 
 </head>
 <body>
 <?php include "../newheader.php" ?>
 
 <br><br>
+<div class="confirmed">
 <?php
 echo "You have successfully updated your profile!";
 
 }
 
 ?>
-
 <br><br>
 
-
-<a href="userprofile.php?id=<?php echo $_SESSION["UserId"] ?>">Go Back to Profile Page</a>
+<a style="text-decoration: underline" href="userprofile.php?id=<?php echo $_SESSION["UserId"] ?>">Go Back to Profile Page</a>
+</div>
 
 </body>
 </html>

@@ -80,7 +80,7 @@ $currentrow = $userresults->fetch_assoc();
             margin: auto;
         }
         .side2 {
-            height: 3500px;
+
             width: 400px;
             float: right;
 

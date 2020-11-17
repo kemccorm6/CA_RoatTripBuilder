@@ -48,11 +48,14 @@ if(!empty ($_SESSION["start"])) {
         }
 .missionbox {
     /*background-color: #f9d793;*/
-    background: -webkit-linear-gradient(to bottom, #f6c157, #f9d793);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #f9d793, #f6c157); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin: auto;
-    width: 50%;
-    border-radius: 7px;
+    background: linear-gradient(196deg, #fcec41, #d84848, #fea738, #fe6a38);
+    background-size: 800% 800%;
+    -moz-animation: AnimationName 28s ease infinite;
+    animation: AnimationName 28s ease infinite;
+    color: white;
+    width: 70%;
+    border-radius: 20px;
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 40px;
@@ -60,10 +63,22 @@ if(!empty ($_SESSION["start"])) {
     font-size: 18pt;
     text-align: center;
     box-shadow: 5px 5px 10px black;
+    font-family: 'Poppins', sans-serif;
 }
+        @-moz-keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
+        }
 .missionlogobox {
-    width: 40%;
+    width: 60%;
     margin: auto;
+    margin-bottom: 15px;
 }
         .missionlogo {
             width: 100%;
@@ -79,32 +94,13 @@ if(!empty ($_SESSION["start"])) {
 <body>
 
 <?php include "../newheader.php" ?>
-<!--<div class="topheader">-->
-<!--    <a href="../frontpage/frontpageV2.php">-->
-<!--        <img src="myalogo1.png" id="logo"></a>-->
-<!--    <div class="navbar">-->
-<!--        --><?php
-//        if(!empty($_SESSION["start"])){
-//            echo "<div class='profile'><a href='../UserProfile/userprofile.php?id=". $_SESSION["UserId"] ."'>";
-//            echo "<img class='profileimage' src='../myprofile_button-07.png'></a></div>";
-//        }else{
-//            echo "<div class='navitem'><br><br><a href='../Login/CA_RoadTripLOGIN.php'>LOGIN</a> </div>";
-//        }
-//
-//        ?>
-<!---->
-<!--        <div class="navitem"><br><br><a href="../MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="../Community/communityMAIN.php">COMMUNITY</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="../Mission/missionMAIN.php">OUR MISSION</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="../Team/teamMAIN.php">OUR TEAM</a> </div>-->
-<!--    </div>-->
-<!--    <div class="profile"><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php"><img class="profileimage" src="myprofile_button-08.png"></a></div>-->
-<!--</div>-->
-<!--<hr>--><br>
+<br>
 <div class="container">
-<div class="missionlogobox"><div class="missionlogo"><img class="missionlogo" src="ourmission_logo-07.png"></div></div>
+
     <br><br>
-    <div class="missionbox">California Dreamin’ is a volunteer based platform bringing you all of the best road trip stops up the California coast. Our mission is to bring adventure enthusiasts together through a simple one-stop platform. Head over to “Make a Trip” to begin planning your excursion, browse through photos posted by other users, and publish your adventures for others to see!
+    <div class="missionbox">
+        <div class="missionlogobox"><div class="missionlogo"><img class="missionlogo" src="ourmission_logo-07.png"></div></div>
+        California Dreamin’ is a volunteer based platform bringing you all of the best road trip stops up the California coast. Our mission is to bring adventure enthusiasts together through a simple one-stop platform. Head over to “Make a Trip” to begin planning your excursion, browse through photos posted by other users, and publish your adventures for others to see!
         <br><br>
         Because it’s not just a trip, it’s a story to share!</div>
 

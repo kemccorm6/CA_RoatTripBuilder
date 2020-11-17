@@ -42,11 +42,14 @@ if(!empty ($_SESSION["start"])) {
     <style>
         .infotile {
             position: relative;
-            background: -webkit-linear-gradient(to bottom, #f6c157, #f9d793);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #f9d793, #f6c157); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            border-radius: 15px;
+            background: linear-gradient(196deg, #fcec41, #d84848, #fea738, #fe6a38);
+            background-size: 800% 800%;
+            -moz-animation: AnimationName 28s ease infinite;
+            animation: AnimationName 28s ease infinite;
+            color: white;
+            border-radius: 30px;
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-            font-family: museo, serif;
+
             /* font-weight: 100 / 300 / 500 / 700 / 900; */
             font-style: normal;
             text-align: center;
@@ -54,10 +57,24 @@ if(!empty ($_SESSION["start"])) {
             z-index: 0;
             font-family: 'Poppins', sans-serif;
         }
+        @-moz-keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:50% 0%}
+            50%{background-position:51% 100%}
+            100%{background-position:50% 0%}
+        }
 
         h1 {
-            font-size: 36pt;
+
             padding-top: 40px;
+            font-size: 40pt;
+            font-family: "Village";
+            letter-spacing: 3px;
+            transform: scale(1.75, .95);
 
         }
 
@@ -65,7 +82,7 @@ if(!empty ($_SESSION["start"])) {
             width: 736px;
             margin: auto;
             margin-top: 30px;
-            color: black;
+            color: white;
         }
 
         .mainimage{
@@ -82,6 +99,7 @@ if(!empty ($_SESSION["start"])) {
             background-repeat: no-repeat;
             background-size: 100%;
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.29);
+            border-radius: 15px;
         }
 
         .previousimage{
@@ -95,11 +113,13 @@ if(!empty ($_SESSION["start"])) {
             background-position: center;
             background-repeat: no-repeat;
             background-size: 100%;
+            border-radius: 15px;
 
         }
 
         .nextimage{
             position: absolute;
+            border-radius: 15px;
             top: 240px;
             right: 16px;
             width: 160px;
@@ -160,6 +180,9 @@ if(!empty ($_SESSION["start"])) {
         #right{
             right: 0px;
             top: 10px;
+        }
+        img {
+
         }
 
 

@@ -43,30 +43,6 @@ $currentrow = $results->fetch_assoc();
             margin: 20px;
             color: black;
         }
-        .profile {
-            width: 10%;
-            right: 0;
-            height: 50px;
-            top: 50px;
-            position: absolute;
-            /*background-color: red;*/
-            float: left;
-            padding: 5px;
-            color: white;
-            margin-right: 30px;
-        }
-        .profileimage{
-            width:120px;
-            height:60px;
-            border-radius: 100px;
-            line-height: 20px;
-            text-align: center;
-            float: right;
-            background-color: #FFD789;
-            font-size: 15pt;
-            line-height: 18pt;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-        }
         .adminbox{
             width:800px;
             height: 300px;
@@ -82,17 +58,35 @@ $currentrow = $results->fetch_assoc();
             overflow-wrap: normal;
             font-size: 16pt;
         }
-        .editprofile {
-            width: 200px;
-            font-size: 14pt;
-            background-color:#FFD788;
-            height: 40px;
-            line-height: 30pt;
+        #editusername {
+            height: 50px;
             border-radius: 15px;
-            text-align: center;
-            box-shadow: 2px 1px 4px dimgrey;
-            margin-top: 30px;
+            padding: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
         }
+        #update {
+            width: 100px;
+            height: 50px;
+            background-color: #6E8B55;
+            font-size: 16pt;
+            color: #FFFFFF;
+            border-radius: 15px;
+        }
+        #editdescription {
+            height: 70px;
+            width: 600px;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+        #profilelink {
+            height: 70px;
+            width: 600px;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
 </style>
 </head>
 
@@ -105,21 +99,7 @@ $currentrow = $results->fetch_assoc();
 
 <body>
 <?php include "../newheader.php" ?>
-<!--<div class="topheader">-->
-<!--    <a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/frontpage/frontpageV2.php">-->
-<!--        <img src="myalogo1.png" id="logo"></a>-->
-<!--    <div class="navbar">-->
-<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Login/CA_RoadTripLOGIN.php">LOGIN</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/MakeTrip/maketripMAIN.php">MAKE A TRIP</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Community/communityMAIN.php">COMMUNITY</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Mission/missionMAIN.php">OUR MISSION</a> </div>-->
-<!--        <div class="navitem"><br><br><a href="http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Team/teamMAIN.php">OUR TEAM</a> </div>-->
-<!--        <div class="navitem"><br><br>Hi --><?php //echo $currentrow["User_Real_Name"] ?><!-- !</div>-->
-<!---->
-<!--    </div>-->
-<!--    <div class="profile"> <a href="userprofile.php"><div class="profileimage">My<br>Profile</div> </a></div>-->
-<!--</div>-->
-<!--<hr>-->
+
 
 <div class="container">
 
@@ -130,19 +110,19 @@ $currentrow = $results->fetch_assoc();
                 <br>
                 <div id="profileinfo">
                 <h1>Edit Name:</h1>
-                    <input type="text" name="nusername" value="<?php echo $currentrow["User_Real_Name"]; ?>"
+                    <input type="text" id="editusername" name="nusername" value="<?php echo $currentrow["User_Real_Name"]; ?>"
                 <div id="bio">
                     <br>
                     <p>Edit Description:</p>
-                    <input type="text" name="editdesc" value="<?php echo $currentrow["User_Description"]; ?>" >
+                    <input type="text" name="editdesc" id="editdescription" value="<?php echo $currentrow["User_Description"]; ?>" >
                     <br><br>
                     Copy profile picture link here:
                     <br>
-                    <input type="text" name="profp" value="<?php echo $currentrow["User_Profile_Picture"]; ?>">
+                    <input type="text" name="profp" id="profilelink" value="<?php echo $currentrow["User_Profile_Picture"]; ?>">
 
                 </div><!--close bio-->
                     <div class="editprofile">
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" id="update">
                     </div> <!--close edit profile-->
                 </div><!--close profile info-->
             </div><!--close admin box-->

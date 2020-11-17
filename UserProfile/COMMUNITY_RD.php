@@ -53,6 +53,7 @@ if(!empty ($_SESSION["start"])) {
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
             margin-bottom: 100px;
+            border-radius: 20px;
         }
         #tabs {
             overflow: hidden;

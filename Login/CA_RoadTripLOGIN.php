@@ -34,34 +34,53 @@ if ($mysql->connect_errno) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
-body {
-    background-image: url("tiretracks2.png");
-    background-size: 2250px 1250px ;
-    background-color: white;
-}
+
 .container {
     width: 80vw;
     margin: auto;
     font-family: 'Poppins', sans-serif;
-
+}
+@font-face {
+    font-family: "Village";
+    src: url(http://webdev.iyaclasses.com/~eglover/CA_RoatTripBuilder/Village-wLn3.ttf) format("truetype");
 }
 
-
         .createacc {
-            width: 50%;
-            height: 500px;
-            background-color: #F06A00;
+            width: 80%;
             margin: auto;
-
-            border-radius: 15px;
-            text-align: center;
+            z-index: 10;
+            /*position: fixed;*/
+            top: 200px;
+            box-shadow: 1px 1px 6px black;
+            background: linear-gradient(196deg, #fcec41, #d84848, #fea738, #fe6a38);
+            background-size: 800% 800%;
+            -moz-animation: AnimationName 28s ease infinite;
+            animation: AnimationName 28s ease infinite;
             color: white;
-            padding: 50px;
-            background: -webkit-linear-gradient(to bottom, #F06A00, #823001);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #F06A00, #823001); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            border-radius: 15px;
+            height: 370px;
+            left: 300px;
+            padding: 15px;
+            padding-bottom: 30px;
+            text-align: center;
+            font-size: 18pt;
+            margin-top: 30px;
         }
+@-moz-keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
         #title1 {
-            font-size: 24pt;
+            font-size: 40pt;
+            font-family: "Village";
+            letter-spacing: 3px;
+            transform: scale(1.75, .95);
             margin: auto;
             width: 80%;
             height: 70px;
@@ -76,13 +95,26 @@ body {
             font-size: 13pt;
             border-radius: 20px;
             line-height: 13pt;
-
+            margin-bottom: 15px;
+            margin-right: 20px;
         }
+.input {
+    margin: auto;
+    width: 100%;
+    clear: both;
+    text-align: right;
+}
         #submit {
-            width: 40%;
-            border-radius: 10px;
-            background-color: #85A867;
-            color: white;
+            width:20% !important;
+            height: 40px;
+            font-size: 16pt;
+            border-radius: 15px;
+            margin:0 auto !important;
+            display:block !important;
+            float:none !important;
+            background-color: rgba(129, 164, 101, 1.0);
+            color: #FFFFFF;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
         }
         ::-webkit-input-placeholder { /* Edge */
             color: #6b6a6a;
@@ -106,11 +138,11 @@ body {
             background-repeat: no-repeat;
             color: #F09B32;
         }
-        #admincheck {
-           width: 30px;
-margin: auto;
-            float: left;
-        }
+.label {
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
         label {
 
             padding:0px;
@@ -124,6 +156,12 @@ margin: auto;
         #checkedadmin {
             margin: auto;
         }
+.createacc a:hover {
+    font-size: 20pt;
+}
+#submit:hover {
+    background-color: #6E8B55;
+}
     </style>
 </head>
 <body>
@@ -131,21 +169,25 @@ margin: auto;
 
 <div class="container">
 
-    <div class="createacc" id="createacc2" style="height: 500px;">
+    <div class="createacc" id="createacc2" >
         <div id="title1">Log In</div>
-        <br>
+
         New here? <a href="CREATEACC_V2.php">Create an Account</a>
         <br><br>
 
         <form action="../UserProfile/userprofile.php">
-            Username: <br>
+            <div class="input">
+         <div class="label"> Username:</div>
             <input id="username" type="text" name="usernamel" placeholder=" &nbsp; &nbsp;  username"><br>
-            Password: <br>
-            <input id="password" type="text" name="passwordl" placeholder=" &nbsp; &nbsp;  password"><br><br>
+            </div>
+            <div class="input">
+            <div class="label"> Password:</div>
+            <input id="password" type="text" name="passwordl" placeholder=" &nbsp; &nbsp;  password"><br>
+            </div>
 <!--            <label><input type="checkbox" name="admin" value="admin" id="admincheck" onclick="reveal()">Check if Admin</label>-->
 
 <!--            <input type="text" name="adminpassword" placeholder="&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; admin password" style="display:none" id="checkedadmin">-->
-            <br><br><input id="submit" type="submit" value="Log In">
+            <br><input id="submit" type="submit" value="Log In">
 
 <!--            <script>-->
 <!--                function reveal(){-->

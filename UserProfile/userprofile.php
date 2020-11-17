@@ -132,9 +132,9 @@ if (empty($_SESSION["start"])){
         .circleimage{
            width: 250px;
             height: 250px;
-
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
             clip-path: circle(250px at center);
-            border: black 1px solid;
+
             border-radius: 150px;
             float: left;
             margin: 20px;
@@ -142,20 +142,47 @@ if (empty($_SESSION["start"])){
         }
 
         .adminbox{
-            width:900px;
+            width:1000px;
             height: 300px;
             margin: auto;
             display: block;
             margin-top: 0px;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.45);
+            background: linear-gradient(58deg, #ffedcb, #ffc65a, #ffd788);
+            background-size: 600% 600%;
+
+            -webkit-animation: AnimationName 23s ease infinite;
+            -o-animation: AnimationName 23s ease infinite;
+            animation: AnimationName 23s ease infinite;
+
+            color: black;
+            border-radius: 15px;
+        }
+        @-webkit-keyframes AnimationName {
+            0%{background-position:0% 83%}
+            50%{background-position:100% 18%}
+            100%{background-position:0% 83%}
+        }
+        @-o-keyframes AnimationName {
+            0%{background-position:0% 83%}
+            50%{background-position:100% 18%}
+            100%{background-position:0% 83%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:0% 83%}
+            50%{background-position:100% 18%}
+            100%{background-position:0% 83%}
         }
         #profileinfo {
            float: left;
-            width: 400px;
+            width: 420px;
             margin-left: 50px;
         }
         #bio {
             overflow-wrap: normal;
-            font-size: 16pt;
+            font-size: 14pt;
+            font-family: Poppins;
+
         }
 
         .bigbox{
@@ -170,46 +197,53 @@ if (empty($_SESSION["start"])){
 
         .editprofile {
             width: 100px;
-            font-size: 14pt;
-            background-color:#FFD788;
+            font-size: 12pt;
+            background-color: white;
             height: 40px;
             line-height: 30pt;
             border-radius: 15px;
             text-align: center;
             box-shadow: 2px 1px 4px dimgrey;
-            margin-top: 30px;
+            margin-top: 18.5px;
             text-decoration: none;
             text-decoration-color: #FFFFFF;
             float: left;
+            font-family: Poppins;
+            border: 1px solid black;
+        }
+        .editprofile a {
+            text-decoration: none!;
+            color: black;
         }
         #adminpage {
             float: left;
             width: 160px;
             font-size: 12pt;
-            background-color:#FFD788;
-            height: 40px;
-            line-height: 30pt;
+            background-color:white;
+            height: 42px;
+            margin-left: 20px;
+            line-height: 20pt;
             border-radius: 15px;
             text-align: center;
             box-shadow: 2px 1px 4px dimgrey;
-            margin-top: 30px;
-            color: #FFFFFF;
+            margin-top: 10px;
+            color: black;
             font-family: 'Poppins', sans-serif;
 
         }
         #logoutbutton {
             float: left;
             width: 100px;
-            font-size: 14pt;
-            background-color:#FFD788;
+margin-left: 20px;
+            background-color:white;
             height: 40px;
-            line-height: 30pt;
+            line-height: 20pt;
             border-radius: 15px;
             text-align: center;
             box-shadow: 2px 1px 4px dimgrey;
-            margin-top: 30px;
+            margin-top: 10px;
             font-size: 12pt;
-            color: #FFFFFF;
+            color: black;
             font-family: 'Poppins', sans-serif;
 
         }
@@ -238,14 +272,16 @@ if (empty($_SESSION["start"])){
         #tabs a {
             position: relative;
             background: #ddd;
-            background-image: linear-gradient(to bottom, #fff, #ddd);
+            background-image: linear-gradient(to bottom, #FFD788, #E9C37C);
             padding: .7em 3.5em;
+            font-family: Poppins;
             float: left;
             text-decoration: none;
             color: #444;
             text-shadow: 0 1px 0 rgba(255,255,255,.8);
             border-radius: 5px 0 0 0;
             box-shadow: 0 2px 2px rgba(0,0,0,.4);
+            color: black;
         }
 
         #tabs a:hover,
@@ -268,7 +304,7 @@ if (empty($_SESSION["start"])){
             bottom: 0;
             width: 1em;
             background: #ddd;
-            background-image: linear-gradient(to bottom, #fff, #ddd);
+            background-image: linear-gradient(to bottom, #FFD788, #E9C37C);
             box-shadow: 2px 2px 2px rgba(0,0,0,.4);
             transform: skew(10deg);
             border-radius: 0 5px 0 0;
@@ -346,6 +382,14 @@ margin-left: 1vw;
             padding: 0;
             margin: 0;
         }
+        h1 {
+            font-family: Poppins;
+
+            text-align: left;
+
+            font-size: 30pt;
+            margin-bottom: 0;
+        }
 
         input #adminpage {
             background-color: #FFFFFF;
@@ -362,6 +406,8 @@ margin-left: 1vw;
             line-height: 0.5;
             text-align: center;
             font-size: 20pt;
+
+
         }
         .fancy span {
             display: inline-block;
@@ -384,6 +430,12 @@ margin-left: 1vw;
         .fancy span:after {
             left: 100%;
             margin-left: 15px;
+        }
+        hr.buttonline {
+            background-color: black;
+            width: 120%;
+            height: 4px;
+            border-top: 1px solid black;
         }
 
 
@@ -437,6 +489,7 @@ margin-left: 1vw;
             <div id="bio">
                 <p><?php echo $currentrow["User_Description"]; ?></p>
             </div><!--close bio-->
+                <hr class="buttonline">
                 <div class="editprofile">
                     <a href="editprofile.php?id=<?php echo $_SESSION["UserId"]; ?>">Edit Profile</a>
                 </div> <!--close edit profile-->
