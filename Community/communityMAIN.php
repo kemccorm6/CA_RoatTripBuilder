@@ -191,9 +191,12 @@ background-color: #FFFFFF;
              <div class="item flex-item">
                  <div ><img class="prodimgtile" id="prodimgtile1" src="<?php echo$crcq["imageurl"]; ?>"></div>
                  <div id="roadtripinfo">
-                     <a href="../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>">
-                     <div> <img id="lilidpic" src="<?php echo $crcq["User_Profile_Picture"]; ?>"><?php echo $crcq["User_Real_Name"]; ?></div>
-                     </a>
+
+                     <div>
+                         <a href="../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>">
+                         <img id="lilidpic" src="<?php echo $crcq["User_Profile_Picture"]; ?>"> </a>
+                         <?php echo $crcq["User_Real_Name"]; ?></div>
+
                      <div id="triptitle"> <?php echo $crcq["trip_name"]; ?> </div><hr>
                      <div id="tripnotes"> <?php echo $crcq["trip_description"]; ?> </div>
                  </div>
