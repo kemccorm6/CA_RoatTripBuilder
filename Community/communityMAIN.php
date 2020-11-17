@@ -171,6 +171,13 @@ background-color: #FFFFFF;
          <div class="scrollcontainer flex">
 
              <!-- open community shared trip item -->
+
+             <?php
+
+             $cq = "SELECT * FROM OneImagePerTrip";
+
+
+             ?>
              <div class="item flex-item">
                  <div class="prodimgtile" id="prodimgtile1"></div>
                  <div id="roadtripinfo">
@@ -180,98 +187,52 @@ background-color: #FFFFFF;
              </div> <!-- close community shared trip item -->
 
              <!-- open community shared trip item -->
-             <div class="item flex-item">
-                 <div class="prodimgtile" id="prodimgtile2"></div>
-                 <div id="roadtripinfo">
-                     <div id="triptitle"> Forest Mountain Trip </div><hr>
-                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                 </div>
-             </div> <!-- close community shared trip item -->
+<!--             <div class="item flex-item">-->
+<!--                 <div class="prodimgtile" id="prodimgtile2"></div>-->
+<!--                 <div id="roadtripinfo">-->
+<!--                     <div id="triptitle"> Forest Mountain Trip </div><hr>-->
+<!--                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>-->
+<!--                 </div>-->
+<!--             </div> -->
+             <!-- close community shared trip item -->
 
              <!-- open community shared trip item -->
-             <div class="item flex-item">
-                 <div class="prodimgtile" id="prodimgtile3"></div>
-                 <div id="roadtripinfo">
-                     <div id="triptitle"> Forest Mountain Trip </div><hr>
-                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                 </div>
-             </div> <!-- close community shared trip item -->
+<!--             <div class="item flex-item">-->
+<!--                 <div class="prodimgtile" id="prodimgtile3"></div>-->
+<!--                 <div id="roadtripinfo">-->
+<!--                     <div id="triptitle"> Forest Mountain Trip </div><hr>-->
+<!--                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>-->
+<!--                 </div>-->
+<!--             </div> -->
+
+             <!-- close community shared trip item -->
 
              <!-- open community shared trip item -->
-             <div class="item flex-item">
-                 <div class="prodimgtile" id="prodimgtile4"></div>
-                 <div id="roadtripinfo">
-                     <div id="triptitle"> Forest Mountain Trip </div><hr>
-                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                 </div>
-             </div> <!-- close community shared trip item -->
+<!--             <div class="item flex-item">-->
+<!--                 <div class="prodimgtile" id="prodimgtile4"></div>-->
+<!--                 <div id="roadtripinfo">-->
+<!--                     <div id="triptitle"> Forest Mountain Trip </div><hr>-->
+<!--                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>-->
+<!--                 </div>-->
+<!--             </div> -->
+
+             <!-- close community shared trip item -->
 
              <!-- open community shared trip item -->
-             <div class="item flex-item">
-                 <div class="prodimgtile" id="prodimgtile5"></div>
-                 <div id="roadtripinfo">
-                     <div id="triptitle"> Forest Mountain Trip </div><hr>
-                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                 </div>
-             </div> <!-- close community shared trip item -->
+<!--             <div class="item flex-item">-->
+<!--                 <div class="prodimgtile" id="prodimgtile5"></div>-->
+<!--                 <div id="roadtripinfo">-->
+<!--                     <div id="triptitle"> Forest Mountain Trip </div><hr>-->
+<!--                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>-->
+<!--                 </div>-->
+<!--             </div>  close community shared trip item
 
 
          </div> <!-- close scroll container --><br>
 </div> <!-- close shared trips -->
 
     <!-- start new shared trip section --><br><br>
-    <div class="sharedtrips">
-        <div id="sharedtripstitle">Community Shared Trips from SoCal</div>
-        <div class="scrollcontainer flex">
-
-            <!-- open community shared trip item -->
-            <div class="item flex-item">
-                <div class="prodimgtile" id="prodimgtile1"></div>
-                <div id="roadtripinfo">
-                    <div id="triptitle"> Forest Mountain Trip </div><hr>
-                    <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                </div>
-            </div> <!-- close community shared trip item -->
-
-            <!-- open community shared trip item -->
-            <div class="item flex-item">
-                <div class="prodimgtile" id="prodimgtile2"></div>
-                <div id="roadtripinfo">
-                    <div id="triptitle"> Forest Mountain Trip </div><hr>
-                    <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                </div>
-            </div> <!-- close community shared trip item -->
-
-            <!-- open community shared trip item -->
-            <div class="item flex-item">
-                <div class="prodimgtile" id="prodimgtile3"></div>
-                <div id="roadtripinfo">
-                    <div id="triptitle"> Forest Mountain Trip </div><hr>
-                    <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                </div>
-            </div> <!-- close community shared trip item -->
-
-            <!-- open community shared trip item -->
-            <div class="item flex-item">
-                <div class="prodimgtile" id="prodimgtile4"></div>
-                <div id="roadtripinfo">
-                    <div id="triptitle"> Forest Mountain Trip </div><hr>
-                    <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                </div>
-            </div> <!-- close community shared trip item -->
-
-            <!-- open community shared trip item -->
-            <div class="item flex-item">
-                <div class="prodimgtile" id="prodimgtile5"></div>
-                <div id="roadtripinfo">
-                    <div id="triptitle"> Forest Mountain Trip </div><hr>
-                    <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
-                </div>
-            </div> <!-- close community shared trip item -->
-
-
-        </div> <!-- close scroll container --><br>
-    </div> <!-- close shared trips -->
+<!--   -->
 
 
 
