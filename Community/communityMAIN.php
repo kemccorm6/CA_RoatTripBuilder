@@ -175,7 +175,7 @@ background-color: #FFFFFF;
     <script>
     $(document).ready(function() {
 
-    $(".item").click(function (){
+    $(".prodtile").click(function (){
         window.location.assign(‘../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>
     ’)};
     return false;
