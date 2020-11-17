@@ -240,6 +240,7 @@ $currentrow = $userresults->fetch_assoc();
             <div class="editloc" id="editloc" ><a href="adminmainLOCATION.php" style="text-decoration:none">Edit Locations</a></div>
                 <div class="edittyp" id="edittyp" ><a href="adminmainTYPE.php" style="text-decoration:none">Edit Type</a></div>
             <div class="editcit"> <a href="adminmainCITY.php" >Edit City</a></div>
+
             </div>
 
         <div class="bigbox">

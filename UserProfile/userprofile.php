@@ -462,7 +462,7 @@ if (empty($_SESSION["start"])){
 
 <!--                <li><a href="../MakeTrip/maketripMAIN.php" style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>-->
                 <li><a href="MyRoadtrips" name="tab2">My Roadtrips</a></li>
-                <li><a href="SavedTrips" name="tab3">Saved Trips</a></li>
+<!--                <li><a href="SavedTrips" name="tab3">Saved Trips</a></li>-->
             </ul>
         </div>
 
