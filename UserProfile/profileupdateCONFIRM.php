@@ -53,7 +53,7 @@ if(!$results){
 
 </head>
 <body>
-<?php include "../masterHTML.php" ?>
+<?php include "../newheader.php" ?>
 
 <br><br>
 <?php
