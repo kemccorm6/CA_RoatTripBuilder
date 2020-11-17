@@ -50,7 +50,6 @@ if(!empty ($_SESSION["start"])) {
             width:1000px;
             padding: 15px;
             margin:auto;
-
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
             margin-bottom: 100px;
@@ -222,7 +221,7 @@ if(!empty ($_SESSION["start"])) {
  margin-left: 30px;
 }
 .teststeps {
-    background-color: #D14A0A;
+
     width: 900px;
     margin: auto;
     margin-top: 30px;

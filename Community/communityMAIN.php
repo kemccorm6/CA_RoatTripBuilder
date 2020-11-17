@@ -175,9 +175,9 @@ background-color: #FFFFFF;
     <script>
     $(document).ready(function() {
 
-    $(".item").click(function (){
-        window.location.assign('../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>')
-    };
+    $(".prodtile").click(function (){
+        window.location.assign(‘../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>
+    ’)};
     return false;
     });
     </script>
@@ -209,8 +209,7 @@ background-color: #FFFFFF;
              ?>
 
              <div class="item flex-item">
-                 <div > <a href="../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>">
-                         <img class="prodimgtile" id="prodimgtile1" src="<?php echo$crcq["imageurl"]; ?>"></a></div>
+                 <div ><img class="prodimgtile" id="prodimgtile1" src="<?php echo$crcq["imageurl"]; ?>"></div>
                  <div id="roadtripinfo">
                      <div>
                          <a href="../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>">
