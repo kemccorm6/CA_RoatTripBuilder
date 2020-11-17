@@ -7,8 +7,9 @@
         body {
             margin: 0 !important;
             padding: 0 !important;
-            background-image: url("../tiretracks3.gif");
-            background-size: cover;
+            background-image: url("../tiresmirror.gif");
+            background-size: contain;
+            background-repeat: revert;
             background-position: top center;
            /* background-size: 2250px 1250px ; */
         }
