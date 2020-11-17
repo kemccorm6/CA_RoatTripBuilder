@@ -141,10 +141,9 @@ if (empty($_SESSION["start"])){
             color: black;
         }
 
-
         .adminbox{
             width:900px;
-            height: 200px;
+            height: 300px;
             margin: auto;
             display: block;
             margin-top: 0px;
@@ -291,10 +290,12 @@ if (empty($_SESSION["start"])){
             font-family: 'Poppins', sans-serif;
         }
         .prodtile {
-            width: 20vw;
-            min-height: 10vw;
+            width: 40%;
+            min-height: 20vw;
             padding: 2vw;
             margin-top: 1vw;
+margin-left: 1vw;
+            display: block;
 
             background-color: #FFFFFF;
             border-radius: 15px;
