@@ -279,8 +279,8 @@ text-align: center;
     $(document).ready(function() {
 
         $("#stopinfo").click(function (){
-            window.location.href="locationdetails.php";
-            return false;
+            // window.location.href="locationdetails.php";
+            // return false;
         });
         $("#tab12").click(function (){
             window.location.href="userprofile.php";
@@ -454,7 +454,7 @@ limit 3
             <!--                </div>-->
 <!--                            <div class="destination-1" id="stopinfo">-->
                                 <div>
-                                <div ><img id="locationpicture" src="<?php echo $tripRow["imageurl"]; ?>"></div>
+                                <a href="../MakeTrip/MakeTripLocationDetail.php?id=<?php echo $tripRow["locationID"]; ?>"><div><img id="locationpicture" src="<?php echo $tripRow["imageurl"]; ?>"></div></a>
                                 <div id="locationname"><?php echo $tripRow["locationname"]; ?></div>
                                 <div id="typesrow">
                                     <div class="types" id="type1">Pet Friendly</div>
