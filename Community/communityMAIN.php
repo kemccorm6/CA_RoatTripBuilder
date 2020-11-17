@@ -105,7 +105,7 @@ background-color: #FFFFFF;
             background-color: #6E8B55;
         }
         #prodimgtile1 {
-            background-image: url("../UserProfile/fpbg.png");
+            /*background-image: url("../UserProfile/fpbg.png");*/
             background-size: 110%;
             background-position: center;
             background-repeat: no-repeat;
@@ -152,6 +152,12 @@ background-color: #FFFFFF;
         hr {
             width: 220px;
         }
+        #lilidpic{
+            width:50px;
+            height:50px;
+            border: black 1px solid;
+            border-radius: 100px;
+        }
 
 
 
@@ -167,24 +173,36 @@ background-color: #FFFFFF;
     </div>
 <br><br>
      <div class="sharedtrips">
-         <div id="sharedtripstitle">Community Shared Trips from NorCal</div>
+         <div id="sharedtripstitle">Community Shared Trips</div>
          <div class="scrollcontainer flex">
 
              <!-- open community shared trip item -->
 
              <?php
 
-             $cq = "SELECT * FROM OneImagePerTrip";
+             $cq = "SELECT * FROM OneImagePerTrip2";
+             $rcq = $mysql->query($cq);
+
+             while($crcq = $rcq->fetch_assoc()){
+
 
 
              ?>
              <div class="item flex-item">
-                 <div class="prodimgtile" id="prodimgtile1"></div>
+                 <div ><img class="prodimgtile" id="prodimgtile1" src="<?php echo$crcq["imageurl"]; ?>"></div>
                  <div id="roadtripinfo">
-                     <div id="triptitle"> Forest Mountain Trip </div><hr>
-                     <div id="tripnotes"> Trip ideas for the Fall. I love these trip ideas wow </div>
+                     <a href="../UserProfile/COMMUNITY_RD.php?tripid=<?php echo $crcq["savedtripID"]; ?>&userID=<?php echo $crcq["userID"]; ?>">
+                     <div> <img id="lilidpic" src="<?php echo $crcq["User_Profile_Picture"]; ?>"><?php echo $crcq["User_Real_Name"]; ?></div>
+                     </a>
+                     <div id="triptitle"> <?php echo $crcq["trip_name"]; ?> </div><hr>
+                     <div id="tripnotes"> <?php echo $crcq["trip_description"]; ?> </div>
                  </div>
-             </div> <!-- close community shared trip item -->
+             </div>
+             <?php
+             }
+             ?>
+
+             <!-- close community shared trip item -->
 
              <!-- open community shared trip item -->
 <!--             <div class="item flex-item">-->
