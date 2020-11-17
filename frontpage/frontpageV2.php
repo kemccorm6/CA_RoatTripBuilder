@@ -174,7 +174,7 @@ $currentrow = $userresults->fetch_assoc();
 
                 ?>
 
-                <div style="border:solid 1px black;">
+                <div>
                     <img style="border-radius: 200px;width:<?php echo $crdata["TripCount"]*5; ?>px;height:<?php echo $crdata["TripCount"]*5; ?>px;" src="<?php echo $crdata["imageurl"]; ?>">
                     <?php echo $crdata["locationname"]; ?>
                     <br>

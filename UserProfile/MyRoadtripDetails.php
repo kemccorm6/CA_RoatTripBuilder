@@ -385,9 +385,26 @@ limit 3
                             <a href="../MakeTrip/MakeTripLocationDetail.php?id=<?php echo $tripRow["locationID"]; ?>"><div><img id="locationpicture" src="<?php echo $tripRow["imageurl"]; ?>"></div></a>
                             <div id="locationname"><?php echo $tripRow["locationname"]; ?></div>
                             <div id="typesrow">
-                                <div class="types" id="type1">Pet Friendly</div>
-                                <div class="types" id="type2">Wifi</div>
-                                <div class="types" id="type3">Mountain</div>
+
+                                <?php
+                                    $tripRow["petfriendly"];
+                                    if($tripRow["petfriendly"] == 1){
+                                        echo '<div class="types" id="type1">Pet Friendly</div>';
+                                    }
+
+                                ?>
+
+
+
+                                    <?php
+                                        $tripRow["wifi"];
+                                        if($tripRow["wifi"] == 1){
+                                            echo '<div class="types" id="type2">Wifi</div>';
+                                        }
+
+                                    ?>
+
+                                <div class="types" id="type3"><?php echo $tripRow["typename"] ?></div>
                             </div><br>
                             <div id="notes">
                                 <?php echo $tripRow["location_description"] ?>
