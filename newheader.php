@@ -4,9 +4,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-image: url("../tiretracks.png");
+            background-size: 2250px 1250px ;
+
+        }
         .header {
             height: 200px;
         }
+
 .mainstripe {
     position: absolute;
     width: 100%;
