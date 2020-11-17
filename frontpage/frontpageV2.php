@@ -58,11 +58,13 @@ $currentrow = $userresults->fetch_assoc();
         .side1 {
             width: 1000px;
             float: right;
+            display: block;
             background-image: url("fpbg.png");
             background-size: 90%;
             background-position: top;
             background-repeat: no-repeat;
             height: 3500px;
+            overflow: scroll;
 
         } 
         #badge {
@@ -82,13 +84,6 @@ $currentrow = $userresults->fetch_assoc();
             width: 400px;
             float: right;
 
-        }
-        .mission {
-            width: 350px;
-            text-align: center;
-            margin: auto;
-            font-size: 30pt;
-            font-weight: bold;
         }
         #mission1 {
             width: 400px;
@@ -128,44 +123,9 @@ $currentrow = $userresults->fetch_assoc();
             width: 350px;
             top: 75px;
         }
-        .howitworks {
-            width: 300px;
-            text-align: center;
-            margin: auto;
-            font-size: 30pt;
-            padding-top: 50px;
-            position: relative;
-            top: 1300px;
-            line-height: 300px;
-        }
-        .makeatrip {
-            width: 300px;
-            z-index: 10;
-            position: fixed;
-            top: 200px;
-            box-shadow: 1px 1px 6px black;
-            background-color: #D14A0A;
-            color: white;
-            border-radius: 15px;
-            height: 450px;
-            left: 300px;
-            padding: 15px;
-            padding-bottom: 30px;
-            text-align: center;
-        }
 
-        .label {
-            padding: 10px;
-            font-size: 14pt;
-            text-align: center;
-        }
-        .submit {
-            width: 100px;
-            height: 30px;
-            border-radius: 10px;
-            background-color: #FFAC00;
-            color: white;
-        }
+
+
         h1 {
             text-align: center;
         }
@@ -177,20 +137,6 @@ $currentrow = $userresults->fetch_assoc();
 
         }
 
-        #single:hover {
-            background-color: #FFAC00;
-            width: 200px;
-            height: 50px;
-            font-weight: bold;
-            box-sizing: border-box;
-            border-radius: 10px;
-        }
-        #icon {
-            margin: 10px;
-            float: left;
-            width: 25px;
-            fill: white;
-        }
         #tire {
             position: relative;
 
@@ -198,29 +144,7 @@ $currentrow = $userresults->fetch_assoc();
             display: block;
 
         }
-        .profile {
-            width: 100px;
-            right: 0;
-            /*height: 50px;*/
-            top: 50px;
-            position: absolute;
-            /*background-color: red;*/
-            float: left;
-            padding: 5px;
-            color: white;
-            margin-right: 30px;
-        }
-        .profileimage{
-            width: 100%;
-            /*border-radius: 100px;*/
-            /*line-height: 20px;*/
-            /*text-align: center;*/
-            /*float: right;*/
-            /*background-color: #FFD789;*/
-            /*font-size: 15pt;*/
 
-            /*font-family: 'Yanone Kaffeesatz', sans-serif;*/
-        }
 
     </style>
 </head>

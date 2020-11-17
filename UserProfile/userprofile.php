@@ -130,40 +130,24 @@ if (empty($_SESSION["start"])){
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
         .circleimage{
-            width:250px;
-            height:250px;
+           width: 250px;
+            height: 250px;
+
+            clip-path: circle(250px at center);
             border: black 1px solid;
             border-radius: 150px;
             float: left;
             margin: 20px;
             color: black;
         }
-        .profile {
-            width: 10%;
-            right: 0;
-            height: 50px;
-            top: 35px;
-            position: absolute;
-
-            float: left;
-            padding: 5px;
-            color: white;
-            margin-right: 30px;
-        }
-        .profileimage{
-            width:120px;
-            height:60px;
-            border-radius: 100px;
-
-            float: right;
 
 
-        }
         .adminbox{
-            width:1000px;
-            height: 300px;
+            width:900px;
+            height: 200px;
             margin: auto;
-            margin-top: 50px;
+            display: block;
+            margin-top: 0px;
         }
         #profileinfo {
            float: left;
@@ -195,6 +179,8 @@ if (empty($_SESSION["start"])){
             text-align: center;
             box-shadow: 2px 1px 4px dimgrey;
             margin-top: 30px;
+            text-decoration: none;
+            text-decoration-color: #FFFFFF;
             float: left;
         }
         #adminpage {
@@ -309,7 +295,7 @@ if (empty($_SESSION["start"])){
             min-height: 10vw;
             padding: 2vw;
             margin-top: 1vw;
-            margin-left: 4vw;
+
             background-color: #FFFFFF;
             border-radius: 15px;
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
@@ -319,9 +305,10 @@ if (empty($_SESSION["start"])){
             font-style: normal;
         }
         .prodtile:hover {
-            width: 21vw;
-            min-height: 11vw;
+
+            background-color: #FFAC00;
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+
         }
         .roadtripinfo {
 
@@ -329,6 +316,13 @@ if (empty($_SESSION["start"])){
         }
         #triptitle {
             font-size: 16pt;
+            background-color: #FFD789;
+            width: fit-content;
+            padding: 9px;
+            border-radius: 10px;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
+            color: #37472A;
+
         }
         #tripnotes {
             font-size: 12pt;
@@ -338,47 +332,20 @@ if (empty($_SESSION["start"])){
         .prodimgtile {
             width: 100%;
             border-radius: 10px;
-            min-height: 20vw;
+            min-height: 15vw;
             background-color: #6E8B55;
+            margin: auto;
+            display: block;
+            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
         }
 
-        #prodimgtile1 {
-            /*background-image: url("fpbg.png");*/
-            background-size: 110%;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        #prodimgtile2 {
-            background-image: url("fpbg.png");
-            background-size: 110%;
-            background-position: top;
-            background-repeat: no-repeat;
-        }
-        #prodimgtile3 {
-            background-image: url("fpbg.png");
-            background-size: 110%;
-            background-position: bottom;
-            background-repeat: no-repeat;
-        }
-        #prodimgtile4 {
-            /*background-image: url("fpbg.png");*/
-            background-size: 110%;
-            background-position: center bottom;
-            background-repeat: no-repeat;
-        }
         h3 {
             text-align: center;
+            font-size: 20pt;
             padding: 0;
             margin: 0;
         }
-        #logged {
-            float: right;
-            font-size: 14pt;
-           bottom: 0;
-            line-height: 35pt;
-            font-family: 'Poppins';
-            font-weight: 300;
-        }
+
         input #adminpage {
             background-color: #FFFFFF;
         }
@@ -386,6 +353,36 @@ if (empty($_SESSION["start"])){
             overflow: scroll;
 
             height: 900px;
+        }
+        .subtitle {
+            margin: 0 0 2em 0;
+        }
+        .fancy {
+            line-height: 0.5;
+            text-align: center;
+            font-size: 20pt;
+        }
+        .fancy span {
+            display: inline-block;
+            position: relative;
+        }
+        .fancy span:before,
+        .fancy span:after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            top: 0;
+            width: 300px;
+        }
+        .fancy span:before {
+            right: 100%;
+            margin-right: 15px;
+        }
+        .fancy span:after {
+            left: 100%;
+            margin-left: 15px;
         }
 
 
@@ -432,7 +429,7 @@ if (empty($_SESSION["start"])){
 <!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
 
         <div class="adminbox">
-            <div><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"]; ?>"</div>
+            <div><img class="circleimage" style="max-width: 100%; max-height: 100%" src="<?php echo $currentrow["User_Profile_Picture"]; ?>"</div>
             <br>
             <div id="profileinfo">
             <h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
@@ -457,6 +454,7 @@ if (empty($_SESSION["start"])){
                 </div>
             </div><!--close profile info-->
         </div><!--close admin box-->
+</div>
 
 
 
@@ -478,21 +476,15 @@ if (empty($_SESSION["start"])){
             <br>
             <div id="content">
                 <div id="tab1">make new trip
-
                 </div>
-
                 <div id="tab2">
-                    <h3>My Roadtrips</h3>
 
+                    <p class="subtitle fancy"><span>My Roadtrips</span></p>
                     <div class="overflowbox">
-
                     <?php
                     $rtsqlii = "SELECT * FROM OneImagePerTrip WHERE userID =" . $_SESSION["UserId"];
-
                     $rtresults1 = $mysql->query($rtsqlii);
                     while($roadtripcr = $rtresults1->fetch_assoc()){
-
-
                     ?>
 
                     <div class="prodtile" id="prodtile<?php echo $roadtripcr["savedtripID"]; ?>">
@@ -518,42 +510,7 @@ if (empty($_SESSION["start"])){
 
                     </div>
 
-
-                </div> <!-- Close tab 2-->
-
-<!--                <div id="tab3">-->
-<!--                    <h3>Saved Trips</h3>-->
-<!--                    -->
-<!--                    <div class="prodtile" id="prodtile1">-->
-<!--                        <div class="prodimgtile" id="prodimgtile1"></div>-->
-<!--                        <div class="roadtripinfo">-->
-<!--                            <div id="triptitle"> Forest Mountain Trip </div>-->
-<!--                            <div id="tripnotes"> Trip ideas for the Fall </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    -->
-<!--                    <div class="prodtile" id="prodtile2">-->
-<!--                        <div class="prodimgtile" id="prodimgtile2"></div>-->
-<!--                        <div class="roadtripinfo">-->
-<!--                            <div id="triptitle"> Beach Trip </div>-->
-<!--                            <div id="tripnotes"> Trip ideas for the Summer </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="prodtile" id="prodtile3">-->
-<!--                        <div class="prodimgtile" id="prodimgtile3"></div>-->
-<!--                        <div class="roadtripinfo">-->
-<!--                            <div id="triptitle"> Desert Trip </div>-->
-<!--                            <div id="tripnotes"> Trip ideas for the Spring </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="prodtile" id="prodtile4">-->
-<!--                        <div class="prodimgtile" id="prodimgtile4"></div>-->
-<!--                        <div class="roadtripinfo">-->
-<!--                            <div id="triptitle"> Desert Trip </div>-->
-<!--                            <div id="tripnotes"> Trip ideas for the Winter </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    </div>-->
+                </div>
 
 
                 </div>
