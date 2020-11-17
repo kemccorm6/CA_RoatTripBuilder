@@ -337,7 +337,7 @@ if (empty($_SESSION["start"])){
         }
 
         #prodimgtile1 {
-            background-image: url("fpbg.png");
+            /*background-image: url("fpbg.png");*/
             background-size: 110%;
             background-position: center;
             background-repeat: no-repeat;
@@ -355,7 +355,7 @@ if (empty($_SESSION["start"])){
             background-repeat: no-repeat;
         }
         #prodimgtile4 {
-            background-image: url("fpbg.png");
+            /*background-image: url("fpbg.png");*/
             background-size: 110%;
             background-position: center bottom;
             background-repeat: no-repeat;
@@ -481,17 +481,18 @@ if (empty($_SESSION["start"])){
                     <div class="overflowbox">
 
                     <?php
-                    $rtsqlii = "SELECT * FROM saved_trips_table WHERE userID =" . $_SESSION["UserId"];
+                    $rtsqlii = "SELECT * FROM OneImagePerTrip WHERE userID =" . $_SESSION["UserId"];
 
                     $rtresults1 = $mysql->query($rtsqlii);
                     while($roadtripcr = $rtresults1->fetch_assoc()){
 
 
-                    ?> 
+                    ?>
 
-                    <div class="prodtile" id="prodtile1">
+                    <div class="prodtile" id="prodtile<?php echo $roadtripcr["savedtripID"]; ?>">
                         <input type="hidden" name="tripid" value="<?php echo $roadtripcr["savedtripID"]; ?>">
-                        <div class="prodimgtile" id="prodimgtile1"></div>
+                        <div ><img class="prodimgtile" id="prodimgtile" src="<?php echo $roadtripcr["imageurl"]; ?>"></div>
+
                         <div class="roadtripinfo">
                             <div id="triptitle"> <?php echo $roadtripcr["trip_name"] ?> </div>
                             <div id="tripnotes"> <?php echo $roadtripcr["trip_description"] ?> </div>
@@ -499,7 +500,7 @@ if (empty($_SESSION["start"])){
                     </div>
 
                         <script>
-                            $(".prodtile").click(function (){
+                            $("#prodtile<?php echo $roadtripcr["savedtripID"]; ?>").click(function (){
                                 window.location.href="MyRoadtripDetails.php?tripid=<?php echo $roadtripcr["savedtripID"] . "&userID=" . $_SESSION["UserId"]; ?>";
                                 return false;
                             });
@@ -514,37 +515,39 @@ if (empty($_SESSION["start"])){
 
                 </div> <!-- Close tab 2-->
 
-                <div id="tab3">
-                    <h3>Saved Trips</h3>
-                    <div class="prodtile" id="prodtile1">
-                        <div class="prodimgtile" id="prodimgtile1"></div>
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> Forest Mountain Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Fall </div>
-                        </div>
-                    </div>
-                    <div class="prodtile" id="prodtile2">
-                        <div class="prodimgtile" id="prodimgtile2"></div>
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> Beach Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Summer </div>
-                        </div>
-                    </div>
-                    <div class="prodtile" id="prodtile3">
-                        <div class="prodimgtile" id="prodimgtile3"></div>
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> Desert Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Spring </div>
-                        </div>
-                    </div>
-                    <div class="prodtile" id="prodtile4">
-                        <div class="prodimgtile" id="prodimgtile4"></div>
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> Desert Trip </div>
-                            <div id="tripnotes"> Trip ideas for the Winter </div>
-                        </div>
-                    </div>
-                    </div>
+<!--                <div id="tab3">-->
+<!--                    <h3>Saved Trips</h3>-->
+<!--                    -->
+<!--                    <div class="prodtile" id="prodtile1">-->
+<!--                        <div class="prodimgtile" id="prodimgtile1"></div>-->
+<!--                        <div class="roadtripinfo">-->
+<!--                            <div id="triptitle"> Forest Mountain Trip </div>-->
+<!--                            <div id="tripnotes"> Trip ideas for the Fall </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    -->
+<!--                    <div class="prodtile" id="prodtile2">-->
+<!--                        <div class="prodimgtile" id="prodimgtile2"></div>-->
+<!--                        <div class="roadtripinfo">-->
+<!--                            <div id="triptitle"> Beach Trip </div>-->
+<!--                            <div id="tripnotes"> Trip ideas for the Summer </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="prodtile" id="prodtile3">-->
+<!--                        <div class="prodimgtile" id="prodimgtile3"></div>-->
+<!--                        <div class="roadtripinfo">-->
+<!--                            <div id="triptitle"> Desert Trip </div>-->
+<!--                            <div id="tripnotes"> Trip ideas for the Spring </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="prodtile" id="prodtile4">-->
+<!--                        <div class="prodimgtile" id="prodimgtile4"></div>-->
+<!--                        <div class="roadtripinfo">-->
+<!--                            <div id="triptitle"> Desert Trip </div>-->
+<!--                            <div id="tripnotes"> Trip ideas for the Winter </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    </div>-->
 
 
                 </div>
