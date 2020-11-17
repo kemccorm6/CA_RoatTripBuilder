@@ -75,15 +75,20 @@ if (empty($_SESSION["start"])){
     $usersql = "SELECT * FROM user_data_table WHERE username='" . $_SESSION["username"] . "' AND userpassword = '" . $_SESSION["password"] . "' ";
     //echo $usersql;
 
+
+
     $userresults = $mysql-> query($usersql);
-    $currentrow = $userresults->fetch_assoc();
+    //print_r($userresults);
 
 
-    if(!$userresults){
-        echo "Something went wrong check error: " . $mysql->error;
-        echo "<a href='../Login/CA_RoadTripLOGIN.php'>Go Back to Login</a>";
+    if($userresults->num_rows == 0 ){
+        header("Location: ../Login/CA_RoadTripLOGIN.php");
+//        echo "Something went wrong check error: " . $mysql->error;
+//        echo "<a href='../Login/CA_RoadTripLOGIN.php'>Go Back to Login</a>";
         exit();
     }
+
+    $currentrow = $userresults->fetch_assoc();
 
 
     $_SESSION["IsAdmin"] = $currentrow["Is_Admin"];
