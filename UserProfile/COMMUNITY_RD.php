@@ -272,7 +272,7 @@ if(!empty ($_SESSION["start"])) {
 <div class="container">
 
     <?php
-    $rts = "SELECT * FROM saved_trips_table WHERE userID=" . $_SESSION["UserId"] . " AND savedtripID = " . $_REQUEST["tripid"];
+    $rts = "SELECT * FROM saved_trips_table WHERE userID=" . $_REQUEST["userID"] . " AND savedtripID = " . $_REQUEST["tripid"];
     $tripresults = $mysql->query($rts);
 
     $tripcr = $tripresults->fetch_assoc();
@@ -287,7 +287,7 @@ if(!empty ($_SESSION["start"])) {
         <hr><br>
 
         <?php
-        $comtripsql = "SELECT * FROM OneImagePerTrip2 WHERE savedtripID=". $_REQUEST["tripid"] ." AND userID=" . $_REQUEST["userID"];
+        $comtripsql = "SELECT * FROM OneImagePerTrip2 WHERE savedtripID=". $_REQUEST["tripid"];
         //echo $comtripsql;
 
         $crest = $mysql->query($comtripsql);
@@ -397,7 +397,7 @@ limit 3
                     <div id="stopinfo" style="height: 60px;">
 
                         <?php
-                        $cityse = "SELECT * FROM StartEndCities WHERE savedtripID = ". $_REQUEST["tripid"] ." AND userID =" . $_SESSION["UserId"];
+                        $cityse = "SELECT * FROM StartEndCities WHERE savedtripID = ". $_REQUEST["tripid"] ." AND userID =" . $_REQUEST["userID"];
                         $cer = $mysql->query($cityse);
                         $cecr = $cer->fetch_assoc();
                         ?>
@@ -410,7 +410,7 @@ limit 3
 
                     <?php
                     $namedescsql = "SELECT UserLocDetails.*, OneImageForLocation.imageurl FROM UserLocDetails, OneImageForLocation WHERE 
-                                    UserLocDetails.locationID = OneImageForLocation.locationID AND tripID = ". $_REQUEST["tripid"] . " AND userID = " . $_SESSION["UserId"] . " ORDER BY waypointorder";
+                                    UserLocDetails.locationID = OneImageForLocation.locationID AND tripID = ". $_REQUEST["tripid"] . " AND userID = " . $_REQUEST["userID"] . " ORDER BY waypointorder";
                     //echo $namedescsql;
                     $resultpage = $mysql->query($namedescsql);
                     while($tripRow = $resultpage->fetch_assoc()) {
