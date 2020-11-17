@@ -11,7 +11,6 @@
             background-size: cover;
             background-position: top center;
            /* background-size: 2250px 1250px ; */
-
         }
         .header {
             height: 200px;
