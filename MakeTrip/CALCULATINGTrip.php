@@ -98,7 +98,8 @@ if(!empty ($_SESSION["start"])) {
                 //    " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
                 $addlocationsql = "INSERT INTO trip_points_table (locationID , tripID ) SELECT location_table.locationID , " .
                     $lastidval . " as tripid FROM location_table WHERE latitude >= " . $latmin . " AND latitude <= " . $latmax .
-                    " AND longitude >= " . $longmin . " AND longitude <= " .$longmax;
+                    " AND longitude >= " . $longmin . " AND longitude <= " .$longmax . " LIMIT 23";
+
 
                 $addlocresults = $mysql->query($addlocationsql);
 
