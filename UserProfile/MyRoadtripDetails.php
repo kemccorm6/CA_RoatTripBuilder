@@ -233,7 +233,7 @@ text-align: center;
             box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
         }
 #locationpicture {
-    background-image: url("mountain.jpg");
+    /*background-image: url("mountain.jpg");*/
     width: 130px;
     height: 130px;
   float: left;
@@ -347,11 +347,26 @@ text-align: center;
 
         </div>
 
+
+<!--    ONE IMAGE FOR LOCATION-->
+    <?php
+    $imagebannersql = "SELECT * FROM OneImageForLocation WHERE imageID = 1";
+    $imageResults = $mysql->query($imagebannersql);
+
+    while($ICR = $imageResults->fetch_assoc()){
+
+
+    ?>
+
         <div class="banner">
-            <img class="banner1" id="image1" src="fpbg.png">
-            <img class="banner2" id="image2" src="fpbg.png">
-            <img class="banner3" id="image3" src="fpbg.png">
+            <img class="banner1" id="image1" src="<?php $ICR["imageurl"]; ?>">
+            <img class="banner2" id="image2" src="<?php $ICR["imageurl"]; ?>">
+            <img class="banner3" id="image3" src="<?php $ICR["imageurl"]; ?>">
         </div>
+
+    <?php
+    }
+    ?>
 
         <div class="description">
 
@@ -405,46 +420,52 @@ text-align: center;
                     </div>
                 </div>
 
-                <?php
 
-                $lssql = "SELECT * FROM LocationUserTrip WHERE  "
+
+                <?php
+                    $namedescsql = "SELECT UserLocDetails.*, OneImageForLocation.imageurl FROM UserLocDetails, OneImageForLocation WHERE 
+                                    UserLocDetails.locationID = OneImageForLocation.locationID AND tripID = ". $_REQUEST["tripid"] . " AND userID = " . $_SESSION["UserId"] . " ORDER BY waypointorder";
+                    //echo $namedescsql;
+                    $resultpage = $mysql->query($namedescsql);
+                    while($tripRow = $resultpage->fetch_assoc()) {
+                        echo '';
+                        echo '';
+//                        echo $tripRow["waypointorder"] + 1;
+//                        echo $tripRow["locationname"];
+//                        echo "<br>";
+
 
                 ?>
 
 
-                <div class="stop-1" id="step#">
-                    <div id="stepcircle">#1</div>
-                </div>
+                        <div class="borderbox">
+<!--                <div class="stop-1" id="step#">-->
+                                <div id="stepcircle"><?php echo $tripRow["waypointorder"] + 1; ?></div>
+            <!--                </div>-->
+<!--                            <div class="destination-1" id="stopinfo">-->
+                                <div>
+                                <div ><img id="locationpicture" src="<?php echo $tripRow["imageurl"]; ?>"></div>
+                                <div id="locationname"><?php echo $tripRow["locationname"]; ?></div>
+                                <div id="typesrow">
+                                    <div class="types" id="type1">Pet Friendly</div>
+                                    <div class="types" id="type2">Wifi</div>
+                                    <div class="types" id="type3">Mountain</div>
+                                </div><br>
+                                <div id="notes">
+                                    This mountain and park is a great place for picnics and hiking! Beautiful view at top.
+                                </div>
+                            </div>
 
-                <div class="destination-1" id="stopinfo">
-                    <div id="locationpicture"></div>
-                    <div id="locationname">Location Name</div>
-                    <div id="typesrow">
-                        <div class="types" id="type1">Pet Friendly</div>
-                        <div class="types" id="type2">Wifi</div>
-                        <div class="types" id="type3">Mountain</div>
-                    </div><br>
-                    <div id="notes">
-                        This mountain and park is a great place for picnics and hiking! Beautiful view at top.
-                    </div>
-                </div>
+                        </div>
 
-                <div class="stop-2" id="step#">
-                    <div id="stepcircle">#2</div>
-                </div>
+                <?php
+                }
+                ?>
 
-                <div class="destination-2" id="stopinfo">
-                    <div id="locationpicture"></div>
-                    <div id="locationname">Location Name</div>
-                    <div id="typesrow">
-                        <div class="types" id="type1">Pet Friendly</div>
-                        <div class="types" id="type2">Wifi</div>
-                        <div class="types" id="type3">Mountain</div>
-                    </div><br>
-                    <div id="notes">
-                        This mountain and park is a great place for picnics and hiking! Beautiful view at top.
-                    </div>
-                </div>
+
+
+
+
 
                 <div class="end" id="step#">
                     <div id="stepcircle">End</div>
