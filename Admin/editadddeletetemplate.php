@@ -6,7 +6,7 @@ session_start();
 
 $host = "webdev.iyaclasses.com";
 $userid = "kemccorm";
-$userpw = "Acad276_McCormick_2109860012"; 
+$userpw = "Acad276_McCormick_2109860012";
 $db = "kemccorm_roadtripbuilder";
 
 
@@ -27,39 +27,39 @@ if (empty($_SESSION["start"])){
     if(!empty($_REQUEST["newusername"])){
 
 
-    $sql= "INSERT INTO user_data_table " .
-        "(username, userpassword, User_Email)" .
-        "VALUES" .
-        "( " .
-        " '" . $_REQUEST["newusername"] . "', " .
-        " '" . $_REQUEST["newpassword"] . "', " .
-        " '" . $_REQUEST["newemail"] . "' " .
+        $sql= "INSERT INTO user_data_table " .
+            "(username, userpassword, User_Email)" .
+            "VALUES" .
+            "( " .
+            " '" . $_REQUEST["newusername"] . "', " .
+            " '" . $_REQUEST["newpassword"] . "', " .
+            " '" . $_REQUEST["newemail"] . "' " .
 
-        " ) ";
+            " ) ";
 
 
 
-    $results = $mysql->query($sql);
+        $results = $mysql->query($sql);
 
-    if(!$results){
-        echo "Something went wrong check error: " . $mysql->error;
-        exit();
-    }else{
+        if(!$results){
+            echo "Something went wrong check error: " . $mysql->error;
+            exit();
+        }else{
 
-        $message = "Hello " . $_REQUEST["newusername"] . ", welcome to " . "<a href='http://webdev.iyaclasses.com/~kemccorm/CA_RoatTripBuilder/frontpage/frontpageV2.php'>" . "California Dreamin!" . "</a>" . " A road trip building app for California Explorers. Click Make A Trip to get started and explore our database of beautiful roadside attractions and national parks. After your trip, save and publish your route for others to see! And don't forget to leave a review at your favorite stops.
+            $message = "Hello " . $_REQUEST["newusername"] . ", welcome to " . "<a href='http://webdev.iyaclasses.com/~kemccorm/CA_RoatTripBuilder/frontpage/frontpageV2.php'>" . "California Dreamin!" . "</a>" . " A road trip building app for California Explorers. Click Make A Trip to get started and explore our database of beautiful roadside attractions and national parks. After your trip, save and publish your route for others to see! And don't forget to leave a review at your favorite stops.
         Happy exploring!" . "<img src='http://webdev.iyaclasses.com/~kemccorm/CA_RoatTripBuilder/myalogo1.png' alt=''>"; //message here
 
 
-        $emailSubject = "Welcome to California Dreamin!";
-        $to = $_REQUEST["newemail"];
+            $emailSubject = "Welcome to California Dreamin!";
+            $to = $_REQUEST["newemail"];
 
-        //change the webmaster@example.com to whatever email address you want it to come from
-     $headers = 'From: kwyllie@webdev.iyaclasses.com' . "\r\n" .
-        'Reply-To: kwyllie@webdev.iyaclasses.com' . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-type:text/html;charset=iso-8859-1';
+            //change the webmaster@example.com to whatever email address you want it to come from
+            $headers = 'From: kwyllie@webdev.iyaclasses.com' . "\r\n" .
+                'Reply-To: kwyllie@webdev.iyaclasses.com' . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-type:text/html;charset=iso-8859-1';
 
-        //send email
-        $mail= mail($to, $emailSubject, $message, $headers);
-    }
+            //send email
+            $mail= mail($to, $emailSubject, $message, $headers);
+        }
 
         $_SESSION["username"] = $_REQUEST["newusername"];
         $_SESSION["password"] = $_REQUEST["newpassword"];
@@ -106,19 +106,6 @@ if (empty($_SESSION["start"])){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-//    echo $currentrow["username"];
-
-
 ?>
 <html>
 <head>
@@ -130,7 +117,7 @@ if (empty($_SESSION["start"])){
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
         .circleimage{
-           width: 250px;
+            width: 250px;
             height: 250px;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
             clip-path: circle(250px at center);
@@ -174,7 +161,7 @@ if (empty($_SESSION["start"])){
             100%{background-position:0% 83%}
         }
         #profileinfo {
-           float: left;
+            float: left;
             width: 420px;
             margin-left: 50px;
         }
@@ -189,7 +176,7 @@ if (empty($_SESSION["start"])){
             width:1000px;
             padding: 15px;
             margin:auto;
-           height: 1000px;
+            height: 1000px;
             background-color: #FFD688;
             box-shadow: 3px 3px 6px dimgrey;
             margin-bottom: 100px;
@@ -234,7 +221,7 @@ if (empty($_SESSION["start"])){
         #logoutbutton {
             float: left;
             width: 100px;
-margin-left: 20px;
+            margin-left: 20px;
             background-color:white;
             height: 40px;
             line-height: 20pt;
@@ -325,56 +312,7 @@ margin-left: 20px;
             box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
             font-family: 'Poppins', sans-serif;
         }
-        .prodtile {
-            width: 40%;
-            min-height: 20vw;
-            padding: 2vw;
-            margin-top: 1vw;
-margin-left: 1vw;
-            display: block;
 
-            background-color: #FFFFFF;
-            border-radius: 15px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-            float: left;
-
-            font-weight: 100 / 300 / 500 / 700 / 900;
-            font-style: normal;
-        }
-        .prodtile:hover {
-
-            background-color: #FFAC00;
-            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
-
-        }
-        .roadtripinfo {
-
-            margin-top: 10px;
-        }
-        #triptitle {
-            font-size: 16pt;
-            background-color: #FFD789;
-            width: fit-content;
-            padding: 9px;
-            border-radius: 10px;
-            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
-            color: #37472A;
-
-        }
-        #tripnotes {
-            font-size: 12pt;
-            padding-top: 10px;
-        }
-
-        .prodimgtile {
-            width: 100%;
-            border-radius: 10px;
-            min-height: 15vw;
-            background-color: #6E8B55;
-            margin: auto;
-            display: block;
-            box-shadow: 0 10px 10px 0 rgba(0,0,0, 0.19);
-        }
 
         h3 {
             text-align: center;
@@ -393,21 +331,6 @@ margin-left: 1vw;
 
         input #adminpage {
             background-color: #FFFFFF;
-        }
-        .overflowbox{
-            overflow: scroll;
-
-            height: 900px;
-        }
-        .subtitle {
-            margin: 0 0 2em 0;
-        }
-        .fancy {
-            line-height: 0.5;
-            text-align: center;
-            font-size: 20pt;
-
-
         }
         .fancy span {
             display: inline-block;
@@ -437,15 +360,135 @@ margin-left: 1vw;
             height: 4px;
             border-top: 1px solid black;
         }
+        .editdelete{
+            width: 100px;
 
+            padding: 10px;
+        }
+        .locationandedit{
+            border: 1px solid black;
+            border-left: none;
+            border-right: none;
+            width: 70%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+        .edittyp a {
+            width: 200px;
+            height: 100px;
+            display: block;
+            text-align: center;
+            line-height: 80pt;
+            font-size: 18pt;
+            background-color: #FEE7B9;
+            float: left;
+            margin-left: 20px;
+            margin-bottom: 0px;
+            text-decoration: none;
+
+            box-shadow: 2px -1px 4px dimgrey;
+        }
+        .editcit a {
+            width: 200px;
+            height: 100px;
+            display: block;
+            text-align: center;
+            line-height: 80pt;
+            font-size: 18pt;
+            background-color: #FEE7B9;
+            float: left;
+            margin-left: 20px;
+            margin-bottom: 0px;
+            text-decoration: none;
+            box-shadow: 2px -1px 4px dimgrey;
+        }
+
+        .editcit :hover {
+            background-color: #FFD688;
+        }
+        .edittyp :hover {
+            background-color: #FFD688;
+
+            width: 200px;
+            height: 100px;
+        }
+        .edittyp:hover + .editloc a{
+            color: #85A867;
+            background-color: black;
+        }
+
+        a {
+            text-decoration: none;
+            text-decoration-color: black;
+        }
+        .newloc {
+            width: 200px;
+            background-color: #85A867;
+            height: 40px;
+            text-align: center;
+            font-size: 14pt;
+            margin-top: 25px;
+            line-height: 30pt;
+            border-radius: 15px;
+            float: left;
+            margin-left: 30px;
+            box-shadow: 2px 1px 4px dimgrey;
+        }
+        .searchbox {
+            width: 400px;
+            float: right;
+        }
+        input[id="searchbox"] {
+            width: 300px;
+            height: 40px;
+            font-size: 14pt;
+            border-radius: 15px;
+            color: #FFAC00;
+        }
+        input[id="go"] {
+            width: 50px;
+            height: 40px;
+            margin-left: 10px;
+            font-size: 14pt;
+            background-color: #F06A00;
+            border-radius: 15px;
+        }
+        .newcity {
+            width: 200px;
+            background-color: #85A867;
+            height: 40px;
+            text-align: center;
+            font-size: 14pt;
+            margin-top: 25px;
+            line-height: 30pt;
+            border-radius: 15px;
+            float: left;
+            margin-left: 30px;
+            box-shadow: 2px 1px 4px dimgrey;
+        }
+        .newtype {
+            width: 200px;
+            background-color: #85A867;
+            height: 40px;
+            text-align: center;
+            font-size: 14pt;
+            margin-top: 25px;
+            line-height: 30pt;
+            border-radius: 15px;
+            float: left;
+            margin-left: 30px;
+            box-shadow: 2px 1px 4px dimgrey;
+        }
 
     </style>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#content").find("[id^='tab']").hide(); // Hide all content
-            $("#tabs li:nth-child(2)").attr("id","current"); // Activate the first tab
-            $("#content #tab2").fadeIn(); // Show first tab's content
+            $("#tabs li:first").attr("id","current"); // Activate the first tab
+            $("#content #tab1").fadeIn(); // Show first tab's content
             $("#tab12").click(function (){
                 window.location.href="../MakeTrip/maketripMAIN.php";
                 return false;
@@ -475,107 +518,48 @@ margin-left: 1vw;
 <?php include "../newheader.php" ?>
 <div class="container">
 
-<!--    LOG OUT BUTTON-->
-
-
-
-<!--    <a href="../Login/CA_RoadTripLOGIN.php">LOG OUT</a> --><?php // ?>
-
-        <div class="adminbox">
-            <div><img class="circleimage" style="max-width: 100%; max-height: 100%" src="<?php echo $currentrow["User_Profile_Picture"]; ?>"</div>
-            <br>
-            <div id="profileinfo">
+    <div class="adminbox">
+        <div><img class="circleimage" style="max-width: 100%; max-height: 100%" src="<?php echo $currentrow["User_Profile_Picture"]; ?>"</div>
+        <br>
+        <div id="profileinfo">
             <h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
             <div id="bio">
                 <p><?php echo $currentrow["User_Description"]; ?></p>
             </div><!--close bio-->
-                <hr class="buttonline">
-                <div class="editprofile">
-                    <a href="editprofile.php?id=<?php echo $_SESSION["UserId"]; ?>">Edit Profile</a>
-                </div> <!--close edit profile-->
-                <div class="logout">
+            <hr class="buttonline">
+            <div class="editprofile">
+                <a href="editprofile.php?id=<?php echo $_SESSION["UserId"]; ?>">Edit Profile</a>
+            </div> <!--close edit profile-->
+            <div class="logout">
                 <form action="../Login/CA_RoadTripLOGIN.php">
                     <input type="submit"  value="Log Out" id="logoutbutton">
                 </form>
-                </div>
-                <div class="adminpage">
+            </div>
+            <div class="adminpage">
                 <?php
                 if($_SESSION["IsAdmin"] == 1){
-                    echo "<form action='../Admin/combinedadmnin.php?id=". $_SESSION["UserId"] .
-                        "'><input type='submit'  value='Main Admin Page' id='adminpage'></form>";
+                    echo "<form action='../UserProfile/userprofile.php?id=". $_SESSION["UserId"] .
+                        "'><input type='submit'  value='Main Profile Page' id='adminpage'></form>";
                 }
                 ?>
-                </div>
-            </div><!--close profile info-->
-        </div><!--close admin box-->
-</div>
-
-
-
-
-        <br><Br>
-        <div id="tabs">
-            <ul id="tabs">
-<!--               -->
-                <li><a href="MyRoadtrips" name="tab2">My Roadtrips</a></li>
-              <li><a href="../MakeTrip/maketripMAIN.php"  name="tab 1" id="tab12"style="width: 90px; color: #6E8B55;  padding: .7em 1.5em;">+ New Trip</a></li>
-
-
-<!--                <li><a href="SavedTrips" name="tab3">Saved Trips</a></li>-->
-            </ul>
-        </div>
-
-
-        <div class="bigbox">
-            <hr>
-            <br>
-            <div id="content">
-                <div id="tab1">make new trip
-                </div>
-                <div id="tab2">
-
-                    <p class="subtitle fancy"><span>My Roadtrips</span></p>
-                    <div class="overflowbox">
-                    <?php
-                    $rtsqlii = "SELECT * FROM OneImagePerTrip WHERE userID =" . $_SESSION["UserId"];
-                    $rtresults1 = $mysql->query($rtsqlii);
-                    while($roadtripcr = $rtresults1->fetch_assoc()){
-                    ?>
-
-                    <div class="prodtile" id="prodtile<?php echo $roadtripcr["savedtripID"]; ?>">
-                        <input type="hidden" name="tripid" value="<?php echo $roadtripcr["savedtripID"]; ?>">
-                        <div ><img class="prodimgtile" id="prodimgtile" src="<?php echo $roadtripcr["imageurl"]; ?>"></div>
-
-                        <div class="roadtripinfo">
-                            <div id="triptitle"> <?php echo $roadtripcr["trip_name"] ?> </div>
-                            <div id="tripnotes"> <?php echo $roadtripcr["trip_description"] ?> </div>
-                        </div>
-                    </div>
-
-                        <script>
-                            $("#prodtile<?php echo $roadtripcr["savedtripID"]; ?>").click(function (){
-                                window.location.href="MyRoadtripDetails.php?tripid=<?php echo $roadtripcr["savedtripID"] . "&userID=" . $_SESSION["UserId"]; ?>";
-                                return false;
-                            });
-                        </script>
-
-                    <?php
-                    }
-                    ?>
-
-                    </div>
-
-                </div>
-
-
-                </div>
-
             </div>
-        </div>
+        </div><!--close profile info-->
+    </div><!--close admin box-->
+</div>
+<br><Br>
+<div id="tabs">
+    <ul id="tabs">
+        <!--               -->
+        <li name="tab1" > <a href="adminmainLOCATION.php">BACK</a></li>
+
+    </ul>
+</div>
+<div class="bigbox"><hr><br>
+
+    <div id="content">
+
+
+
+
     </div>
 </div>
-</div> <!-- close container-->
-</body>
-</html>
-
-

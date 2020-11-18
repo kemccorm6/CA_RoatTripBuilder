@@ -232,8 +232,13 @@ $currentrow = $userresults->fetch_assoc();
             <div ><img class="circleimage" src="<?php echo $currentrow["User_Profile_Picture"] ?>"</div>
             <br>
            <h1><?php echo $currentrow["User_Real_Name"]; ?></h1>
-
             Admin
+
+            <div class="googlebutton">
+                <form action="">
+                    <input type="submit" value="Go to Google" />
+                </form>
+            </div>
         </div>
         <br><Br>
             <div class="tabs">

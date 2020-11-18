@@ -52,13 +52,13 @@
 .navitemleft {
     width: 20%;
     float: right;
-    font-size: 24pt;
+    font-size: 16pt;
     padding: 10px;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: "Poppins";
     text-align: center;
     line-height: 20px;
     margin-left: 20px;
@@ -77,13 +77,13 @@
 .navitemright {
     width: 20%;
     float: left;
-    font-size: 24pt;
+    font-size: 16pt;
     padding: 10px;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: "Poppins";
     text-align: center;
     line-height: 20px;
     margin-top: 20px;
@@ -149,7 +149,7 @@ line-height: 40pt;
     .navitemright {
         width: 25%;
         line-height: 25px;
-        font-size: 18pt;
+        font-size: 14pt;
     }
     .rightnav {
         top: 55px;
@@ -165,14 +165,14 @@ line-height: 40pt;
     .navitemleft {
         width: 25%;
         line-height: 25px;
-        font-size: 18pt;
+        font-size: 14pt;
     }
 }
-@media screen and (orientation:landscape) and (min-width:100px) and (max-width:1000px){
+@media screen  and (min-width:0px) and (max-width:1000px){
     .navitemright {
         width: 25%;
         line-height: 25px;
-        font-size: 16pt;
+        font-size: 10pt;
         overflow-wrap: normal;
     }
     .rightnav {
@@ -186,8 +186,9 @@ line-height: 40pt;
     .navitemleft {
         width: 25%;
         line-height: 20px;
-        font-size: 16pt;
+        font-size: 8pt;
     }
+
 }
     </style>
 </head>
