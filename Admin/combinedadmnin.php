@@ -487,8 +487,24 @@ if (empty($_SESSION["start"])){
     <script>
         $(document).ready(function() {
             $("#content").find("[id^='tab']").hide(); // Hide all content
-            $("#tabs li:first").attr("id","current"); // Activate the first tab
-            $("#content #tab1").fadeIn(); // Show first tab's content
+
+            <?php
+            $tabn = 1;
+            if(!empty($_REQUEST["tabn"])) {
+                $tabn = $_REQUEST["tabn"];
+            } else {
+                $tabn = 1;}
+
+            echo '$("#tabs li:nth-child(' . $tabn  . ')").attr("id","current");' ;
+            echo '$("#content #tab' .  $tabn  . '").fadeIn();';
+            ?>
+
+            //$("#tabs li:nth-child(<?php $tabn ?>)").attr("id","current"); // Activate the first tab
+            //$("#tabs li:nth-child(<?php echo $tabn ?>)").attr("id","current"); // Activate the first tab
+            //$("#content #tab<?php echo $tabn ?>").fadeIn(); // Show first tab's content
+
+
+
             $("#tab12").click(function (){
                 window.location.href="../MakeTrip/maketripMAIN.php";
                 return false;
@@ -633,13 +649,13 @@ if (empty($_SESSION["start"])){
             //            echo "<hr>" . $formdata . "<hr>";
 
             if($startp > $limit){
-                echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp - $limit) ."'>Prev</a>";
+                echo "<a href='combinedadmnin.php?" . $formdata . "&startp=" . ($startp - $limit) . "&tabn=1" . "'>Prev</a>";
             }
 
             echo " | ";
 
             if($results->num_rows >= $startp + $limit){
-                echo "<a href='adminmainLOCATION.php?" . $formdata . "&startp=" . ($startp + $limit) ."'>Next</a>";
+                echo "<a href='combinedadmnin.php?" . $formdata . "&startp=" . ($startp + $limit) . "&tabn=1" . "'>Next</a>";
             }
 
             ?>
@@ -713,13 +729,13 @@ if (empty($_SESSION["start"])){
             //            echo "<hr>" . $formdata . "<hr>";
 
             if($startp > $limit){
-                echo "<a href='adminmainCITY.php?" . $formdata . "&startp=" . ($startp - $limit) ."'>Prev</a>";
+                echo "<a href='combinedadmnin.php?" . $formdata . "&startp=" . ($startp - $limit) . "&tabn=2" . "'>Prev</a>";
             }
 
             echo " | ";
 
             if($results->num_rows >= $startp + $limit){
-                echo "<a href='adminmainCITY.php?" . $formdata . "&startp=" . ($startp + $limit) ."'>Next</a>";
+                echo "<a href='combinedadmnin.php?" . $formdata . "&startp=" . ($startp + $limit) . "&tabn=2" . "'>Next</a>";
             }
             ?>
         </div>
@@ -792,20 +808,20 @@ if (empty($_SESSION["start"])){
             //            echo "<hr>" . $formdata . "<hr>";
 
             if($startp > $limit){
-                echo "<a href='adminmainTYPE.php?" . $formdata . "&startp=" . ($startp - $limit) ."'>Prev</a>";
+                echo "<a href='combinedadmnin.php?" . $formdata . "&startp=" . ($startp - $limit) .   "&tabn=3" . "'>Prev</a>";
             }
 
             echo " | ";
 
             if($results->num_rows >= $startp + $limit){
-                echo "<a href='adminmainTYPE.php?" . $formdata . "&startp=" . ($startp + $limit) ."'>Next</a>";
+                echo "<a href='combinedadmnin.php?" . $formdata . "&startp=" . ($startp + $limit) .   "&tabn=3" .  "'>Next</a>";
             }
             ?>
 
         </div>
         </div>
         <div id="tab4">
-            GOOGLE ANALYTICS
+<!--            GOOGLE ANALYTICS-->
         </div>
 
         </div>
