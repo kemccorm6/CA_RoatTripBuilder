@@ -49,7 +49,7 @@ $currentrow = $userresults->fetch_assoc();
 
         gtag('config', 'G-HP0XNFSS02');
     </script>
-
+    <title>CA Dreamin Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
