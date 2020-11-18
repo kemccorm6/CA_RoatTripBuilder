@@ -39,6 +39,7 @@ if(!empty ($_SESSION["start"])) {
           href = "../master2.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <title>Team</title>
     <style>
         .infotile {
             position: relative;
@@ -221,7 +222,7 @@ if(!empty ($_SESSION["start"])) {
     var i = 1;
     let images = ["kia.jpg","mya.jpeg","dolce.jpeg","kyla.JPG"];
     let names = ["Kia", "Mya", "Eliza", "Kyla"];
-    let capt = ["Position: Project Manager & Web Developer <br><br>", "Position: Graphic Design/Brand Consultant <br><br> Based in Los Angeles, Mya helps cultivate the look and feel of California Dreamin' with his graphic design and illustrations. He thoroughly enjoys traveling with friends and family and always can't wait for his next adventure: it brings his imagination so much material! ", "Position: UX/UI & Web Developer <br><br> Eliza Glover is a web developer and manages our site's visual components. She has spent the past 5 years going on various adventures in Europe and is always itching to find new ones wherever she is.","Position: Database Manager <br><br> When she’s not trying to create the perfect road trip playlist, Kyla Wyllie is managing the database functionality of the site, and searching for new locations to add have you California Dreamin’. She currently spends most of her time between Los Angeles and San Diego, but has big dreams of future travel."]
+    let capt = ["Position: Project Manager & Web Developer <br><br> Based in the Bay, Kia manages this site's php. She loves going on road trips and encourages you to go build one! ", "Position: Graphic Design/Brand Consultant <br><br> Based in Los Angeles, Mya helps cultivate the look and feel of California Dreamin' with his graphic design and illustrations. He thoroughly enjoys traveling with friends and family and always can't wait for his next adventure: it brings his imagination so much material! ", "Position: UX/UI & Web Developer <br><br> Eliza Glover is a web developer and manages our site's visual components. She has spent the past 5 years going on various adventures in Europe and is always itching to find new ones wherever she is.","Position: Database Manager <br><br> When she’s not trying to create the perfect road trip playlist, Kyla Wyllie is managing the database functionality of the site, and searching for new locations to add have you California Dreamin’. She currently spends most of her time between Los Angeles and San Diego, but has big dreams of future travel."]
     function swapnext(){
         // alert(i+" to "+(i+1));
         i++;

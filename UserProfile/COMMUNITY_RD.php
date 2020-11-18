@@ -444,7 +444,7 @@ limit 3
                             <?php
                             $tripRow["wifi"];
                             if($tripRow["wifi"] == 1){
-                                echo '<div class="types" id="type2">Wifi</div>';
+                                echo '<div class="types" id="type2">Wifi</div>'; 
                             }
 
                             ?>

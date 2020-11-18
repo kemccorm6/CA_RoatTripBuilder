@@ -47,6 +47,7 @@ if(!empty ($_SESSION["start"])) {
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <title>Make Trip</title>
     <style>
         .container {
             width: 80vw;
