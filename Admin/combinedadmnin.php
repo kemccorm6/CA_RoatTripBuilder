@@ -819,15 +819,24 @@ if (empty($_SESSION["start"])){
             ?>
 
         </div>
-        </div>
+
         <div id="tab4">
-<!--            GOOGLE ANALYTICS-->
+            Welcome to Google Analytics! Click on each image to enlarge.
+            <br><br>
+            <a href="CA_Roadtripbuilder_GoogleAnalytics1.jpeg" target="_blank"><img style="width:450px;" src="CA_Roadtripbuilder_GoogleAnalytics1.jpeg"></a>
+            <br><br>
+            <a href="CA_RoadtripBuilder_GoogleAnalytics2.jpeg" target="_blank"><img style="width:450px;" src="CA_RoadtripBuilder_GoogleAnalytics2.jpeg"></a>
+            <br><br>
+            <a href="CA_Roadtripbuilder_GoogleAnalytics3.jpeg" target="_blank"><img style="width:200px;" src="CA_Roadtripbuilder_GoogleAnalytics3.jpeg"></a>
         </div>
 
         </div>
 
 
-    </div>
+        </div>
+
+
+    </div> 
 
 </div>
 </div>
